@@ -33,6 +33,10 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Bluethooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   # Set your time zone.
   time.timeZone = "America/Vancouver";
 
