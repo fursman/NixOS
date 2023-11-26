@@ -1,4 +1,3 @@
-
 {
   description = "flake for RBS17 with Home Manager enabled";
 
@@ -18,6 +17,10 @@
       styleCss = builtins.fetchurl {
         url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/waybar-style.css";
         sha256 = "0zn2js9nav91vyaprc8sy6k9nb9m6ri9n26bxg7r8xqf20b64b4b";
+      };
+      weatherScript = builtins.fetchurl {
+        url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/weather-script.py";
+        sha256 = "0mig4i6fkhym4kyx1ns3xkill9dgvsfmjqqf373yfma2d2sqjlcq";
       };
     in
     {
@@ -69,7 +72,7 @@
                     "layer" = "top";
                     "position" = "top";
                     "height" = 30;
-                    "modules-left" = ["hyprland/workspaces" "custom/spaces" "wlr/taskbar"];
+                    "modules-left" = ["hyprland/workspaces" "custom/weather" "custom/spaces" "wlr/taskbar"];
                     "modules-center" = ["hyprland/window"];
                     "modules-right" = ["network" "memory" "cpu" "temperature" "tray" "pulseaudio" "battery" "clock#date" "clock#time" ];
                     "hyprland/workspaces" = {
@@ -90,6 +93,13 @@
                         "5" = "[eDP-1],"; 
                       }; 
                     }; 
+                    "custom/weather" = {
+                      "exec" = "python ${weatherScript}";
+                      "tooltip" = true;
+                      "format" ="{}";
+                      "interval" = 30;
+                      "return-type" = "json";
+                    };
                     "custom/spaces" = {
                         "format" = " . . .  ";
                         "tooltip" = false;
@@ -369,6 +379,7 @@ bindm = $mainMod, mouse:273, resizewindow
                   enable = true;
                 };
                 home.packages = with pkgs; [
+                  (python3.withPackages (ps: with ps; [ requests ]))                  
                   gimp
                   signal-desktop
                   steam           
