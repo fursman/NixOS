@@ -58,7 +58,7 @@ WEATHER_CODES = {
 data = {}
 
 
-weather = requests.get("https://wttr.in/?format=j1").json()
+weather = requests.get("https://wttr.in/yyj?format=j1").json()
 
 
 def format_time(time):
@@ -87,7 +87,7 @@ def format_chances(hour):
             conditions.append(chances[event]+" "+hour[event]+"%")
     return ", ".join(conditions)
 
-tempint = int(weather['current_condition'][0]['FeelsLikeF'])
+tempint = int(weather['current_condition'][0]['FeelsLikeC'])
 extrachar = ''
 if tempint > 0 and tempint < 10:
     extrachar = '+'
