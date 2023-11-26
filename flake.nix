@@ -66,7 +66,7 @@
                   "layer" = "top";
                   "position" = "top";
                   "height" = 30;
-                  "modules-left" = ["custom/spaces" "hyprland/workspaces" "wlr/taskbar"];
+                  "modules-left" = ["hyprland/workspaces" "custom/spaces" "wlr/taskbar"];
                   "modules-center" = ["hyprland/window"];
                   "modules-right" = ["network" "memory" "cpu" "temperature" "tray" "pulseaudio" "battery" "clock#date" "clock#time" ];
                   "hyprland/workspaces" = {
@@ -85,12 +85,14 @@
                       "3" = "[eDP-1],"; 
                       "4" = "[eDP-1],"; 
                       "5" = "[eDP-1],"; 
-                    };
+                    }; 
                   }; 
                   "custom/spaces" = {
-                    "format" = " ";
-                    "tooltip" = "false";
-                    "on-click" = "hyprctl hyprpaper wallpaper eDP-1,~/Pictures/wallpaper/$((RANDOM%8+1)).png";
+                      "format" = " . . .  ";
+                      "tooltip" = false;
+                      "on-scroll-down" = "/usr/local/bin/hyprctl dispatch workspace m+1";
+                      "on-scroll-up" = "/usr/local/bin/hyprctl dispatch workspace m-1";
+                      "on-click" = "hyprctl hyprpaper wallpaper eDP-1,~/Pictures/wallpaper/$((RANDOM%8+1)).png";
                   };
                   "wlr/taskbar" = {
                     "on-click" = "activate";
@@ -119,7 +121,7 @@
                   };
                   "cpu" = {
                     "interval" = 5;
-                    "format" = "  {usage}% ({load})";
+                    "format" = "  {usage}%";
                     "states" = {
                       "warning" = 70;
                       "critical" = 90;
@@ -139,10 +141,6 @@
                     "format-ethernet" = "  {ifname}: {ipaddr}/{cidr}";
                     "format-disconnected" = "  Disconnected";
                     "tooltip-format" = "{ifname}: {ipaddr}";
-                  };
-                  "sway/mode" = {
-                    "format" = "<span style=\"italic\">  {}</span>";
-                    "tooltip" = false;
                   };
                   "pulseaudio" = {
                     "scroll-step" = 1;
@@ -167,15 +165,7 @@
                     "format" = "{icon}  {temperatureC}°C";
                     "format-icons" = ["" "" "" "" ""];
                   };
-                  "tray" = {
-                    "icon-size" = 21;
-                    "spacing" = 10;
-                  };
                 }];
-                style = (builtins.fetchurl {
-                  url = "https://raw.githubusercontent.com/fursman/dotfiles/main/waybar/style.css";
-                  sha256 = "0zqvdb8hlanqsxdpvax89q9smfvqdrk1431sh21y3dggf9i0d0dj";
-                });
               };
 
               wayland.windowManager.hyprland.enable = true;
@@ -436,6 +426,3 @@ bindm = $mainMod, mouse:273, resizewindow
     };
   }; 
 }
-
-
-

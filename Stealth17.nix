@@ -46,8 +46,11 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
+  # Enable LightDM
   services.xserver.displayManager.gdm.enable = true;
+
+  # Enable the GNOME Desktop Environment.
+  # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
 
   # Enable Mouse in Hyprland
@@ -57,6 +60,7 @@
   programs.hyprland.enable = true;
   programs.hyprland.enableNvidiaPatches = true;
 
+  # Fonts Packages
   fonts.packages = with pkgs; [
     font-awesome
   ];
@@ -152,9 +156,9 @@
     git
     htop
     ntfs3g
-    linuxPackages.nvidia_x11
     virt-manager
     podman-desktop
+    # linuxPackages.nvidia_x11
     # dracula-icon-theme
     # material-symbols
     # material-icons
