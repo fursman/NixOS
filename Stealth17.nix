@@ -17,6 +17,10 @@
     '';
   };
 
+
+  # Enable plymouth
+  boot.plymouth.enable = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -46,8 +50,8 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable LightDM
-  services.xserver.displayManager.gdm.enable = true;
+  # Enable SDDDM
+  services.xserver.displayManager.sddm.enable = true;
 
   # Enable the GNOME Desktop Environment.
   # services.xserver.displayManager.gdm.enable = true;
