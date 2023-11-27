@@ -338,6 +338,7 @@ bind = $mainMod, Q, killactive,
 bind = $mainMod, X, exec, wlogout --protocol layer-shell
 bind = $mainMod, B, exec, firefox
 bind = $mainMod, F, exec, thunar
+bind = $mainMod, C, exec, code --password-store="gnome"
 bind = $mainMod, V, togglefloating, 
 bind = $mainMod, RETURN, exec, rofi -show run
 bind = $mainMod, P, pseudo, # dwindle
