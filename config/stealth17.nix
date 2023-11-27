@@ -50,8 +50,8 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable SDDDM
-  services.xserver.displayManager.lightdm.enable = true;
+  # Enable Greeter
+  services.xserver.displayManager.gdm.enable = true;
 
   # Enagle the gnome-keyring
   services.gnome.gnome-keyring.enable = true;
