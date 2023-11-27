@@ -239,9 +239,6 @@ exec-once = hyprpaper
 exec-once = sleep 9 ; hyprctl hyprpaper wallpaper eDP-1,~/Pictures/wallpaper/$((RANDOM%8+1)).png
 exec-once = sleep 10 ; hyprctl keyword misc:disable_hyprland_logo true
 
-# Source a file (multi-file configs)
-# source = ~/.config/hypr/myColors.conf
-
 # Some default env vars.
 env = XCURSOR_SIZE,48
 
