@@ -157,7 +157,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
-    htop
     ntfs3g
     virt-manager
     podman-desktop
@@ -165,11 +164,6 @@
     # dracula-icon-theme
     # material-symbols
     # material-icons
-    # gnome.gnome-themes-extra
-    # gnome.gnome-tweaks
-    # qt5.qtwayland
-    # qt5ct
-    # libva
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
