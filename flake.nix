@@ -36,6 +36,7 @@
         RBS17 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
+            ./hardware-configuration.nix
             stealth17Nix
             ({ config, pkgs, ... }: {
               environment.etc."wallpapers".source = pkgs.fetchFromGitHub {
