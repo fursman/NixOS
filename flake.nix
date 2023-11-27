@@ -229,7 +229,7 @@
 ###########################################################################
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
-monitor=eDP-1,3840x2160@120,0x0,1.5
+monitor=eDP-1,3840x2160@120,0x0,1.0
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
@@ -357,17 +357,18 @@ device:epic-mouse-v1 {
 $mainMod = SUPER
 
 # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
+bind = $mainMod, RETURN, exec, rofi -show run
 bind = $mainMod, T, exec, kitty
 bind = $mainMod, Q, killactive, 
 bind = $mainMod, X, exec, wlogout --protocol layer-shell
 bind = $mainMod, B, exec, firefox
 bind = $mainMod, F, exec, thunar
-bind = $mainMod, C, exec, code --password-store="gnome"
+bind = $mainMod, P, exec, podman-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
+bind = $mainMod, C, exec, code --password-store="gnome" --use-gl=desktop
+bind = $mainMod, L, exec, swaylock --screenshots --clock --indicator --indicator-radius 200 --indicator-thickness 40 --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --ring-color 44006666 --key-hl-color 00000000 --line-color 00000000 --inside-color 00000000 --separator-color 00000000 --grace 0 --fade-in 0.5 -F
 bind = $mainMod, V, togglefloating, 
-bind = $mainMod, RETURN, exec, rofi -show run
 bind = $mainMod, P, pseudo, # dwindle
 bind = $mainMod, J, togglesplit, # dwindle
-bind = $mainMod, L, exec, swaylock --screenshots --clock --indicator --indicator-radius 200 --indicator-thickness 40 --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --ring-color 44006666 --key-hl-color 00000000 --line-color 00000000 --inside-color 00000000 --separator-color 00000000 --grace 0 --fade-in 0.5 -F
 
 # Move focus with mainMod + arrow keys
 bind = $mainMod, left, movefocus, l
