@@ -10,7 +10,7 @@ This repository offers a simple yet powerful way to install and configure a NixO
 1. Install a minimal ISO NixOS from [NixOS Download](https://nixos.org/download).
 2. Download `flake.nix` file to `/etc/nixos`:
    ```bash
-   wget https://raw.githubusercontent.com/fursman/NixOS/main/flake.nix
+   sudo wget https://raw.githubusercontent.com/fursman/NixOS/main/flake.nix -p /etc/nixos/
    ```
 3. Apply the configuration:
    ```bash
