@@ -26,6 +26,10 @@
         url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/spotlight-dark.rasi";
         sha256 = "0ns89bqh8y23nwqij4da9wbas4x00l9mb66j769d8a5yy6hr4hzn";
       };
+      stealth17Nix = builtins.fetchurl {
+        url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/stealth17.nix";
+        sha256 = "";
+      };
     in
     {
       nixosConfigurations = {
