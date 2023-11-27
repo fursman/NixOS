@@ -19,7 +19,8 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  boot.initrd.systemd.enable = true;,
+  boot.kernelParams = ["quiet"];
   boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "RBS17"; # Define your hostname.
