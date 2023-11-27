@@ -3,7 +3,7 @@
 
 ## Introduction
 
-Welcome to my NixOS configuration repository. This repository offers a simple yet powerful way to install and configure a NixOS environment, tailored to a modern linux desktop workflow. It leverages NixOS's reproducibility and the flake system to create a consistent and portable setup.
+This repository offers a simple yet powerful way to install and configure a NixOS environment tailored to a modern linux desktop workflow with GPU acceleration for containers and virtual environments. It leverages NixOS's reproducibility and the flake system to create a consistent and portable setup.
 
 ## Quick Start
 
