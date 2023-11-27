@@ -58,7 +58,12 @@
                 home.file.".config/rofi/config.rasi".text = ''
                   @theme "/home/user/.local/share/rofi/themes/spotlight-dark.rasi"
                 '';
+
                 programs.home-manager.enable = true;
+
+                services.dbus.packages = with pkgs; [
+                  xfce.xfconf
+                ];
 
                 programs.kitty = {
                   enable = true;
