@@ -409,7 +409,40 @@ bindm = $mainMod, mouse:273, resizewindow
 
 '';
 
-                gtk.enable = true;
+                gtk = {
+                  enable = true;
+
+                  iconTheme = {
+                    name = "dracula";
+                    package = pkgs.dracula-icon-theme;
+                  };
+
+                  theme = {
+                    name = "palenight";
+                    package = pkgs.palenight-theme;
+                  };
+
+                  cursorTheme = {
+                    name = "vanilla";
+                    package = pkgs.vanilla-dmz;
+                    size = 30;
+                  };
+
+                  gtk3.extraConfig = {
+                    Settings = ''
+                      gtk-application-prefer-dark-theme=1
+                    '';
+                  };
+
+                gtk4.extraConfig = {
+                  Settings = ''
+                    gtk-application-prefer-dark-theme=1
+                  '';
+                  };
+                };
+
+                home.sessionVariables.GTK_THEME = "palenight";
+
                 programs.firefox.enable = true;
 
                 home.packages = with pkgs; [
