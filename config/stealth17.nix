@@ -160,6 +160,7 @@
     ntfs3g
     virt-manager
     podman-desktop
+    gnome.adwaita-icon-theme
     # linuxPackages.nvidia_x11
     # dracula-icon-theme
     # material-symbols
