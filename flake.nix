@@ -431,8 +431,8 @@ bindm = $mainMod, mouse:273, resizewindow
                   };
 
                   theme = {
-                    name = "palenight";
-                    package = pkgs.palenight-theme;
+                    name = "dracula";
+                    package = pkgs.dracula-theme;
                   };
 
                   cursorTheme = {
@@ -454,7 +454,7 @@ bindm = $mainMod, mouse:273, resizewindow
                   };
                 };
 
-                home.sessionVariables.GTK_THEME = "palenight";
+                home.sessionVariables.GTK_THEME = "dracula";
 
                 home.stateVersion = "23.11";
 
