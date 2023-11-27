@@ -16,7 +16,7 @@
     let
       styleCss = builtins.fetchurl {
         url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/waybar-style.css";
-        sha256 = "0zn2js9nav91vyaprc8sy6k9nb9m6ri9n26bxg7r8xqf20b64b4b";
+        sha256 = "11i9dxcv69aklqzshdkxibsi1rrvw4mdbbjcawdz9nxyqjvgxwgz";
       };
       weatherScript = builtins.fetchurl {
         url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/weather-script.py";
@@ -196,7 +196,7 @@
 ###########################################################################
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
-monitor=eDP-1,3840x2160@120,0x0,1.5
+monitor=eDP-1,3840x2160@120,0x0,1.0
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
@@ -395,6 +395,7 @@ bindm = $mainMod, mouse:273, resizewindow
                   swaylock-effects
                   wlogout
                   vscode.fhs
+                  gnome.seahorse
                   imagemagick
                 ];
 
