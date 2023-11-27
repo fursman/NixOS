@@ -432,7 +432,7 @@ bindm = $mainMod, mouse:273, resizewindow
 
                   theme = {
                     name = "palenight";
-                    package = pkgs.palenight;
+                    package = pkgs.palenight-theme;
                   };
 
                   cursorTheme = {
