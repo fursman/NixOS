@@ -19,7 +19,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.systemd.enable = true;
-  boot.initrd.verbose = false;
+  # boot.initrd.verbose = false;
   # boot.loader.timeout = 0;
   # boot.consoleLogLevel = 0;
   # boot.kernelParams = ["quiet" "splash"];
@@ -65,7 +65,6 @@
 
   # Enable Hyprlnd
   programs.hyprland.enable = true;
-  programs.hyprland.enableNvidiaPatches = true;
 
   # Fonts Packages
   fonts.packages = with pkgs; [
