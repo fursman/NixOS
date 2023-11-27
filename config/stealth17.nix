@@ -23,7 +23,7 @@
   boot.initrd.verbose = false;
   boot.loader.timeout = 0;
   boot.consoleLogLevel = 0;
-  boot.kernelParams = ["quiet splash"];
+  boot.kernelParams = ["quiet" "splash"];
 
   boot.supportedFilesystems = [ "ntfs" ];
 
