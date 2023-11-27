@@ -37,7 +37,7 @@
           system = "x86_64-linux";
           modules = [
             ./hardware-configuration.nix
-            stealth17Nix
+            ./stealth17.nix
             ({ config, pkgs, ... }: {
               environment.etc."wallpapers".source = pkgs.fetchFromGitHub {
                 owner = "fursman";
