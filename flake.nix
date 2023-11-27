@@ -29,6 +29,15 @@
           system = "x86_64-linux";
           modules = [
             ./Stealth17.nix
+            ({ config, pkgs, ... }: {
+              environment.etc."wallpapers".source = pkgs.fetchFromGitHub {
+                owner = "fursman";
+                repo = "wallpaper";
+                rev = "master";
+                sha256 = "QDU4r+pJAOQknlNdZh18x9vh4/gj/itQ/GV4Zu0Tf9M=";
+              };
+              environment.etc."wallpapers".target = "Pictures/wallpaper";
+            })
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
