@@ -46,10 +46,10 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home.file.".local/share/rofi/themes/spotlight-dark.rasi".source = spotlightDarkRasi;
               home-manager.users.user = { pkgs, ... }: {
                 home.username = "user";
                 home.homeDirectory = "/home/user";
+                home.file.".local/share/rofi/themes/spotlight-dark.rasi".source = spotlightDarkRasi;
                 programs.home-manager.enable = true;
 
                 programs.kitty = {
