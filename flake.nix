@@ -426,18 +426,18 @@ bindm = $mainMod, mouse:273, resizewindow
                   enable = true;
 
                   iconTheme = {
-                    name = "dracula;
+                    name = "dracula";
                     package = pkgs.dracula-icon-theme;
                   };
 
                   theme = {
-                    name = "dracula";
+                    name = "palenight";
                     package = pkgs.palenight;
                   };
 
                   cursorTheme = {
-                    name = "capitaine";
-                    package = pkgs.capitaine-cursors-themed;
+                    name = "vanilla";
+                    package = pkgs.vanilla-dmz;
                     size = 30;
                   };
 
