@@ -413,13 +413,13 @@ bindm = $mainMod, mouse:273, resizewindow
                   enable = true;
 
                   iconTheme = {
-                    name = "dracula";
+                    name = "Dracula";
                     package = pkgs.dracula-icon-theme;
                   };
 
                   theme = {
-                    name = "palenight";
-                    package = pkgs.palenight-theme;
+                    name = "Dracula";
+                    package = pkgs.dracula-theme;
                   };
 
                   cursorTheme = {
@@ -441,7 +441,7 @@ bindm = $mainMod, mouse:273, resizewindow
                   };
                 };
 
-                home.sessionVariables.GTK_THEME = "palenight";
+                home.sessionVariables.GTK_THEME = "Dracula";
 
                 programs.firefox.enable = true;
 
