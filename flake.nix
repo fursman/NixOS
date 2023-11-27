@@ -13,210 +13,210 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
 
-    let
-      styleCss = builtins.fetchurl {
-        url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/waybar-style.css";
-        sha256 = "0l4mhn4l7cilmn478mds2i19lsy8l42kj0biv4dm4bpfbqp9ny0i";
-      };
-      weatherScript = builtins.fetchurl {
-        url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/weather-script.py";
-        sha256 = "0mig4i6fkhym4kyx1ns3xkill9dgvsfmjqqf373yfma2d2sqjlcq";
-      };
-      spotlightDarkRasi = builtins.fetchurl {
-        url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/spotlight-dark.rasi";
-        sha256 = "0ns89bqh8y23nwqij4da9wbas4x00l9mb66j769d8a5yy6hr4hzn";
-      };
-      stealth17Nix = builtins.fetchurl {
-        url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/stealth17.nix";
-        sha256 = "09j49s8zn1bzfxvllizjvhkp41h0am94y3s31glmsrjm5p6pdl6b";
-      };
-    in
-    {
-      nixosConfigurations = {
-        RBS17 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./hardware-configuration.nix
-            stealth17Nix
-            ({ config, pkgs, ... }: {
-              environment.etc."wallpapers".source = pkgs.fetchFromGitHub {
-                owner = "fursman";
-                repo = "wallpaper";
-                rev = "master";
-                sha256 = "QDU4r+pJAOQknlNdZh18x9vh4/gj/itQ/GV4Zu0Tf9M=";
+  let
+    styleCss = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/waybar-style.css";
+      sha256 = "0l4mhn4l7cilmn478mds2i19lsy8l42kj0biv4dm4bpfbqp9ny0i";
+    };
+    weatherScript = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/weather-script.py";
+      sha256 = "0mig4i6fkhym4kyx1ns3xkill9dgvsfmjqqf373yfma2d2sqjlcq";
+    };
+    spotlightDarkRasi = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/spotlight-dark.rasi";
+      sha256 = "0ns89bqh8y23nwqij4da9wbas4x00l9mb66j769d8a5yy6hr4hzn";
+    };
+    stealth17Nix = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/stealth17.nix";
+      sha256 = "09j49s8zn1bzfxvllizjvhkp41h0am94y3s31glmsrjm5p6pdl6b";
+    };
+  in
+  {
+    nixosConfigurations = {
+      RBS17 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hardware-configuration.nix
+          stealth17Nix
+          ({ config, pkgs, ... }: {
+            environment.etc."wallpapers".source = pkgs.fetchFromGitHub {
+              owner = "fursman";
+              repo = "wallpaper";
+              rev = "master";
+              sha256 = "QDU4r+pJAOQknlNdZh18x9vh4/gj/itQ/GV4Zu0Tf9M=";
+            };
+            environment.etc."wallpapers".target = "Pictures/wallpaper";
+          })
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.user = { pkgs, ... }: {
+              home.username = "user";
+              home.homeDirectory = "/home/user";
+              home.file.".local/share/rofi/themes/spotlight-dark.rasi".source = spotlightDarkRasi;
+              home.file.".config/rofi/config.rasi".text = ''
+                @theme "/home/user/.local/share/rofi/themes/spotlight-dark.rasi"
+              '';
+
+              programs.home-manager.enable = true;
+
+              home.pointerCursor = {
+                name = "Adwaita";
+                package = pkgs.gnome.adwaita-icon-theme;
+                size = 24;
+                x11 = {
+                  enable = true;
+                  defaultCursor = "Adwaita";
+                };
               };
-              environment.etc."wallpapers".target = "Pictures/wallpaper";
-            })
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.user = { pkgs, ... }: {
-                home.username = "user";
-                home.homeDirectory = "/home/user";
-                home.file.".local/share/rofi/themes/spotlight-dark.rasi".source = spotlightDarkRasi;
-                home.file.".config/rofi/config.rasi".text = ''
-                  @theme "/home/user/.local/share/rofi/themes/spotlight-dark.rasi"
-                '';
 
-                programs.home-manager.enable = true;
-
-                home.pointerCursor = {
-                  name = "Adwaita";
-                  package = pkgs.gnome.adwaita-icon-theme;
-                  size = 24;
-                  x11 = {
-                    enable = true;
-                    defaultCursor = "Adwaita";
-                  };
+              programs.kitty = {
+                enable = true;
+                settings = {
+                  font_family = "JetBrains Mono Nerd Font";
+                  bold_font = "auto";
+                  italic_font = "auto";
+                  bold_italic_font = "auto";
+                  font_size = "12.0";
+                  background_opacity = "0.5";
+                  background_blur = "1";
+                  remember_window_size = "no";
+                  initial_window_width = "1080";
+                  initial_window_height = "600";
+                  window_margin_width = "15";
+                  confirm_os_window_close = "0";
+                  tab_bar_edge = "top";
+                  tab_bar_style = "powerline";
+                  tab_powerline_style = "angled";
+                  cursor_shape = "beam";
+                  cursor_blink_interval = "0";
+                  disable_ligatures = "never";
+                  mouse_hide_wait = "3.0";
+                  url_style = "curly";
+                  "map ctrl+shift+c" = "copy_to_clipboard";
+                  "map cmd+c" = "copy_and_clear_or_interrupt";
                 };
+              };
 
-                programs.kitty = {
-                  enable = true;
-                  settings = {
-                    font_family = "JetBrains Mono Nerd Font";
-                    bold_font = "auto";
-                    italic_font = "auto";
-                    bold_italic_font = "auto";
-                    font_size = "12.0";
-                    background_opacity = "0.5";
-                    background_blur = "1";
-                    remember_window_size = "no";
-                    initial_window_width = "1080";
-                    initial_window_height = "600";
-                    window_margin_width = "15";
-                    confirm_os_window_close = "0";
-                    tab_bar_edge = "top";
-                    tab_bar_style = "powerline";
-                    tab_powerline_style = "angled";
-                    cursor_shape = "beam";
-                    cursor_blink_interval = "0";
-                    disable_ligatures = "never";
-                    mouse_hide_wait = "3.0";
-                    url_style = "curly";
-                    "map ctrl+shift+c" = "copy_to_clipboard";
-                    "map cmd+c" = "copy_and_clear_or_interrupt";
-                  };
-                };
-
-                programs.waybar = {
-                  enable = true;
-                  settings = [{
-                    "layer" = "top";
-                    "position" = "top";
-                    "height" = 30;
-                    "modules-left" = ["hyprland/workspaces" "custom/weather" "custom/spaces" "wlr/taskbar"];
-                    "modules-center" = ["hyprland/window"];
-                    "modules-right" = ["network" "memory" "cpu" "temperature" "tray" "pulseaudio" "battery" "clock#date" "clock#time" ];
-                    "hyprland/workspaces" = {
-                      "on-click" = "activate";
-                      "format" = "{icon}";
-                      "format-icons" = {
-                        "1" = " ";
-                        "2" = " ";
-                        "3" = " ";
-                        "4" = " ";
-                        "5" = " ";
-                      };
-                      "persistent-workspaces" = {
-                        "1" = "[eDP-1],"; 
-                        "2" = "[eDP-1],"; 
-                        "3" = "[eDP-1],"; 
-                        "4" = "[eDP-1],"; 
-                        "5" = "[eDP-1],"; 
-                      }; 
+              programs.waybar = {
+                enable = true;
+                settings = [{
+                  "layer" = "top";
+                  "position" = "top";
+                  "height" = 30;
+                  "modules-left" = ["hyprland/workspaces" "custom/weather" "custom/spaces" "wlr/taskbar"];
+                  "modules-center" = ["hyprland/window"];
+                  "modules-right" = ["network" "memory" "cpu" "temperature" "tray" "pulseaudio" "battery" "clock#date" "clock#time" ];
+                  "hyprland/workspaces" = {
+                    "on-click" = "activate";
+                    "format" = "{icon}";
+                    "format-icons" = {
+                      "1" = " ";
+                      "2" = " ";
+                      "3" = " ";
+                      "4" = " ";
+                      "5" = " ";
+                    };
+                    "persistent-workspaces" = {
+                      "1" = "[eDP-1],"; 
+                      "2" = "[eDP-1],"; 
+                      "3" = "[eDP-1],"; 
+                      "4" = "[eDP-1],"; 
+                      "5" = "[eDP-1],"; 
                     }; 
-                    "custom/weather" = {
-                      "exec" = "python ${weatherScript}";
-                      "tooltip" = true;
-                      "format" ="{}";
-                      "interval" = 30;
-                      "return-type" = "json";
-                    };
-                    "custom/spaces" = {
-                        "format" = " . . .  ";
-                        "tooltip" = false;
-                        "on-scroll-down" = "/usr/local/bin/hyprctl dispatch workspace m+1";
-                        "on-scroll-up" = "/usr/local/bin/hyprctl dispatch workspace m-1";
-                        "on-click" = "hyprctl hyprpaper wallpaper eDP-1,~/Pictures/wallpaper/$((RANDOM%8+1)).png";
-                    };
-                    "wlr/taskbar" = {
-                      "on-click" = "activate";
-                      "on-click-middle" = "close";
-                    };
-                    "battery" = {
-                      "interval" = 10;
-                      "states" = {
-                        "warning" = 30;
-                        "critical" = 15;
-                      };
-                      "format" = "  {icon}  {capacity}%";
-                      "format-discharging" = "{icon}  {capacity}%";
-                      "format-icons" = ["" "" "" "" ""];   
-                      "tooltip" = true;
-                    };
-                    "clock#time" = {
-                      "interval" = 1;
-                      "format" = "  {:%H:%M:%S}";
+                  }; 
+                  "custom/weather" = {
+                    "exec" = "python ${weatherScript}";
+                    "tooltip" = true;
+                    "format" ="{}";
+                    "interval" = 30;
+                    "return-type" = "json";
+                  };
+                  "custom/spaces" = {
+                      "format" = " . . .  ";
                       "tooltip" = false;
+                      "on-scroll-down" = "/usr/local/bin/hyprctl dispatch workspace m+1";
+                      "on-scroll-up" = "/usr/local/bin/hyprctl dispatch workspace m-1";
+                      "on-click" = "hyprctl hyprpaper wallpaper eDP-1,~/Pictures/wallpaper/$((RANDOM%8+1)).png";
+                  };
+                  "wlr/taskbar" = {
+                    "on-click" = "activate";
+                    "on-click-middle" = "close";
+                  };
+                  "battery" = {
+                    "interval" = 10;
+                    "states" = {
+                      "warning" = 30;
+                      "critical" = 15;
                     };
-                    "clock#date" = {
-                      "interval" = 10;
-                      "format" = "  {:%e %b %Y}";
-                      "tooltip-format" = "{:%e %B %Y}";
+                    "format" = "  {icon}  {capacity}%";
+                    "format-discharging" = "{icon}  {capacity}%";
+                    "format-icons" = ["" "" "" "" ""];   
+                    "tooltip" = true;
+                  };
+                  "clock#time" = {
+                    "interval" = 1;
+                    "format" = "  {:%H:%M:%S}";
+                    "tooltip" = false;
+                  };
+                  "clock#date" = {
+                    "interval" = 10;
+                    "format" = "  {:%e %b %Y}";
+                    "tooltip-format" = "{:%e %B %Y}";
+                  };
+                  "cpu" = {
+                    "interval" = 5;
+                    "format" = "  {usage}%";
+                    "states" = {
+                      "warning" = 70;
+                      "critical" = 90;
                     };
-                    "cpu" = {
-                      "interval" = 5;
-                      "format" = "  {usage}%";
-                      "states" = {
-                        "warning" = 70;
-                        "critical" = 90;
-                      };
+                  };
+                  "memory" = {
+                    "interval" = 5;
+                    "format" = "  {}%";
+                    "states" = {
+                      "warning" = 70;
+                      "critical" = 90;
                     };
-                    "memory" = {
-                      "interval" = 5;
-                      "format" = "  {}%";
-                      "states" = {
-                        "warning" = 70;
-                        "critical" = 90;
-                      };
+                  };
+                  "network" = {
+                    "interval" = 5;
+                    "format-wifi" = "  {essid} ({signalStrength}%)  {bandwidthUpBits}  {bandwidthDownBits}";
+                    "format-ethernet" = "  {ifname}: {ipaddr}/{cidr}";
+                    "format-disconnected" = "  Disconnected";
+                    "tooltip-format" = "{ifname}: {ipaddr}";
+                  };
+                  "pulseaudio" = {
+                    "scroll-step" = 1;
+                    "format" = "{icon}  {volume}%";
+                    "format-bluetooth" = "{icon}  {volume}%";
+                    "format-muted" = "";
+                    "format-icons" = {
+                      "headphones" = "";
+                      "handsfree" = "";
+                      "headset" = "";
+                      "phone" = "";
+                      "portable" = "";
+                      "car" = "";
+                      "default" = ["" ""];
                     };
-                    "network" = {
-                      "interval" = 5;
-                      "format-wifi" = "  {essid} ({signalStrength}%)  {bandwidthUpBits}  {bandwidthDownBits}";
-                      "format-ethernet" = "  {ifname}: {ipaddr}/{cidr}";
-                      "format-disconnected" = "  Disconnected";
-                      "tooltip-format" = "{ifname}: {ipaddr}";
-                    };
-                    "pulseaudio" = {
-                      "scroll-step" = 1;
-                      "format" = "{icon}  {volume}%";
-                      "format-bluetooth" = "{icon}  {volume}%";
-                      "format-muted" = "";
-                      "format-icons" = {
-                        "headphones" = "";
-                        "handsfree" = "";
-                        "headset" = "";
-                        "phone" = "";
-                        "portable" = "";
-                        "car" = "";
-                        "default" = ["" ""];
-                      };
-                    };
-                    "temperature" = {
-                      "hwmon-path-abs" = "/sys/devices/platform/coretemp.0/hwmon";
-                      "input-filename" = "temp1_input";
-                      "critical-threshold" = 80;
-                      "interval" = 5;
-                      "format" = "{icon}  {temperatureC}°C";
-                      "format-icons" = ["" "" "" "" ""];
-                    };
-                  }];
-                  style = "${styleCss}";
-                };
+                  };
+                  "temperature" = {
+                    "hwmon-path-abs" = "/sys/devices/platform/coretemp.0/hwmon";
+                    "input-filename" = "temp1_input";
+                    "critical-threshold" = 80;
+                    "interval" = 5;
+                    "format" = "{icon}  {temperatureC}°C";
+                    "format-icons" = ["" "" "" "" ""];
+                  };
+                }];
+                style = "${styleCss}";
+              };
 
-                wayland.windowManager.hyprland.enable = true;
-                wayland.windowManager.hyprland.extraConfig = ''
+              wayland.windowManager.hyprland.enable = true;
+              wayland.windowManager.hyprland.extraConfig = ''
 
 ###########################################################################
  _   _                  _                 _    ____             __ _       
@@ -410,67 +410,67 @@ bindm = $mainMod, mouse:273, resizewindow
 
 '';
 
-                gtk = {
-                  enable = true;
+            gtk = {
+              enable = true;
 
-                  iconTheme = {
-                    name = "Dracula";
-                    package = pkgs.dracula-icon-theme;
-                  };
-
-                  theme = {
-                    name = "Dracula";
-                    package = pkgs.dracula-theme;
-                  };
-
-                  cursorTheme = {
-                    name = "vanilla";
-                    package = pkgs.vanilla-dmz;
-                    size = 30;
-                  };
-
-                  gtk3.extraConfig = {
-                    Settings = ''
-                      gtk-application-prefer-dark-theme=1
-                    '';
-                  };
-
-                gtk4.extraConfig = {
-                  Settings = ''
-                    gtk-application-prefer-dark-theme=1
-                  '';
-                  };
-                };
-
-                home.sessionVariables.GTK_THEME = "Dracula";
-
-                programs.firefox.enable = true;
-
-                home.packages = with pkgs; [
-                  (python3.withPackages (ps: with ps; [ requests ]))                  
-                  gimp
-                  signal-desktop
-                  steam           
-                  xfce.thunar
-                  gnome.eog
-                  links2
-                  wget
-                  vlc
-                  rofi-wayland
-                  swayosd
-                  brightnessctl
-                  hyprpaper
-                  swaylock-effects
-                  wlogout
-                  vscode.fhs
-                  gnome.seahorse
-                  imagemagick
-                ];
-                
-                home.stateVersion = "23.11";
-
+              iconTheme = {
+                name = "Dracula";
+                package = pkgs.dracula-icon-theme;
               };
-            }
+
+              theme = {
+                name = "Dracula";
+                package = pkgs.dracula-theme;
+              };
+
+              cursorTheme = {
+                name = "vanilla";
+                package = pkgs.vanilla-dmz;
+                size = 30;
+              };
+
+              gtk3.extraConfig = {
+                Settings = ''
+                  gtk-application-prefer-dark-theme=1
+                '';
+              };
+
+              gtk4.extraConfig = {
+                Settings = ''
+                  gtk-application-prefer-dark-theme=1
+                '';
+                };
+              };
+
+              home.sessionVariables.GTK_THEME = "Dracula";
+
+              programs.firefox.enable = true;
+
+              home.packages = with pkgs; [
+                (python3.withPackages (ps: with ps; [ requests ]))                  
+                gimp
+                signal-desktop
+                steam           
+                xfce.thunar
+                gnome.eog
+                links2
+                wget
+                vlc
+                rofi-wayland
+                swayosd
+                brightnessctl
+                hyprpaper
+                swaylock-effects
+                wlogout
+                vscode.fhs
+                gnome.seahorse
+                imagemagick
+              ];
+                
+              home.stateVersion = "23.11";
+
+            };
+          }
         ];  
       };        
     };
