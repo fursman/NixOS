@@ -61,10 +61,6 @@
 
                 programs.home-manager.enable = true;
 
-                services.dbus.packages = with pkgs; [
-                  xfce.xfconf
-                ];
-
                 programs.kitty = {
                   enable = true;
                   settings = {
