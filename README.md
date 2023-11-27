@@ -60,4 +60,4 @@ Welcome to my NixOS configuration repository. This repository offers a simple ye
 
 ## License
 
-"Do what thou wilt shall be the whole of the Law",
+"Do what thou wilt shall be the whole of the Law"
