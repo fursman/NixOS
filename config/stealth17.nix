@@ -160,11 +160,6 @@
     ntfs3g
     virt-manager
     podman-desktop
-    gnome.adwaita-icon-theme
-    # linuxPackages.nvidia_x11
-    # dracula-icon-theme
-    # material-symbols
-    # material-icons
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
