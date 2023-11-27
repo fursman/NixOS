@@ -20,7 +20,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.systemd.enable = true;
-  boot.kernelParams = ["quiet"];
+  boot.initrd.verbose = false;
+  boot.loader.timeout = 0;
+  consoleLogLevel = 0;
+  boot.kernelParams = ["quiet splash"];
+
   boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "RBS17"; # Define your hostname.
@@ -47,7 +51,7 @@
   services.xserver.enable = true;
 
   # Enable SDDDM
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.lightdm.enable = true;
 
   # Enagle the gnome-keyring
   services.gnome.gnome-keyring.enable = true;
