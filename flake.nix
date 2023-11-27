@@ -50,6 +50,9 @@
                 home.username = "user";
                 home.homeDirectory = "/home/user";
                 home.file.".local/share/rofi/themes/spotlight-dark.rasi".source = spotlightDarkRasi;
+                home.file.".config/rofi/config.rasi".text = ''
+                  @theme "/home/user/.local/share/rofi/themes/spotlight-dark.rasi"
+                '';
                 programs.home-manager.enable = true;
 
                 programs.kitty = {
