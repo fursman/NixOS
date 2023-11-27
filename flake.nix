@@ -5,13 +5,14 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    stealth17.url = "github:fursman/NixOS";
     wallpapers = {
       url = "github:fursman/wallpaper";
       flake = false;
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, stealth17, home-manager, ... }:
 
     let
       styleCss = builtins.fetchurl {
@@ -26,14 +27,6 @@
         url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/spotlight-dark.rasi";
         sha256 = "0ns89bqh8y23nwqij4da9wbas4x00l9mb66j769d8a5yy6hr4hzn";
       };
-      stealth17Nix = pkgs.writeTextFile {
-        name = "stealth17-nix";
-        destination = "/etc/nixos/stealth17.nix";
-        text = builtins.fetchurl {
-          url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/stealth17.nix";
-          sha256 = "18wl975hzj4sryxn6vib6jcismlwj6b9blplpwdzv6lhk6sv1fh8";
-        };
-      };
     in
     {
       nixosConfigurations = {
@@ -41,7 +34,7 @@
           system = "x86_64-linux";
           modules = [
             ./hardware-configuration.nix
-            ./stealth17.nix
+            stealth17."config/stealth17.nix"
             ({ config, pkgs, ... }: {
               environment.etc."wallpapers".source = pkgs.fetchFromGitHub {
                 owner = "fursman";
