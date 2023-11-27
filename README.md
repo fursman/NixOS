@@ -10,9 +10,10 @@ This repository offers a simple yet powerful way to install and configure a NixO
 1. Install a minimal ISO NixOS from [NixOS Download](https://nixos.org/download).
 2. Download `flake.nix` file to `/etc/nixos`:
    ```bash
-   sudo wget https://raw.githubusercontent.com/fursman/NixOS/main/flake.nix -p /etc/nixos/
+   cd /etc/nixos
+   sudo wget https://raw.githubusercontent.com/fursman/NixOS/main/flake.nix
    ```
-3. Apply the configuration:
+3. Apply the configuration (must be done from within the /etc/nixos working directory):
    ```bash
    sudo nixos-rebuild --flake .#RBS17 switch
    ```
