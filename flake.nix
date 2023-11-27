@@ -22,7 +22,7 @@
         url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/weather-script.py";
         sha256 = "0mig4i6fkhym4kyx1ns3xkill9dgvsfmjqqf373yfma2d2sqjlcq";
       };
-      spotlightDarkRasi = pkgs.fetchurl {
+      spotlightDarkRasi = builtins.fetchurl {
         url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/spotlight-dark.rasi";
         sha256 = "";
       };
