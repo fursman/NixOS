@@ -61,6 +61,16 @@
 
                 programs.home-manager.enable = true;
 
+                home.pointerCursor = {
+                  name = "Adwaita";
+                  package = pkgs.gnome.adwaita-icon-theme;
+                  size = 24;
+                  x11 = {
+                    enable = true;
+                    defaultCursor = "Adwaita";
+                  };
+                };
+
                 programs.kitty = {
                   enable = true;
                   settings = {
