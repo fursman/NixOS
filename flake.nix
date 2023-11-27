@@ -28,7 +28,7 @@
       };
       stealth17Nix = builtins.fetchurl {
         url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/stealth17.nix";
-        sha256 = "0npip2gyap3659w0c5ydjcyydlkjghncmcacrffyxcrqy42swqmp";
+        sha256 = "15hwmb1gnrq4iny1p0apvvfwbxd38f62h8drcd0z1shk4cjl4ij6";
       };
     in
     {
@@ -229,7 +229,7 @@
 ###########################################################################
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
-monitor=eDP-1,3840x2160@120,0x0,1.0
+monitor=eDP-1,3840x2160@120,0x0,1.5
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
