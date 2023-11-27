@@ -28,7 +28,7 @@
       };
       stealth17Nix = builtins.fetchurl {
         url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/stealth17.nix";
-        sha256 = "15hwmb1gnrq4iny1p0apvvfwbxd38f62h8drcd0z1shk4cjl4ij6";
+        sha256 = "1kbdzbjhp96z0qhq5rp1d6ybw2qmr0jkiab7n7c7fmh760h62mpw";
       };
     in
     {
