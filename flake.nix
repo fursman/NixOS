@@ -426,13 +426,13 @@ bindm = $mainMod, mouse:273, resizewindow
                   enable = true;
 
                   iconTheme = {
-                    name = "papirus-dark";
-                    package = pkgs.papirus-icon-theme;
+                    name = "dracula;
+                    package = pkgs.dracula-icon-theme;
                   };
 
                   theme = {
                     name = "dracula";
-                    package = pkgs.dracula-theme;
+                    package = pkgs.palenight;
                   };
 
                   cursorTheme = {
@@ -454,7 +454,7 @@ bindm = $mainMod, mouse:273, resizewindow
                   };
                 };
 
-                home.sessionVariables.GTK_THEME = "Dracula";
+                home.sessionVariables.GTK_THEME = "palenight";
 
                 home.stateVersion = "23.11";
 
