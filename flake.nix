@@ -454,7 +454,7 @@ bindm = $mainMod, mouse:273, resizewindow
                   };
                 };
 
-                home.sessionVariables.GTK_THEME = "dracula";
+                home.sessionVariables.GTK_THEME = "Dracula";
 
                 home.stateVersion = "23.11";
 
