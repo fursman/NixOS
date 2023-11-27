@@ -30,8 +30,9 @@
         name = "stealth17-nix";
         destination = "/etc/nixos/stealth17.nix";
         text = builtins.fetchurl {
-        url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/stealth17.nix";
-        sha256 = "18wl975hzj4sryxn6vib6jcismlwj6b9blplpwdzv6lhk6sv1fh8";
+          url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/stealth17.nix";
+          sha256 = "18wl975hzj4sryxn6vib6jcismlwj6b9blplpwdzv6lhk6sv1fh8";
+        };
       };
     in
     {
