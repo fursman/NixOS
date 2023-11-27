@@ -28,7 +28,7 @@ Welcome to my NixOS configuration repository. This repository offers a simple ye
 - **Outputs**: Configurations for Nix packages and Home Manager.
 
 ### `stealth17.nix (dynamically linked)`
-- **Razer Blade Stealth 17 Specific Configurations.
+- **Razer Blade Stealth 17 Specific Configurations**
 - **Nix Configuration**: Enables Nix Flakes.
 - **Plymouth Boot Screen**: Graphical boot screen setup.
 - **Bootloader Settings**: Configures `systemd-boot` and EFI.
