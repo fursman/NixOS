@@ -110,6 +110,14 @@ window#waybar.hidden {
     color: #000000;
 }
 
+#weather {
+    font-size: 20px;
+}
+
+#spaces {
+    font-size: 20px;
+}
+
 #pulseaudio, #battery, #network, #cpu, #memory, #temperature, #clock, #date, #window {
     color: #FFFFFF;
     font-size: 20px;
