@@ -8,7 +8,7 @@ window#waybar {
     background-color: rgba(0, 0, 0, 0.5);
     padding-top: 5px;
     color: #FFFFFF;
-    font-size: 14px;
+    font-size: 20px;
     font-family: Cantarell, Noto Sans, sans-serif; 
     transition-property: background-color;
     transition-duration: .5s;
@@ -49,7 +49,7 @@ window#waybar.hidden {
 #workspaces button {
     padding-left: 15px;
     padding-right: 5px;
-    font-size: 25px;
+    font-size: 30px;
     background-color: transparent;
     color: #666666;
     font-weight: 600;
@@ -112,8 +112,9 @@ window#waybar.hidden {
 
 #pulseaudio, #battery, #network, #cpu, #memory, #temperature, #clock, #date, #window {
     color: #FFFFFF;
-    padding-left: 5px;
-    padding-right: 5px;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     background-color: transparent;
     color: inherit;
     font-weight: 600;
@@ -127,7 +128,7 @@ window#waybar.hidden {
 }
 
 #clock {
-    font-size: 14px;
+  /* No styles */
 }
 
 @keyframes scroll {
