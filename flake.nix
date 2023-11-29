@@ -41,7 +41,7 @@
               rev = "main";
               sha256 = "QDU4r+pJAOQknlNdZh18x9vh4/gj/itQ/GV4Zu0Tf9M=";
             };
-            environment.etc."wallpapers".target = "Pictures/wallpaper";
+            environment.etc."wallpapers".target = "wallpaper";
           })
           home-manager.nixosModules.home-manager
           {
@@ -232,7 +232,7 @@ monitor=eDP-1,highres@highrr,0x0,1.0
 # Execute your favorite apps at launch
 exec-once = waybar
 exec-once = hyprpaper
-exec-once = sleep 9 ; hyprctl hyprpaper wallpaper eDP-1,~/Pictures/wallpaper/$((RANDOM%8+1)).png
+exec-once = sleep 9 ; hyprctl hyprpaper wallpaper eDP-1,/etc/wallpaper/$((RANDOM%8+1)).png
 exec-once = sleep 10 ; hyprctl keyword misc:disable_hyprland_logo true
 
 # Some default env vars.
