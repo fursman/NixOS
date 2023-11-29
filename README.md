@@ -1,5 +1,5 @@
 
-# README.md for NixOS Configuration
+# README.md for NixOS Configuration using Home Manager and Flakes
 
 ## Introduction
 
@@ -15,7 +15,7 @@ This repository offers a simple yet powerful way to install and configure a NixO
    ```
 3. Apply the configuration (must be done from within the /etc/nixos working directory):
    ```bash
-   sudo nixos-rebuild --flake .#RBS17 switch
+   sudo nixos-rebuild --flake .#desktop switch
    ```
 
 ## What's Inside?
@@ -28,7 +28,7 @@ This repository offers a simple yet powerful way to install and configure a NixO
   - `wallpapers`: Custom repository for desktop wallpapers.
 - **Outputs**: Configurations for Nix packages and Home Manager.
 
-### `stealth17.nix (dynamically linked)`
+### `desktop.nix (dynamically linked)`
 - **Razer Blade Stealth 17 Specific Configurations**
 - **Nix Configuration**: Enables Nix Flakes.
 - **Plymouth Boot Screen**: Graphical boot screen setup.
