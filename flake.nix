@@ -229,7 +229,7 @@
 ###########################################################################
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
-monitor=eDP-1,3840x2160@120,0x0,1.0
+monitor=eDP-1,highres@highrr,0x0,1.0
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
