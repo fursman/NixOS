@@ -55,6 +55,7 @@
                 @theme "/home/user/.local/share/rofi/themes/spotlight-dark.rasi"
               '';
               home.file.".config/hypr/hyprpaper.conf".text = ''
+                ipc = on
                 preload = /etc/wallpaper/1.jpg
                 preload = /etc/wallpaper/2.jpg
                 preload = /etc/wallpaper/3.jpg
