@@ -21,7 +21,7 @@ This repository offers a simple yet powerful way to install and configure a NixO
 ## What's Inside?
 
 ### `flake.nix`
-- **Description**: "flake for RBS17 with Home Manager enabled."
+- **Description**: "flake for a desktop environment with Home Manager enabled."
 - **Inputs**: 
   - `nixpkgs`: Points to `nixos-unstable`.
   - `home-manager`: From `nix-community/home-manager`.
@@ -29,7 +29,7 @@ This repository offers a simple yet powerful way to install and configure a NixO
 - **Outputs**: Configurations for Nix packages and Home Manager.
 
 ### `desktop.nix (dynamically linked)`
-- **Razer Blade Stealth 17 Specific Configurations**
+- **Machine Learning Desktop Specific Configurations**
 - **Nix Configuration**: Enables Nix Flakes.
 - **Plymouth Boot Screen**: Graphical boot screen setup.
 - **Bootloader Settings**: Configures `systemd-boot` and EFI.
