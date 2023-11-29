@@ -26,18 +26,18 @@
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/spotlight-dark.rasi";
       sha256 = "0ns89bqh8y23nwqij4da9wbas4x00l9mb66j769d8a5yy6hr4hzn";
     };
-    stealth17Nix = builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/stealth17.nix";
+    desktopNix = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/desktop.nix";
       sha256 = "09j49s8zn1bzfxvllizjvhkp41h0am94y3s31glmsrjm5p6pdl6b";
     };
   in
   {
     nixosConfigurations = {
-      RBS17 = nixpkgs.lib.nixosSystem {
+      Desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./hardware-configuration.nix
-          stealth17Nix
+          desktopNix
           ({ config, pkgs, ... }: {
             environment.etc."wallpapers".source = pkgs.fetchFromGitHub {
               owner = "fursman";
