@@ -38,6 +38,7 @@
             environment.etc."wallpapers".source = pkgs.fetchFromGitHub {
               owner = "fursman";
               repo = "wallpaper";
+              rev = "main";
               sha256 = "QDU4r+pJAOQknlNdZh18x9vh4/gj/itQ/GV4Zu0Tf9M=";
             };
             environment.etc."wallpapers".target = "Pictures/wallpaper";
