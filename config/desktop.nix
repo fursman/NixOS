@@ -26,7 +26,7 @@
 
   boot.supportedFilesystems = [ "ntfs" ];
 
-  networking.hostName = "RBS17"; # Define your hostname.
+  networking.hostName = "NixOS"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
