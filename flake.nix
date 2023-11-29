@@ -5,9 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    wallpapers = {
-      url = "github:fursman/wallpaper";
-      flake = false;
     };
   };
 
@@ -42,7 +39,6 @@
             environment.etc."wallpapers".source = pkgs.fetchFromGitHub {
               owner = "fursman";
               repo = "wallpaper";
-              rev = "master";
               sha256 = "QDU4r+pJAOQknlNdZh18x9vh4/gj/itQ/GV4Zu0Tf9M=";
             };
             environment.etc."wallpapers".target = "Pictures/wallpaper";
