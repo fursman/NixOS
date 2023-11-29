@@ -1,5 +1,5 @@
 {
-  description = "flake for RBS17 with Home Manager enabled";
+  description = "Flake for a Desktop environment with Home Manager enabled";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -60,7 +60,7 @@
               home.pointerCursor = {
                 name = "Adwaita";
                 package = pkgs.gnome.adwaita-icon-theme;
-                size = 24;
+                size = 48;
                 x11 = {
                   enable = true;
                   defaultCursor = "Adwaita";
