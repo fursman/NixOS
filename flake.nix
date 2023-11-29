@@ -54,6 +54,16 @@
               home.file.".config/rofi/config.rasi".text = ''
                 @theme "/home/user/.local/share/rofi/themes/spotlight-dark.rasi"
               '';
+              home.file.".config/hypr/hyprpaper.conf".text = ''
+                preload = /etc/wallpaper/1.jpg
+                preload = /etc/wallpaper/2.jpg
+                preload = /etc/wallpaper/3.jpg
+                preload = /etc/wallpaper/4.jpg
+                preload = /etc/wallpaper/5.jpg
+                preload = /etc/wallpaper/6.jpg
+                preload = /etc/wallpaper/7.jpg
+                preload = /etc/wallpaper/8.jpg
+              '';
 
               programs.home-manager.enable = true;
 
