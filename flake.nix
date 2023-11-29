@@ -29,7 +29,7 @@
   in
   {
     nixosConfigurations = {
-      Desktop = nixpkgs.lib.nixosSystem {
+      desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./hardware-configuration.nix
