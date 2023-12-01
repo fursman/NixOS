@@ -9,7 +9,7 @@ This repository offers a simple yet powerful way to install and configure a NixO
 
 1. Install a minimal ISO NixOS from [NixOS Download](https://nixos.org/download).
 2. Connect online from your new NixOS minimal install using ethernet, or wirelessly connect using Network Monitor CLI `nmcli <device> wifi connect <mySSID> password <myPassword>`
-3. Download `flake.nix` file to `/etc/nixos`:
+3. Download `flake.nix` file to `/etc/nixos` (if wget is not installed by default, use `nix-shell -p wget` to create a temporary shell with wget available):
    ```bash
    cd /etc/nixos
    sudo wget https://raw.githubusercontent.com/fursman/NixOS/main/flake.nix
