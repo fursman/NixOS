@@ -16,7 +16,6 @@ This repository offers a simple yet powerful way to install and configure a NixO
    ```
 4. Apply the configuration (must be done from within the /etc/nixos working directory):
    ```bash
-   cd /etc/nixos/
    sudo nixos-rebuild --flake .#desktop switch
    ```
 
