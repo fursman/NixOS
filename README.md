@@ -50,14 +50,11 @@ This repository offers a simple yet powerful way to install and configure a NixO
 - **Swaylock**: Session locking.
 - **Wlogout**: Session logout interface.
 
-## Detailed Description of the Process
+## Useful Notes
 
-### Steps:
-1. **Initial Setup**: Install a fresh NixOS minimal environment and ensure internet connectivity.
-2. **Connect online**: From your new install, connect online using ethernet or wirelessly connect using Network Monitor CLI `nmcli <device> wifi connect <mySSID> password <myPassword>`
-3. **Download Configuration**: Use `wget` to directly download the `flake.nix` raw file from github as detailed above.
-4. **Apply Configuration**: Execute `sudo nixos-rebuild` to rebuild your NixOS using the new configuration.
-5. **Customization**: Modify `flake.nix`, `stealth17.nix`, and linked configuration files as necessary.
+### Connect online:
+
+From your new NixOS minimal install, connect online using ethernet or wirelessly connect using Network Monitor CLI `nmcli <device> wifi connect <mySSID> password <myPassword>`
 
 ## License
 
