@@ -16,7 +16,7 @@ This repository offers a simple yet powerful way to install and configure a NixO
 5. **Apply Configuration**: Rebuild NixOS with flakes, home manager and custom configurations.
    ```bash
    # Must be executed from within the /etc/nixos working directory.
-   sudo nixos-rebuild --flake .#desktop switch
+   "sudo nixos-rebuild --flake .#desktop switch"
    ```
 
 ## What's Inside?
