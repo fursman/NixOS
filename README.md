@@ -1,3 +1,4 @@
+
 # README.md for NixOS Configuration using Home Manager and Flakes
 
 ## Introduction
