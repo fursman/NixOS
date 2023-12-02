@@ -14,8 +14,8 @@ This repository offers a simple yet powerful way to install and configure a NixO
    sudo wget https://raw.githubusercontent.com/fursman/NixOS/main/flake.nix
    ```
 5. **Apply Configuration**: Rebuild NixOS with flakes, home manager and custom configurations.
-   must be executed from within the /etc/nixos working directory.
    ```bash
+   # Must be executed from within the /etc/nixos working directory.
    sudo nixos-rebuild --flake .#desktop switch
    ```
 
