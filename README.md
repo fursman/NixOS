@@ -1,4 +1,3 @@
-
 # README.md for NixOS Configuration using Home Manager and Flakes
 
 ## Introduction
@@ -7,15 +6,15 @@ This repository offers a simple yet powerful way to install and configure a NixO
 
 ## Quick Start
 
-1. Install a minimal ISO NixOS from [NixOS Download](https://nixos.org/download).
-2. Connect online from your new NixOS minimal install using ethernet, or wirelessly connect using Network Monitor CLI `nmcli <device> wifi connect <mySSID> password <myPassword>`
-3. Download `flake.nix` file to `/etc/nixos` (if wget is not installed by default, use `nix-shell` to create a temporary shell with wget available):
-   ```bash
-   cd /etc/nixos
-   nix-shell -p wget
+1. **Initial Installation**: Install a minimal ISO NixOS from [NixOS Download](https://nixos.org/download).
+2. **Network Connection**: Connect with an Ethernet cable or Use Network Monitor CLI `nmcli <device> wifi connect <mySSID> password <myPassword>` for a wireless connection.
+3. **Download `flake.nix` to `/etc/nixos/`**:```
+   cd /etc/nixos # Change directory to the NixOs configurations home
+   nix-shell -p wget # Open a temporary shell with wget to fetch web files
    sudo wget https://raw.githubusercontent.com/fursman/NixOS/main/flake.nix
    ```
-4. Apply the configuration (must be done from within the /etc/nixos working directory):
+5. Apply the configuration
+   must be executed from within the /etc/nixos working directory
    ```bash
    sudo nixos-rebuild --flake .#desktop switch
    ```
@@ -35,7 +34,6 @@ This repository offers a simple yet powerful way to install and configure a NixO
 - **Nix Configuration**: Enables Nix Flakes.
 - **Plymouth Boot Screen**: Graphical boot screen setup.
 - **Bootloader Settings**: Configures `systemd-boot` and EFI.
-- **(Additional system configurations)**
 
 ### Custom Configurations
 - **Hyprland**: Wayland compositor setup.
