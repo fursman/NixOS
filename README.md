@@ -13,8 +13,8 @@ This repository offers a simple yet powerful way to install and configure a NixO
    nix-shell -p wget # Open a temporary shell with wget to fetch web files
    sudo wget https://raw.githubusercontent.com/fursman/NixOS/main/flake.nix
    ```
-5. Apply the configuration
-   must be executed from within the /etc/nixos working directory
+5. **Apply Configuration**: Rebuild NixOS with flakes, home manager and custom configurations.
+   must be executed from within the /etc/nixos working directory.
    ```bash
    sudo nixos-rebuild --flake .#desktop switch
    ```
