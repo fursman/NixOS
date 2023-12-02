@@ -12,8 +12,7 @@ This repository offers a simple yet powerful way to install and configure a NixO
    ```
    cd /etc/nixos # Change directory to the NixOs configurations home
    nix-shell -p wget # Open a temporary shell with wget to fetch web files
-   sudo wget https://raw.githubusercontent.com/fursman/NixOS/main/flake.nix
-   ```
+   sudo wget https://raw.githubusercontent.com/fursman/NixOS/main/flake.nix```
 5. Apply the configuration
    must be executed from within the /etc/nixos working directory
    ```bash
