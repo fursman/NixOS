@@ -162,7 +162,6 @@
   environment.systemPackages = with pkgs; [
     git
     ntfs3g
-    virt-manager
     podman-desktop
   ];
 
@@ -191,8 +190,8 @@
   };
 
   # Enable virt-manager Virtulization
-  # virtualisation.libvirtd.enable = true;
-  programs.dconf.enable = true; # virt-manager requires dconf to remember settings
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
