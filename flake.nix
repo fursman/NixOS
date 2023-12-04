@@ -12,7 +12,7 @@
   let
     styleCss = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/waybar-style.css";
-      sha256 = "0x3ixjp1l626bkfpvp03cn2a4m20bd25g9c0yk5wh1jjvcqpmglv";
+      sha256 = "0wjwqfq8b8lk58vs34sxx3b81hbkv4y40fpr2z024m6wiy59fq3f";
     };
     weatherScript = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/weather-script.py";
