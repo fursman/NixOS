@@ -125,7 +125,7 @@ window#waybar.hidden {
 
 #window {
     color: #FFFFFF;
-    min-width: 500px;
+    min-width: 100px;
 }
 
 #clock {
