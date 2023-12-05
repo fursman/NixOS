@@ -26,7 +26,7 @@ This repository offers a simple yet powerful way to install and configure a NixO
 ## What's Inside?
 
 ### `flake.nix`
-- **Description**: "flake for a desktop environment with Home Manager enabled."
+- **Description**: "NixOS flake for a desktop environment with Home Manager enabled."
 ## Inputs
 
 - **nixpkgs**: Points to the NixOS unstable branch.
