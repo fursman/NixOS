@@ -1,4 +1,3 @@
-
 # README.md for NixOS Configuration using Home Manager and Flakes
 
 ## Introduction
@@ -44,7 +43,7 @@ Fetches various configuration files and scripts from a remote repository:
 - **styleCss**: Waybar style CSS.
 - **weatherScript**: Python script for weather information.
 - **spotlightDarkRasi**: Rofi theme.
-- **desktopNix**: Main desktop configuration.
+- **desktopNix**: Main NixOS system configuration for desktop systems.
 
 ## Desktop Configuration
 
@@ -98,7 +97,7 @@ Fetches various configuration files and scripts from a remote repository:
 - **Networking**: Enables NetworkManager for network configuration and Bluetooth support.
 - **Timezone**: Sets the system timezone to America/Vancouver.
 - **Locale**: Specifies the default locale to `en_CA.UTF-8`.
-- **X11 Windowing System**: Enables the X11 windowing system with GDM as the display manager.
+- **X11 Windowing System**: Enables the X11 windowing system.
 - **GNOME Keyring**: Integrates GNOME keyring for secure storage of credentials.
 - **Hyprland**: Enables Hyprland, a Wayland compositor, with NVIDIA patches.
 - **Fonts**: Includes Font Awesome in the system's font configuration.
@@ -113,7 +112,7 @@ Fetches various configuration files and scripts from a remote repository:
 
 - **Git**: Installs Git for version control.
 - **NTFS-3G**: Provides NTFS filesystem support, enabling read/write operations on NTFS partitions.
-- **Podman Desktop**: Installs Podman for managing OCI (Open Container Initiative) containers.
+- **Podman Desktop**: Installs Podman for managing OCI (Open Container Initiative) and Docker containers.
 
 ## User Configuration
 
