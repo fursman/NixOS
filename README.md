@@ -88,10 +88,38 @@ Fetches various configuration files and scripts from a remote repository:
 - **System State Version**: Defines the NixOS state version as 23.11
 
 ### `desktop.nix (dynamically linked)`
-- **Machine Learning Desktop Specific Configurations**
-- **Nix Configuration**: Enables Nix Flakes.
-- **Plymouth Boot Screen**: Graphical boot screen setup.
-- **Bootloader Settings**: Configures `systemd-boot` and EFI.
+
+## System Configuration
+
+- **Nix Flakes**: Enables experimental features for Nix, including Nix Flakes.
+- **Plymouth**: Activates the Plymouth graphical boot splash screen.
+- **Bootloader**: Configures systemd-boot with EFI support.
+- **Filesystem Support**: Includes support for NTFS filesystems.
+- **Networking**: Enables NetworkManager for network configuration and Bluetooth support.
+- **Timezone**: Sets the system timezone to America/Vancouver.
+- **Locale**: Specifies the default locale to `en_CA.UTF-8`.
+- **X11 Windowing System**: Enables the X11 windowing system with GDM as the display manager.
+- **GNOME Keyring**: Integrates GNOME keyring for secure storage of credentials.
+- **Hyprland**: Enables Hyprland, a Wayland compositor, with NVIDIA patches.
+- **Fonts**: Includes Font Awesome in the system's font configuration.
+
+## Hardware and Drivers
+
+- **Bluetooth and Blueman**: Activates Bluetooth hardware support and Blueman services.
+- **NVIDIA Drivers**: Configures NVIDIA drivers with modesetting and optional power management features.
+- **OpenGL Support**: Enables OpenGL with support for 32-bit DRI (Direct Rendering Infrastructure).
+
+## Software and Packages
+
+- **Git**: Installs Git for version control.
+- **NTFS-3G**: Provides NTFS filesystem support, enabling read/write operations on NTFS partitions.
+- **Podman Desktop**: Installs Podman for managing OCI (Open Container Initiative) containers.
+
+## User Configuration
+
+- **Default User Settings**: Defines a default user with access to network management and virtualization groups.
+- **Virtualization Support**: Enables Podman for containerization and libvirt with Virt-Manager for virtualization management.
+- **SSH Service**: Activates OpenSSH service for secure remote access.
 
 ### Custom Configurations
 - **Hyprland**: Wayland compositor setup.
