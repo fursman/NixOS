@@ -70,23 +70,23 @@ Fetches various configuration files and scripts from a remote repository:
 - **Firefox**: Enables Firefox with specific settings.
 - **Package List**: A curated list of packages for the user's environment.
 -- **python3.withPackages (requests)**: Provides Python 3 along with the `requests` library, useful for scripting and automating HTTP requests.
--- **gimp**: An advanced image editing software, ideal for photo retouching, image composition, and image authoring.
--- **signal-desktop**: A secure messaging app that offers end-to-end encryption for text, voice, and video communication.
--- **steam**: A popular digital distribution platform for video gaming, offering a vast library of games, automatic game updates, and community features.
--- **xfce.thunar**: A fast and easy-to-use file manager from the XFCE desktop environment.
--- **gnome.eog**: Eye of GNOME, a simple and straightforward image viewer.
--- **links2**: A text and graphical web browser with a pull-down menu system.
--- **wget**: A free utility for non-interactive download of files from the web.
--- **vlc**: A versatile multimedia player that supports various audio and video formats.
--- **rofi-wayland**: A window switcher, application launcher, and dmenu replacement for Wayland.
--- **swayosd**: An on-screen display (OSD) for Sway and Wayland, useful for volume, brightness, and other notifications.
--- **brightnessctl**: A program to read and control device brightness.
--- **hyprpaper**: A wallpaper manager for Sway and Wayland, allows for dynamic wallpaper changes.
--- **swaylock-effects**: A fork of swaylock, adding effects like blur to the lock screen.
--- **wlogout**: A Wayland-based logout menu, useful for cleanly exiting the desktop session.
--- **vscode.fhs**: Visual Studio Code packaged with FHS (Filesystem Hierarchy Standard) support, a popular code editor with a wide range of extensions.
--- **gnome.seahorse**: A front-end for GnuPG, useful for encryption, signing, and key management.
--- **imagemagick**: A software suite to create, edit, compose, or convert bitmap images, supporting many image formats.
+  - **gimp**: An advanced image editing software, ideal for photo retouching, image composition, and image authoring.
+  - **signal-desktop**: A secure messaging app that offers end-to-end encryption for text, voice, and video communication.
+  - **steam**: A popular digital distribution platform for video gaming, offering a vast library of games, automatic game updates, and community features.
+  - **xfce.thunar**: A fast and easy-to-use file manager from the XFCE desktop environment.
+  - **gnome.eog**: Eye of GNOME, a simple and straightforward image viewer.
+  - **links2**: A text and graphical web browser with a pull-down menu system.
+  - **wget**: A free utility for non-interactive download of files from the web.
+  - **vlc**: A versatile multimedia player that supports various audio and video formats.
+  - **rofi-wayland**: A window switcher, application launcher, and dmenu replacement for Wayland.
+  - **swayosd**: An on-screen display (OSD) for Sway and Wayland, useful for volume, brightness, and other notifications.
+  - **brightnessctl**: A program to read and control device brightness.
+  - **hyprpaper**: A wallpaper manager for Sway and Wayland, allows for dynamic wallpaper changes.
+  - **swaylock-effects**: A fork of swaylock, adding effects like blur to the lock screen.
+  - **wlogout**: A Wayland-based logout menu, useful for cleanly exiting the desktop session.
+  - **vscode.fhs**: Visual Studio Code packaged with FHS (Filesystem Hierarchy Standard) support, a popular code editor with a wide range of extensions.
+  - **gnome.seahorse**: A front-end for GnuPG, useful for encryption, signing, and key management.
+  - **imagemagick**: A software suite to create, edit, compose, or convert bitmap images, supporting many image formats.
 - **System State Version**: Defines the NixOS state version.
 
 ### `desktop.nix (dynamically linked)`
