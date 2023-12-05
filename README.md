@@ -57,7 +57,7 @@ Fetches various configuration files and scripts from a remote repository:
   
 ## Key User Configurations:
 
-- **Rofi theme**: Sets up a custom Rofi theme.
+- **Rofi theme**: Sets up a custom Rofi theme `spotlightDarkRasi` using the linked resource.
 - **Wallpaper Management**: Configures dynamic wallpapers.
 - **Pointer Cursor**: Adwaita cursor theme with customization.
 - **Kitty Terminal**: Customizes Kitty terminal settings.
