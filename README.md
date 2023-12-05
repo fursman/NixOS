@@ -121,21 +121,6 @@ Fetches various configuration files and scripts from a remote repository:
 - **Virtualization Support**: Enables Podman for containerization and libvirt with Virt-Manager for virtualization management.
 - **SSH Service**: Activates OpenSSH service for secure remote access.
 
-### Custom Configurations
-- **Hyprland**: Wayland compositor setup.
-- **Waybar**: Customized Wayland bar.
-- **Rofi**: Window switcher and application launcher.
-- **Kitty**: GPU-based terminal emulator.
-
-### Key Software
-- **VS Code**: Primary code editor.
-- **Podman-Desktop**: Container management.
-- **Virt-Manager**: Virtual environment management.
-- **Thunar**: File manager.
-- **Firefox**: Web browser.
-- **Swaylock**: Session locking.
-- **Wlogout**: Session logout interface.
-
 ## License
 
 "Do what thou wilt shall be the whole of the Law"
