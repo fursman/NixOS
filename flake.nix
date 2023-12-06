@@ -237,6 +237,7 @@
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
 monitor=eDP-1,highres@highrr,0x0,1.0
+monitor=HDMI-A-1,highres@highrr,auto,1.0
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
