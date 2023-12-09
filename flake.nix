@@ -481,7 +481,6 @@ bindm = $mainMod, mouse:273, resizewindow
         ];  
       };        
     };
-  }; 
   in
   {
     nixosConfigurations = {
