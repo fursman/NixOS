@@ -12,6 +12,12 @@
     '';
   };
 
+  # These modules are required for PCI passthrough, and must come before early modesetting stuff
+  boot.kernelModules = [ "vfio" "vfio_iommu_type1" "vfio_pci" "vfio_virqfd" ];
+  
+  # CHANGE: Don't forget to put your own PCI IDs here (run lspci -nn and look for NVIDIA)
+  boot.extraModprobeConfig ="options vfio-pci ids=10de:249c,10de:228b";
+
   # Enable plymouth
   boot.plymouth.enable = true;
 
@@ -23,13 +29,7 @@
   boot.loader.timeout = 0;
   boot.consoleLogLevel = 0;
   # Enable "quiet" output, "splash" screen and virtualization GPU options at boot
-  # boot.kernelParams = ["quiet" "splash" "intel_iommu=on"];
-    
-  # These modules are required for PCI passthrough, and must come before early modesetting stuff
-  boot.kernelModules = [ "vfio" "vfio_iommu_type1" "vfio_pci" "vfio_virqfd" ];
-  
-  # CHANGE: Don't forget to put your own PCI IDs here (run lspci -nn and look for NVIDIA)
-  boot.extraModprobeConfig ="options vfio-pci ids=10de:249c,10de:228b";
+  boot.kernelParams = ["quiet" "splash" "intel_iommu=on"];
 
   boot.supportedFilesystems = [ "ntfs" ];
 
