@@ -198,7 +198,7 @@
 
   # Enable virt-manager Virtulization
   virtualisation.libvirtd.enable = true;
-  virtualisation.libvirtd.enableKVM = true;
+  virtualisation.libvirtd.qemu.package
   programs.virt-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
