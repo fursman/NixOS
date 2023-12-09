@@ -14,12 +14,13 @@
 
   # These modules are required for PCI passthrough, and must come before early modesetting stuff
   boot.kernelModules = [ "vfio" "vfio_iommu_type1" "vfio_pci" ];
+  boot.blacklistedKernelModules  = [ "nvidia" "nouveau" ];
   
   # CHANGE: Don't forget to put your own PCI IDs here (run lspci -nn and look for NVIDIA)
   boot.extraModprobeConfig ="options vfio-pci ids=10de:249c,10de:228b";
 
   # Enable plymouth
-  boot.plymouth.enable = true;
+  # boot.plymouth.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
