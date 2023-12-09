@@ -227,225 +227,225 @@
               wayland.windowManager.hyprland.enable = true;
               wayland.windowManager.hyprland.extraConfig = ''
 
-###########################################################################
- _   _                  _                 _    ____             __ _       
-| | | |_   _ _ __  _ __| | __ _ _ __   __| |  / ___|___  _ __  / _(_) __ _ 
-| |_| | | | | '_ \| '__| |/ _` | '_ \ / _` | | |   / _ \| '_ \| |_| |/ _` |
-|  _  | |_| | |_) | |  | | (_| | | | | (_| | | |__| (_) | | | |  _| | (_| |
-|_| |_|\__, | .__/|_|  |_|\__,_|_| |_|\__,_|  \____\___/|_| |_|_| |_|\__, |
-       |___/|_|                                                      |___/ 
+              ###########################################################################
+               _   _                  _                 _    ____             __ _       
+              | | | |_   _ _ __  _ __| | __ _ _ __   __| |  / ___|___  _ __  / _(_) __ _ 
+              | |_| | | | | '_ \| '__| |/ _` | '_ \ / _` | | |   / _ \| '_ \| |_| |/ _` |
+              |  _  | |_| | |_) | |  | | (_| | | | | (_| | | |__| (_) | | | |  _| | (_| |
+              |_| |_|\__, | .__/|_|  |_|\__,_|_| |_|\__,_|  \____\___/|_| |_|_| |_|\__, |
+                     |___/|_|                                                      |___/ 
+              
+              ###########################################################################
+              
+              # See https://wiki.hyprland.org/Configuring/Monitors/
+              monitor=eDP-1,highres@highrr,0x0,1.0
+              monitor=HDMI-A-1,highres@highrr,auto,1.0
+              
+              # See https://wiki.hyprland.org/Configuring/Keywords/ for more
+              
+              # Execute your favorite apps at launch
+              exec-once = waybar
+              exec-once = hyprpaper
+              exec-once = sleep 9 ; hyprctl hyprpaper wallpaper eDP-1,/etc/wallpaper/$((RANDOM%8+1)).png
+              exec-once = sleep 10 ; hyprctl keyword misc:disable_hyprland_logo true
+              
+              # Some default env vars.
+              env = XCURSOR_SIZE,48
+              
+              # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
+              input {
+                  kb_layout = us
+                  kb_variant =
+                  kb_model =
+                  kb_options =
+                  kb_rules =
+              
+                  # Enable Keyboard Special Keys
+              
+                  # Sink volume raise optionally with --device
+                  binde = ,XF86AudioRaiseVolume, exec, swayosd --output-volume raise
+                  # Sink volume lower optionally with --device
+                  binde = ,XF86AudioLowerVolume, exec,  swayosd --output-volume lower
+                  # Sink volume toggle mute
+                  bindr = ,XF86AudioMute, exec, swayosd --output-volume mute-toggle
+                  # Source volume toggle mute
+                  bindr = ,XF86AudioMicMute, exec, swayosd --input-volume mute-toggle
+              
+                  # Brightness raise
+                  binde = ,XF86MonBrightnessUp, exec, brightnessctl s +5
+                  # Brightness lower
+                  binde = ,XF86MonBrightnessDown, exec, brightnessctl s 5-
+              
+                  follow_mouse = 1
+              
+                  touchpad {
+                      natural_scroll = yes
+                  }
+              
+                  sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+              }
+              
+              general {
+                  # See https://wiki.hyprland.org/Configuring/Variables/ for more
+              
+                  gaps_in = 5
+                  gaps_out = 10
+                  border_size = 2
+                  col.active_border = rgba(33ccffee) rgba(0000FFee) 45deg
+                  col.inactive_border = rgba(595959aa)
+              
+                  layout = dwindle
+              }
+              
+              misc {
+                  disable_hyprland_logo = false
+                  disable_splash_rendering = true
+              }
+              
+              decoration {
+                  # See https://wiki.hyprland.org/Configuring/Variables/ for more
+                  blur {
+                      enabled = true
+                      size = 10
+                      passes = 2
+                      new_optimizations = on
+                  }
+                  drop_shadow = yes
+                  shadow_range = 4
+                  shadow_render_power = 3
+                  col.shadow = rgba(1a1a1aee)
+                  rounding = 5
+              }
+              
+              animations {
+                  enabled = yes
+              
+                  # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
+              
+                  bezier = myBezier, 0.05, 0.9, 0.1, 1.05
+              
+                  animation = windows, 1, 7, myBezier
+                  animation = windowsOut, 1, 7, default, popin 80%
+                  animation = border, 1, 10, default
+                  animation = borderangle, 1, 8, default
+                  animation = fade, 1, 7, default
+                  animation = workspaces, 1, 6, default
+              }
+              
+              dwindle {
+                  # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+                  pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+                  preserve_split = yes # you probably want this
+              }
+              
+              master {
+                  # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+                  new_is_master = true
+              }
+              
+              gestures {
+                  # See https://wiki.hyprland.org/Configuring/Variables/ for more
+                  workspace_swipe = on
+              }
+              
+              # Example per-device config
+              # See https://wiki.hyprland.org/Configuring/Keywords/#executing for more
+              device:epic-mouse-v1 {
+                  sensitivity = -0.5
+              }
+              
+              # Example windowrule v1
+              # windowrule = float, ^(kitty)$
+              # Example windowrule v2
+              # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
+              # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
+              
+              # See https://wiki.hyprland.org/Configuring/Keywords/ for more
+              $mainMod = SUPER
+              
+              # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
+              bind = $mainMod, RETURN, exec, rofi -show run
+              bind = $mainMod, T, exec, kitty
+              bind = $mainMod, Q, killactive, 
+              bind = $mainMod, X, exec, wlogout --protocol layer-shell
+              bind = $mainMod, B, exec, firefox
+              bind = $mainMod, F, exec, thunar
+              bind = $mainMod, P, exec, podman-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
+              bind = $mainMod, C, exec, code --password-store="gnome" --use-gl=desktop
+              bind = $mainMod, L, exec, swaylock --screenshots --clock --indicator --indicator-radius 200 --indicator-thickness 40 --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --ring-color 44006666 --key-hl-color 00000000 --line-color 00000000 --inside-color 00000000 --separator-color 00000000 --grace 0 --fade-in 0.5 -F
+              bind = $mainMod, V, exec, virt-manager
+              bind = $mainMod, P, pseudo, # dwindle
+              bind = $mainMod, J, togglesplit, # dwindle
+              
+              # Move focus with mainMod + arrow keys
+              bind = $mainMod, left, movefocus, l
+              bind = $mainMod, right, movefocus, r
+              bind = $mainMod, up, movefocus, u
+              bind = $mainMod, down, movefocus, d
+              
+              # Switch workspaces with mainMod + [0-9]
+              bind = $mainMod, 1, workspace, 1
+              bind = $mainMod, 2, workspace, 2
+              bind = $mainMod, 3, workspace, 3
+              bind = $mainMod, 4, workspace, 4
+              bind = $mainMod, 5, workspace, 5
+              bind = $mainMod, 6, workspace, 6
+              bind = $mainMod, 7, workspace, 7
+              bind = $mainMod, 8, workspace, 8
+              bind = $mainMod, 9, workspace, 9
+              bind = $mainMod, 0, workspace, 10
+              
+              # Move active window to a workspace with mainMod + SHIFT + [0-9]
+              bind = $mainMod SHIFT, 1, movetoworkspace, 1
+              bind = $mainMod SHIFT, 2, movetoworkspace, 2
+              bind = $mainMod SHIFT, 3, movetoworkspace, 3
+              bind = $mainMod SHIFT, 4, movetoworkspace, 4
+              bind = $mainMod SHIFT, 5, movetoworkspace, 5
+              bind = $mainMod SHIFT, 6, movetoworkspace, 6
+              bind = $mainMod SHIFT, 7, movetoworkspace, 7
+              bind = $mainMod SHIFT, 8, movetoworkspace, 8
+              bind = $mainMod SHIFT, 9, movetoworkspace, 9
+              bind = $mainMod SHIFT, 0, movetoworkspace, 10
+              
+              # Scroll through existing workspaces with mainMod + scroll
+              bind = $mainMod, mouse_down, workspace, e+1
+              bind = $mainMod, mouse_up, workspace, e-1
+              
+              # Move/resize windows with mainMod + LMB/RMB and dragging
+              bindm = $mainMod, mouse:272, movewindow
+              bindm = $mainMod, mouse:273, resizewindow
+              
+              '';
 
-###########################################################################
-
-# See https://wiki.hyprland.org/Configuring/Monitors/
-monitor=eDP-1,highres@highrr,0x0,1.0
-monitor=HDMI-A-1,highres@highrr,auto,1.0
-
-# See https://wiki.hyprland.org/Configuring/Keywords/ for more
-
-# Execute your favorite apps at launch
-exec-once = waybar
-exec-once = hyprpaper
-exec-once = sleep 9 ; hyprctl hyprpaper wallpaper eDP-1,/etc/wallpaper/$((RANDOM%8+1)).png
-exec-once = sleep 10 ; hyprctl keyword misc:disable_hyprland_logo true
-
-# Some default env vars.
-env = XCURSOR_SIZE,48
-
-# For all categories, see https://wiki.hyprland.org/Configuring/Variables/
-input {
-    kb_layout = us
-    kb_variant =
-    kb_model =
-    kb_options =
-    kb_rules =
-
-    # Enable Keyboard Special Keys
-
-    # Sink volume raise optionally with --device
-    binde = ,XF86AudioRaiseVolume, exec, swayosd --output-volume raise
-    # Sink volume lower optionally with --device
-    binde = ,XF86AudioLowerVolume, exec,  swayosd --output-volume lower
-    # Sink volume toggle mute
-    bindr = ,XF86AudioMute, exec, swayosd --output-volume mute-toggle
-    # Source volume toggle mute
-    bindr = ,XF86AudioMicMute, exec, swayosd --input-volume mute-toggle
-
-    # Brightness raise
-    binde = ,XF86MonBrightnessUp, exec, brightnessctl s +5
-    # Brightness lower
-    binde = ,XF86MonBrightnessDown, exec, brightnessctl s 5-
-
-    follow_mouse = 1
-
-    touchpad {
-        natural_scroll = yes
-    }
-
-    sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
-}
-
-general {
-    # See https://wiki.hyprland.org/Configuring/Variables/ for more
-
-    gaps_in = 5
-    gaps_out = 10
-    border_size = 2
-    col.active_border = rgba(33ccffee) rgba(0000FFee) 45deg
-    col.inactive_border = rgba(595959aa)
-
-    layout = dwindle
-}
-
-misc {
-    disable_hyprland_logo = false
-    disable_splash_rendering = true
-}
-
-decoration {
-    # See https://wiki.hyprland.org/Configuring/Variables/ for more
-    blur {
-        enabled = true
-        size = 10
-        passes = 2
-        new_optimizations = on
-    }
-    drop_shadow = yes
-    shadow_range = 4
-    shadow_render_power = 3
-    col.shadow = rgba(1a1a1aee)
-    rounding = 5
-}
-
-animations {
-    enabled = yes
-
-    # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
-
-    bezier = myBezier, 0.05, 0.9, 0.1, 1.05
-
-    animation = windows, 1, 7, myBezier
-    animation = windowsOut, 1, 7, default, popin 80%
-    animation = border, 1, 10, default
-    animation = borderangle, 1, 8, default
-    animation = fade, 1, 7, default
-    animation = workspaces, 1, 6, default
-}
-
-dwindle {
-    # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-    pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-    preserve_split = yes # you probably want this
-}
-
-master {
-    # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-    new_is_master = true
-}
-
-gestures {
-    # See https://wiki.hyprland.org/Configuring/Variables/ for more
-    workspace_swipe = on
-}
-
-# Example per-device config
-# See https://wiki.hyprland.org/Configuring/Keywords/#executing for more
-device:epic-mouse-v1 {
-    sensitivity = -0.5
-}
-
-# Example windowrule v1
-# windowrule = float, ^(kitty)$
-# Example windowrule v2
-# windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
-# See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
-
-# See https://wiki.hyprland.org/Configuring/Keywords/ for more
-$mainMod = SUPER
-
-# Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-bind = $mainMod, RETURN, exec, rofi -show run
-bind = $mainMod, T, exec, kitty
-bind = $mainMod, Q, killactive, 
-bind = $mainMod, X, exec, wlogout --protocol layer-shell
-bind = $mainMod, B, exec, firefox
-bind = $mainMod, F, exec, thunar
-bind = $mainMod, P, exec, podman-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
-bind = $mainMod, C, exec, code --password-store="gnome" --use-gl=desktop
-bind = $mainMod, L, exec, swaylock --screenshots --clock --indicator --indicator-radius 200 --indicator-thickness 40 --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --ring-color 44006666 --key-hl-color 00000000 --line-color 00000000 --inside-color 00000000 --separator-color 00000000 --grace 0 --fade-in 0.5 -F
-bind = $mainMod, V, exec, virt-manager
-bind = $mainMod, P, pseudo, # dwindle
-bind = $mainMod, J, togglesplit, # dwindle
-
-# Move focus with mainMod + arrow keys
-bind = $mainMod, left, movefocus, l
-bind = $mainMod, right, movefocus, r
-bind = $mainMod, up, movefocus, u
-bind = $mainMod, down, movefocus, d
-
-# Switch workspaces with mainMod + [0-9]
-bind = $mainMod, 1, workspace, 1
-bind = $mainMod, 2, workspace, 2
-bind = $mainMod, 3, workspace, 3
-bind = $mainMod, 4, workspace, 4
-bind = $mainMod, 5, workspace, 5
-bind = $mainMod, 6, workspace, 6
-bind = $mainMod, 7, workspace, 7
-bind = $mainMod, 8, workspace, 8
-bind = $mainMod, 9, workspace, 9
-bind = $mainMod, 0, workspace, 10
-
-# Move active window to a workspace with mainMod + SHIFT + [0-9]
-bind = $mainMod SHIFT, 1, movetoworkspace, 1
-bind = $mainMod SHIFT, 2, movetoworkspace, 2
-bind = $mainMod SHIFT, 3, movetoworkspace, 3
-bind = $mainMod SHIFT, 4, movetoworkspace, 4
-bind = $mainMod SHIFT, 5, movetoworkspace, 5
-bind = $mainMod SHIFT, 6, movetoworkspace, 6
-bind = $mainMod SHIFT, 7, movetoworkspace, 7
-bind = $mainMod SHIFT, 8, movetoworkspace, 8
-bind = $mainMod SHIFT, 9, movetoworkspace, 9
-bind = $mainMod SHIFT, 0, movetoworkspace, 10
-
-# Scroll through existing workspaces with mainMod + scroll
-bind = $mainMod, mouse_down, workspace, e+1
-bind = $mainMod, mouse_up, workspace, e-1
-
-# Move/resize windows with mainMod + LMB/RMB and dragging
-bindm = $mainMod, mouse:272, movewindow
-bindm = $mainMod, mouse:273, resizewindow
-
-'';
-
-            gtk = {
-              enable = true;
-
-              iconTheme = {
-                name = "Dracula";
-                package = pkgs.dracula-icon-theme;
-              };
-
-              theme = {
-                name = "Dracula";
-                package = pkgs.dracula-theme;
-              };
-
-              cursorTheme = {
-                name = "vanilla";
-                package = pkgs.vanilla-dmz;
-                size = 30;
-              };
-
-              gtk3.extraConfig = {
-                Settings = ''
-                  gtk-application-prefer-dark-theme=1
-                '';
-              };
-
-              gtk4.extraConfig = {
-                Settings = ''
-                  gtk-application-prefer-dark-theme=1
-                '';
+              gtk = {
+                enable = true;
+  
+                iconTheme = {
+                  name = "Dracula";
+                  package = pkgs.dracula-icon-theme;
+                };
+  
+                theme = {
+                  name = "Dracula";
+                  package = pkgs.dracula-theme;
+                };
+  
+                cursorTheme = {
+                  name = "vanilla";
+                  package = pkgs.vanilla-dmz;
+                  size = 30;
+                };
+  
+                gtk3.extraConfig = {
+                  Settings = ''
+                    gtk-application-prefer-dark-theme=1
+                  '';
+                };
+  
+                gtk4.extraConfig = {
+                  Settings = ''
+                    gtk-application-prefer-dark-theme=1
+                  '';
                 };
               };
 
