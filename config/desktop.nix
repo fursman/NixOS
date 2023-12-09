@@ -205,13 +205,12 @@
       # Nvidia Enabled
       enableNvidia = true;
     };
+    libvirtd = {
+      enable = true;
+      qemu.ovmf = "enabled";
+      onShutDown = "shutdown";
+    };
   };
-
-  # Enable virt-manager Virtulization
-  virtualisation.libvirtd.enable = true;
-  virtualization.libvirtd.qemu.ovmf = "enabled";
-  virtualization.libvirtd.onShutDown = "shutdown";
-  
   programs.virt-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
