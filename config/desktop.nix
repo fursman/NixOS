@@ -207,7 +207,7 @@
     };
     libvirtd = {
       enable = true;
-      qemuOvmf = true;
+      qemu.ovmf.enable = true;
     };
   };
   programs.virt-manager.enable = true;
