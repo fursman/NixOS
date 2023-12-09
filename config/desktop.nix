@@ -209,7 +209,9 @@
 
   # Enable virt-manager Virtulization
   virtualisation.libvirtd.enable = true;
+  virtualization.libvirtd.qemu.ovmf = enabled;
   virtualization.libvirtd.onShutDown = "shutdown";
+  
   programs.virt-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -221,7 +223,6 @@
   # };
 
   # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
