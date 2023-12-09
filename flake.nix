@@ -31,8 +31,7 @@
       sha256 = "1zx6y28nlqinr13q769fqpw82hb0sra9zmm40g7chiwg52b25rf7";
     };
     sharedConfiguration = {
-      home-manager.nixosModules.home-manager
-      {
+      home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.user = { pkgs, ... }: {
