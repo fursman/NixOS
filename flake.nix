@@ -1,5 +1,5 @@
 {
-  description = "Flake for a Desktop environment with Home Manager enabled";
+  description = "Flake for a graphical environment with Home Manager enabled and NVIDIA GPU support";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -24,11 +24,13 @@
     };
     desktopNix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/desktop.nix";
-      sha256 = "1f17xcd92s3r3zf8p3i42p6n7llj1s0yi8wdd8ikrn38i6hbns68";
+      sha256 = "1zx6y28nlqinr13q769fqpw82hb0sra9zmm40g7chiwg52b25rf7";
     };
-  in
-  {
-    nixosConfigurations = {
+    serverNix = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server.nix";
+      sha256 = "1zx6y28nlqinr13q769fqpw82hb0sra9zmm40g7chiwg52b25rf7";
+    };
+    sharedConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -476,6 +478,28 @@ bindm = $mainMod, mouse:273, resizewindow
 
             };
           }
+        ];  
+      };        
+    };
+  }; 
+  in
+  {
+    nixosConfigurations = {
+      desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hardware-configuration.nix
+          desktopNix
+          sharedConfiguration
+          ({ config, pkgs, ... }: {
+            environment.etc."wallpapers".source = pkgs.fetchFromGitHub {
+              owner = "fursman";
+              repo = "wallpaper";
+              rev = "main";
+              sha256 = "QDU4r+pJAOQknlNdZh18x9vh4/gj/itQ/GV4Zu0Tf9M=";
+            };
+            environment.etc."wallpapers".target = "wallpaper";
+          })
         ];  
       };        
     };
