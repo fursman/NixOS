@@ -24,6 +24,15 @@
   boot.consoleLogLevel = 0;
   boot.kernelParams = ["quiet" "splash"];
 
+  # Emable Virtualization GPU options at boot
+  boot.kernelParams = [ "intel_iommu=on" ];
+    
+  # These modules are required for PCI passthrough, and must come before early modesetting stuff
+  boot.kernelModules = [ "vfio" "vfio_iommu_type1" "vfio_pci" "vfio_virqfd" ];
+  
+  # CHANGE: Don't forget to put your own PCI IDs here
+  boot.extraModprobeConfig ="options vfio-pci ids=1002:67b1,1002:aac8";
+
   boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "NixOS"; # Define your hostname.
@@ -191,6 +200,7 @@
 
   # Enable virt-manager Virtulization
   virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.enableKVM = true;
   programs.virt-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
