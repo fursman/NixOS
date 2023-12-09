@@ -23,7 +23,7 @@
   boot.loader.timeout = 0;
   boot.consoleLogLevel = 0;
   # Enable "quiet" output, "splash" screen and virtualization GPU options at boot
-  boot.kernelParams = ["quiet" "splash" "intel_iommu=on"];
+  # boot.kernelParams = ["quiet" "splash" "intel_iommu=on"];
     
   # These modules are required for PCI passthrough, and must come before early modesetting stuff
   boot.kernelModules = [ "vfio" "vfio_iommu_type1" "vfio_pci" "vfio_virqfd" ];
