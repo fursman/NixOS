@@ -30,7 +30,7 @@
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server.nix";
       sha256 = "1zx6y28nlqinr13q769fqpw82hb0sra9zmm40g7chiwg52b25rf7";
     };
-    sharedConfigurations = {
+    sharedConfiguration = {
       desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
