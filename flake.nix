@@ -30,7 +30,7 @@
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server.nix";
       sha256 = "1zx6y28nlqinr13q769fqpw82hb0sra9zmm40g7chiwg52b25rf7";
     };
-    sharedConfiguration = [
+    sharedConfiguration = ({ config, pkgs, ... }: {
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
@@ -462,8 +462,15 @@
           home.stateVersion = "23.11";
 
         ];  
-      };        
-    ];
+      }; 
+      environment.etc."wallpapers".source = pkgs.fetchFromGitHub {
+        owner = "fursman";
+        repo = "wallpaper";
+        rev = "main";
+        sha256 = "QDU4r+pJAOQknlNdZh18x9vh4/gj/itQ/GV4Zu0Tf9M=";
+      };
+      environment.etc."wallpapers".target = "wallpaper";
+    });
   in
   {
     nixosConfigurations = {
@@ -473,15 +480,6 @@
           ./hardware-configuration.nix
           desktopNix
           sharedConfiguration
-          ({ config, pkgs, ... }: {
-            environment.etc."wallpapers".source = pkgs.fetchFromGitHub {
-              owner = "fursman";
-              repo = "wallpaper";
-              rev = "main";
-              sha256 = "QDU4r+pJAOQknlNdZh18x9vh4/gj/itQ/GV4Zu0Tf9M=";
-            };
-            environment.etc."wallpapers".target = "wallpaper";
-          })
         ];  
       };        
     };
