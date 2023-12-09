@@ -209,7 +209,7 @@
 
   # Enable virt-manager Virtulization
   virtualisation.libvirtd.enable = true;
-  virtualization.libvirtd.qemu.ovmf = enabled;
+  virtualization.libvirtd.qemu.ovmf = "enabled";
   virtualization.libvirtd.onShutDown = "shutdown";
   
   programs.virt-manager.enable = true;
