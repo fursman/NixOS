@@ -194,9 +194,9 @@
     ];
   };
 
-  # OCI Containers Settings
+  # Virtualization Settings
   virtualisation = {
-    podman = {
+    podman = { # OCI Containers Settings
       enable = true;
       # Create a `docker` alias for podman, to use it as a drop-in replacement
       dockerCompat = true;
