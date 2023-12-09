@@ -30,7 +30,7 @@
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server.nix";
       sha256 = "1zx6y28nlqinr13q769fqpw82hb0sra9zmm40g7chiwg52b25rf7";
     };
-    sharedConfiguration = {
+    sharedConfiguration = [
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
@@ -463,7 +463,7 @@
 
         ];  
       };        
-    };
+    ];
   in
   {
     nixosConfigurations = {
