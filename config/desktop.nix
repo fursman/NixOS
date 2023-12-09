@@ -31,7 +31,7 @@
   boot.kernelModules = [ "vfio" "vfio_iommu_type1" "vfio_pci" "vfio_virqfd" ];
   
   # CHANGE: Don't forget to put your own PCI IDs here
-  boot.extraModprobeConfig ="options vfio-pci ids=1002:67b1,1002:aac8";
+  boot.extraModprobeConfig ="options vfio-pci ids=10de:249c,10de:228b";
 
   boot.supportedFilesystems = [ "ntfs" ];
 
