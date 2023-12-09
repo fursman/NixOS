@@ -208,7 +208,6 @@
     libvirtd = {
       enable = true;
       qemu.ovmf = "enabled";
-      onShutDown = "shutdown";
     };
   };
   programs.virt-manager.enable = true;
