@@ -24,7 +24,7 @@
     };
     desktopNix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/desktop.nix";
-      sha256 = "0bp7zcmfbasa2xsc0q0dm3xs6vykq6mzj4prlran40672x0jmhli";
+      sha256 = "1221d2kpp520vi0vgwkd9xrs1f6mly98w9cmkf6w46gbvh09dgkw";
     };
   in
   {
