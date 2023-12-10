@@ -20,8 +20,9 @@ This repository offers a simple yet powerful way to install and configure a NixO
    ```bash
    # Must be executed from within the /etc/nixos working directory.
    "sudo nixos-rebuild --flake .#desktop switch"
-   # Or, to pass your GPU to a virtual server in the same environment, use .#server to rebuild and update the GPU address in server.nix.
    ```
+   # ADVANCED CONFIGURATION: To pass your GPU to a virtual server use .#server to rebuild your system with exclusive GPU access for your VM.
+   # NOTE: this option requires a second GPU to display your desktop environment and you must update your GPU address in the server.nix config.
 
 ## What's Inside?
 
@@ -45,6 +46,7 @@ Fetches various configuration files and scripts from a remote repository:
 - **weatherScript**: Python script for weather information.
 - **spotlightDarkRasi**: Rofi theme.
 - **desktopNix**: Main NixOS system configuration for desktop systems.
+- **serverNix**: A decondary NixOS system configuration for NVIDIA GPU passthrough for virtual systems using Virt-Manager.
 
 ## Desktop Configuration
 
