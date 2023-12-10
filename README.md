@@ -20,8 +20,8 @@ This repository offers a simple yet powerful way to install and configure a NixO
    ```bash
    # Must be executed from within the /etc/nixos working directory.
    "sudo nixos-rebuild --flake .#desktop switch"
-   # ADVANCED CONFIGURATION: To pass your GPU to a virtual server use .#server to rebuild your system with exclusive GPU access for your VM.
-   # NOTE: this option requires a second GPU to display your desktop environment and you must update your GPU address in the server.nix config.
+   # ADVANCED CONFIGURATION: To pass your GPU to a virtual server use .#server to rebuild your system with exclusive GPU access for your virtual machine.
+   # NOTE: This option requires a second GPU to display your desktop environment and you must update your GPU address in the server.nix config.
    ```
 
 ## What's Inside?
