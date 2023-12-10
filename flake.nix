@@ -7,9 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
-
-  let
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }: let
     styleCss = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/waybar-style.css";
       sha256 = "0wjwqfq8b8lk58vs34sxx3b81hbkv4y40fpr2z024m6wiy59fq3f";
@@ -30,28 +28,28 @@
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server.nix";
       sha256 = "1zx6y28nlqinr13q769fqpw82hb0sra9zmm40g7chiwg52b25rf7";
     };
+
     sharedConfiguration = ({ config, pkgs, ... }: {
-      home-manager.nixosModules.home-manager {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.user = { pkgs, ... }: {
-          home.username = "user";
-          home.homeDirectory = "/home/user";
-          home.file.".local/share/rofi/themes/spotlight-dark.rasi".source = spotlightDarkRasi;
-          home.file.".config/rofi/config.rasi".text = ''
-            @theme "/home/user/.local/share/rofi/themes/spotlight-dark.rasi"
-          '';
-          home.file.".config/hypr/hyprpaper.conf".text = ''
-            ipc = on
-            preload = /etc/wallpaper/1.png
-            preload = /etc/wallpaper/2.png
-            preload = /etc/wallpaper/3.png
-            preload = /etc/wallpaper/4.png
-            preload = /etc/wallpaper/5.png
-            preload = /etc/wallpaper/6.png
-            preload = /etc/wallpaper/7.png
-            preload = /etc/wallpaper/8.png
-          '';
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
+      home-manager.users.user = { pkgs, ... }: {
+        home.username = "user";
+        home.homeDirectory = "/home/user";
+        home.file.".local/share/rofi/themes/spotlight-dark.rasi".source = spotlightDarkRasi;
+        home.file.".config/rofi/config.rasi".text = ''
+          @theme "/home/user/.local/share/rofi/themes/spotlight-dark.rasi"
+        '';
+        home.file.".config/hypr/hyprpaper.conf".text = ''
+          ipc = on
+          preload = /etc/wallpaper/1.png
+          preload = /etc/wallpaper/2.png
+          preload = /etc/wallpaper/3.png
+          preload = /etc/wallpaper/4.png
+          preload = /etc/wallpaper/5.png
+          preload = /etc/wallpaper/6.png
+          preload = /etc/wallpaper/7.png
+          preload = /etc/wallpaper/8.png
+        '';
 
           programs.home-manager.enable = true;
 
@@ -462,7 +460,8 @@
           home.stateVersion = "23.11";
 
         ];  
-      }; 
+      };
+
       environment.etc."wallpapers".source = pkgs.fetchFromGitHub {
         owner = "fursman";
         repo = "wallpaper";
@@ -471,6 +470,7 @@
       };
       environment.etc."wallpapers".target = "wallpaper";
     });
+
   in
   {
     nixosConfigurations = {
