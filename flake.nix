@@ -42,7 +42,6 @@
         home.homeDirectory = "/home/user";
 
         # Home Manager specific configurations
-        # Example:
         home.file.".local/share/rofi/themes/spotlight-dark.rasi".source = spotlightDarkRasi;
         home.file.".config/rofi/config.rasi".text = ''
           @theme "/home/user/.local/share/rofi/themes/spotlight-dark.rasi"
