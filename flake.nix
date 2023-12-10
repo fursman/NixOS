@@ -30,15 +30,22 @@
     };
 
     sharedConfiguration = ({ config, pkgs, ... }: {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
+
+      imports = [
+        home-manager.nixosModules.home-manager
+      ];
+
       home-manager.users.user = { pkgs, ... }: {
         home.username = "user";
         home.homeDirectory = "/home/user";
+
+        # Home Manager specific configurations
+        # Example:
         home.file.".local/share/rofi/themes/spotlight-dark.rasi".source = spotlightDarkRasi;
         home.file.".config/rofi/config.rasi".text = ''
           @theme "/home/user/.local/share/rofi/themes/spotlight-dark.rasi"
         '';
+
         home.file.".config/hypr/hyprpaper.conf".text = ''
           ipc = on
           preload = /etc/wallpaper/1.png
