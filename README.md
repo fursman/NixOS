@@ -7,7 +7,7 @@ This repository offers a simple yet powerful way to install and configure a NixO
 ## Quick Start
 
 1. **Initial Installation**: Install a minimal ISO NixOS from [NixOS Download](https://nixos.org/download).
-2. **Network Connection**: Connect with an Ethernet cable or use Network Monitor CLI `nmcli <device> wifi connect <mySSID> password <myPassword>` for a wireless connection.
+2. **Network Connection**: Connect with an Ethernet cable or use Network Monitor CLI `nmcli device wifi connect <mySSID> password <myPassword>` for a wireless connection.
 3. **Download `flake.nix` to `/etc/nixos/`**:
    ```bash
    # Change directory to the NixOs configurations home.
