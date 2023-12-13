@@ -69,11 +69,11 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.resolutions = [{ x = 3840; y = 2160; }];
+  #services.xserver.resolutions = [{ x = 3840; y = 2160; }];
 
   # Enable Greeter
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = true;
+  services.xserver.displayManager.ly.enable = true;
+  #services.xserver.displayManager.gdm.wayland = true;
 
   # Enagle the gnome-keyring
   services.gnome.gnome-keyring.enable = true;
