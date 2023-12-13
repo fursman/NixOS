@@ -69,7 +69,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.resolutions = { x = 3840; y = 2160; };
+  services.xserver.resolutions = [{ x = 3840; y = 2160; }];
 
   # Enable Greeter
   services.xserver.displayManager.gdm.enable = true;
