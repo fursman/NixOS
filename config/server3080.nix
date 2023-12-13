@@ -35,12 +35,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.systemd.enable = true;
-  # boot.initrd.verbose = false;
-  # boot.loader.timeout = 0;
-  # boot.consoleLogLevel = 0;
+  boot.initrd.verbose = false;
+  boot.loader.timeout = 0;
+  boot.consoleLogLevel = 0;
   # Enable "quiet" output, "splash" screen and virtualization GPU options at boot
-  # boot.kernelParams = [ "quiet" "splash" "intel_iommu=on" ];
-  boot.kernelParams = [ "intel_iommu=on" ];
+  boot.kernelParams = [ "quiet" "splash" "intel_iommu=on" ];
 
   boot.supportedFilesystems = [ "ntfs" ];
 
