@@ -29,8 +29,11 @@
   boot.extraModprobeConfig ="options vfio-pci ids=10de:249c,10de:228b";
 
   # Enable plymouth
-  boot.plymouth.enable = true;
-  boot.plymouth.themePackages = "owl";
+  boot.plymouth = {
+    enable = true;
+    theme = "owl";
+    themePackages = [(pkgs.adi1090x-plymouth-themes.override {selected_themes = ["owl"];})];
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
