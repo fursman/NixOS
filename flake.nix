@@ -142,7 +142,7 @@
                 "tooltip" = false;
                 "on-scroll-down" = "/usr/local/bin/hyprctl dispatch workspace m+1";
                 "on-scroll-up" = "/usr/local/bin/hyprctl dispatch workspace m-1";
-                "on-click" = "hyprctl hyprpaper wallpaper eDP-1,/etc/wallpaper/$((RANDOM%8+1)).png";
+                "on-click" = "hyprctl hyprpaper wallpaper eDP-1,/etc/wallpaper/$((RANDOM%8+1)).png & hyprctl hyprpaper wallpaper HDMI-A-1,/etc/wallpaper/$((RANDOM%8+1)).png";
             };
             "wlr/taskbar" = {
               "on-click" = "activate";
