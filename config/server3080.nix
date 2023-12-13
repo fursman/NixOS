@@ -72,7 +72,7 @@
   #services.xserver.resolutions = [{ x = 3840; y = 2160; }];
 
   # Enable Greeter
-  services.xserver.displayManager.ly.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
   #services.xserver.displayManager.gdm.wayland = true;
 
   # Enagle the gnome-keyring
