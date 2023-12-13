@@ -29,7 +29,7 @@
   boot.extraModprobeConfig ="options vfio-pci ids=10de:249c,10de:228b";
 
   # Enable plymouth
-  # boot.plymouth.enable = true;
+  boot.plymouth.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -179,6 +179,7 @@
   environment.systemPackages = with pkgs; [
     git
     ntfs3g
+    adi1090x-plymouth-themes
     podman-desktop
   ];
 
