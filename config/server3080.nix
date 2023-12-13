@@ -47,7 +47,7 @@
 
   boot.supportedFilesystems = [ "ntfs" ];
 
-  networking.hostName = "NixOS"; # Define your hostname.
+  networking.hostName = "Blade"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -69,6 +69,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.resolutions = { x = 3840; y = 2160; };
 
   # Enable Greeter
   services.xserver.displayManager.gdm.enable = true;
