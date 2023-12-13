@@ -30,6 +30,7 @@
 
   # Enable plymouth
   boot.plymouth.enable = true;
+  boot.plymouth.themePackages = "owl";
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
