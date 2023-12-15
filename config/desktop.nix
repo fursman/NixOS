@@ -13,7 +13,11 @@
   };
 
   # Enable plymouth
-  boot.plymouth.enable = true;
+  boot.plymouth = {
+    enable = true;
+    theme = "Abstract Rings";
+    themePackages = [(pkgs.adi1090x-plymouth-themes.override {selected_themes = ["Abstract Rings"];})];
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
