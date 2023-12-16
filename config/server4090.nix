@@ -29,7 +29,11 @@
   boot.extraModprobeConfig ="options vfio-pci ids=10de:2684,10de:22ba";
 
   # Enable plymouth
-  # boot.plymouth.enable = true;
+  # boot.plymouth = {
+  #   enable = true;
+  #   theme = "owl";
+  #   themePackages = [(pkgs.adi1090x-plymouth-themes.override {selected_themes = ["owl"];})];
+  # };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -68,14 +72,13 @@
   services.xserver.enable = true;
 
   # Enable Greeter
-  services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
 
   # Enagle the gnome-keyring
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.greetd.enableGnomeKeyring = true;
 
   # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
 
   # Enable Mouse in Hyprland
@@ -84,6 +87,11 @@
   # Enable Hyprlnd
   programs.hyprland.enable = true;
   programs.hyprland.enableNvidiaPatches = true;
+
+  # Enable xfce dbus communication (for Thunar)
+  services.dbus.packages = with pkgs; [
+    xfce.xfconf
+  ];
 
   # Fonts Packages
   fonts.packages = with pkgs; [
