@@ -46,7 +46,7 @@ Fetches various configuration files and scripts from a remote repository:
 - **weatherScript**: Python script for weather information.
 - **spotlightDarkRasi**: Rofi theme.
 - **desktopNix**: Main NixOS system configuration for desktop systems.
-- **serverNix**: A decondary NixOS system configuration for NVIDIA GPU passthrough for virtual systems using Virt-Manager.
+- **serverNix Files**: Alternatice NixOS system configurations for NVIDIA GPU passthrough on virtual systems using Virt-Manager.
 
 ## Desktop Configuration
 
