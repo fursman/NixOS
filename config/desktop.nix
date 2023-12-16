@@ -15,8 +15,8 @@
   # Enable plymouth
   boot.plymouth = {
     enable = true;
-    theme = "abstract_rings";
-    themePackages = [(pkgs.adi1090x-plymouth-themes.override {selected_themes = ["abstract_rings"];})];
+    theme = "abstract-rings";
+    themePackages = [(pkgs.adi1090x-plymouth-themes.override {selected_themes = ["abstract-rings"];})];
   };
 
   # Bootloader.
