@@ -458,6 +458,7 @@
           signal-desktop
           steam           
           xfce.thunar
+          xfce.tumbler
           gnome.eog
           links2
           wget
