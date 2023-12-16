@@ -89,6 +89,11 @@
   programs.hyprland.enable = true;
   programs.hyprland.enableNvidiaPatches = true;
 
+  # Enable xfce dbus communication (for Thunar)
+  services.dbus.packages = with pkgs; [
+    xfce.xfconf
+  ];
+
   # Fonts Packages
   fonts.packages = with pkgs; [
     font-awesome
