@@ -22,15 +22,15 @@
     };
     desktopNix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/desktop.nix";
-      sha256 = "0irwhrvc434h1w5kd1mj9705c4cz4yl5681kjbyp2zkf9ckpfxi6";
+      sha256 = "0dwb2lvajagw0p7dkzynmkzgbjgapvvk6k2qlal5n31ilvnhsh0r";
     };
     server3080Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server3080.nix";
-      sha256 = "1nbc1i5n3hsj14ahgch90cl67q12zq1v9kf0cfg5w7mvgi70djwb";
+      sha256 = "0d2pvixaxmvars4lnxw2zq01xhxr2l976np62a9k1qxqjx5bjcyj";
     };
     server4090Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server4090.nix";
-      sha256 = "0268v8vgj1x9bq15k4x3jlm2zfabarspz6rpi2ck3sd6dqv7d4fd";
+      sha256 = "0r7x8hyg169738i4zdcwswmcjakss0dvliwxa3awjdjffshpid7w";
     };
     
     sharedConfiguration = ({ config, pkgs, ... }: {
