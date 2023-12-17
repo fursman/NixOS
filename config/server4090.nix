@@ -28,23 +28,22 @@
   # CHANGE: Don't forget to put your own PCI IDs here (run lspci -nn and look for NVIDIA)
   boot.extraModprobeConfig ="options vfio-pci ids=10de:2684,10de:22ba";
 
-  # Enable plymouth
-  # boot.plymouth = {
-  #   enable = true;
-  #   theme = "owl";
-  #   themePackages = [(pkgs.adi1090x-plymouth-themes.override {selected_themes = ["owl"];})];
-  # };
+  Enable plymouth
+  boot.plymouth = {
+    enable = true;
+    theme = "owl";
+    themePackages = [(pkgs.adi1090x-plymouth-themes.override {selected_themes = ["owl"];})];
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.systemd.enable = true;
-  # boot.initrd.verbose = false;
-  # boot.loader.timeout = 0;
-  # boot.consoleLogLevel = 0;
+  boot.initrd.verbose = false;
+  boot.loader.timeout = 0;
+  boot.consoleLogLevel = 0;
   # Enable "quiet" output, "splash" screen and virtualization GPU options at boot
-  # boot.kernelParams = [ "quiet" "splash" "intel_iommu=on" ];
-  boot.kernelParams = [ "intel_iommu=on" ];
+  boot.kernelParams = [ "quiet" "splash" "intel_iommu=on" ];
 
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -73,6 +72,7 @@
 
   # Enable Greeter
   services.xserver.displayManager.gdm.wayland = true;
+  services.xserver.displayManager.gdm = true;
 
   # Enagle the gnome-keyring
   services.gnome.gnome-keyring.enable = true;
