@@ -31,8 +31,8 @@
   # Enable plymouth
   boot.plymouth = {
     enable = true;
-    theme = "red-loader";
-    themePackages = [(pkgs.adi1090x-plymouth-themes.override {selected_themes = ["red-loader"];})];
+    theme = "red_loader";
+    themePackages = [(pkgs.adi1090x-plymouth-themes.override {selected_themes = ["red_loader"];})];
   };
 
   # Bootloader.
