@@ -472,10 +472,15 @@
           vscode.fhs
           gnome.seahorse
           imagemagick
+          neofetch
         ];
           
         home.stateVersion = "23.11";
       };
+
+      environment.interactiveShellInit = ''
+        neofetch
+      '';
 
       environment.etc."wallpapers".source = pkgs.fetchFromGitHub {
         owner = "fursman";
