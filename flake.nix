@@ -53,14 +53,14 @@
 
         home.file.".config/hypr/hyprpaper.conf".text = ''
           ipc = on
-          preload = /etc/wallpaper/1.png
-          preload = /etc/wallpaper/2.png
-          preload = /etc/wallpaper/3.png
-          preload = /etc/wallpaper/4.png
-          preload = /etc/wallpaper/5.png
-          preload = /etc/wallpaper/6.png
-          preload = /etc/wallpaper/7.png
-          preload = /etc/wallpaper/8.png
+          preload = /etc/wallpaper/1.jpg
+          preload = /etc/wallpaper/2.jpg
+          preload = /etc/wallpaper/3.jpg
+          preload = /etc/wallpaper/4.jpg
+          preload = /etc/wallpaper/5.jpg
+          preload = /etc/wallpaper/6.jpg
+          preload = /etc/wallpaper/7.jpg
+          preload = /etc/wallpaper/8.jpg
         '';
 
         programs.home-manager.enable = true;
@@ -144,7 +144,7 @@
                 "tooltip" = false;
                 "on-scroll-down" = "/usr/local/bin/hyprctl dispatch workspace m+1";
                 "on-scroll-up" = "/usr/local/bin/hyprctl dispatch workspace m-1";
-                "on-click" = "hyprctl hyprpaper wallpaper eDP-1,/etc/wallpaper/$((RANDOM%8+1)).png & hyprctl hyprpaper wallpaper HDMI-A-1,/etc/wallpaper/$((RANDOM%8+1)).png";
+                "on-click" = "hyprctl hyprpaper wallpaper eDP-1,/etc/wallpaper/$((RANDOM%8+1)).jpg & hyprctl hyprpaper wallpaper HDMI-A-1,/etc/wallpaper/$((RANDOM%8+1)).jpg";
             };
             "wlr/taskbar" = {
               "on-click" = "activate";
@@ -243,8 +243,8 @@
         # Execute your favorite apps at launch
         exec-once = waybar
         exec-once = hyprpaper
-        exec-once = sleep 8 ; hyprctl hyprpaper wallpaper eDP-1,/etc/wallpaper/$((RANDOM%8+1)).png
-        exec-once = sleep 9 ; hyprctl hyprpaper wallpaper HDMI-A-1,/etc/wallpaper/$((RANDOM%8+1)).png
+        exec-once = sleep 8 ; hyprctl hyprpaper wallpaper eDP-1,/etc/wallpaper/$((RANDOM%8+1)).jpg
+        exec-once = sleep 9 ; hyprctl hyprpaper wallpaper HDMI-A-1,/etc/wallpaper/$((RANDOM%8+1)).jpg
         exec-once = sleep 10 ; hyprctl keyword misc:disable_hyprland_logo true
         
         # Some default env vars.
@@ -479,9 +479,9 @@
 
       environment.etc."wallpapers".source = pkgs.fetchFromGitHub {
         owner = "fursman";
-        repo = "wallpaper";
+        repo = "Wallpaper";
         rev = "main";
-        sha256 = "QDU4r+pJAOQknlNdZh18x9vh4/gj/itQ/GV4Zu0Tf9M=";
+        sha256 = "AnAPMin0vNQxvl10fRnBJCG27Q2GsgQ4I+8jzqfo7M4=";
       };
       environment.etc."wallpapers".target = "wallpaper";
     });
