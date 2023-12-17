@@ -28,11 +28,11 @@
   # CHANGE: Don't forget to put your own PCI IDs here (run lspci -nn and look for NVIDIA)
   boot.extraModprobeConfig ="options vfio-pci ids=10de:2684,10de:22ba";
 
-  Enable plymouth
+  # Enable plymouth
   boot.plymouth = {
     enable = true;
-    theme = "owl";
-    themePackages = [(pkgs.adi1090x-plymouth-themes.override {selected_themes = ["owl"];})];
+    theme = "red-loader";
+    themePackages = [(pkgs.adi1090x-plymouth-themes.override {selected_themes = ["red-loader"];})];
   };
 
   # Bootloader.
