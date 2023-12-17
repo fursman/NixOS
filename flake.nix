@@ -30,7 +30,7 @@
     };
     server4090Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server4090.nix";
-      sha256 = "14b83hwrjmjy83pwg03k51v65sghcsy3zvhxzi01rvipaqbkdxg2";
+      sha256 = "03g5w41qvyi1l052px3a724nb7yl0ymmvav8g5fw8j0nvbrg5cbh";
     };
     
     sharedConfiguration = ({ config, pkgs, ... }: {
