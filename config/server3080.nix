@@ -73,7 +73,7 @@
 
   # Enable Greeter
   services.xserver.displayManager.gdm.wayland = true;
-  services.xserver.displayManager.gdm = true;
+  services.xserver.displayManager.gdm.enable = true;
 
   # Enagle the gnome-keyring
   services.gnome.gnome-keyring.enable = true;
