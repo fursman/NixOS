@@ -473,6 +473,7 @@
           gnome.seahorse
           imagemagick
           neofetch
+          waypipe
         ];
           
         home.stateVersion = "23.11";
