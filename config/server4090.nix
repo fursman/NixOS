@@ -232,8 +232,10 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
-    allowTcpForwarding = true;
-    gatewayPorts = "clientspecified";
+    extraConfig = ''
+      allowTcpForwarding yes
+      gatewayPorts clientspecified
+    '';
   };
 
   # Open ports in the firewall.
