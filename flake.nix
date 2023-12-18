@@ -148,19 +148,19 @@
                 "on-scroll-up" = "/usr/local/bin/hyprctl dispatch workspace m-1";
                 "on-click" = "hyprctl hyprpaper wallpaper eDP-1,/etc/wallpaper/$((RANDOM%8+1)).jpg & hyprctl hyprpaper wallpaper HDMI-A-1,/etc/wallpaper/$((RANDOM%8+1)).jpg";
             };
-          	"custom/disk_root": {
-          		"format": " {} ",
-          		"interval": 30,
-          		"exec": "df -h --output=avail / | tail -1 | tr -d ' '"
+          	"custom/disk" = {
+          		"format" = " {} ";
+          		"interval" = 30;
+          		"exec" = "df -h --output=used / | tail -1 | tr -d ' '";
           	};
             "wlr/taskbar" = {
               "on-click" = "activate";
               "on-click-middle" = "close";
             };
             "backlight": {
-          		// "device": "acpi_video1",
-          		"format": "{icon} {percent}%",
-          		"format-icons": ["󰃚", "󰃛", "󰃜", 󰃝", "󰃞", "󰃟", "󰃠"]
+          		"device" = "acpi_video1";
+          		"format" = "{icon} {percent}%";
+          		"format-icons" = [ "" ];
           	};
             "battery" = {
               "interval" = 10;
