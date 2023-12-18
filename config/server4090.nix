@@ -47,7 +47,10 @@
 
   boot.supportedFilesystems = [ "ntfs" ];
 
-  networking.hostName = "Block"; # Define your hostname.
+  networking = {
+    hostName = "Block"; # Define your hostname.
+    allowedTCPPorts = [ 7860 ];
+  };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
