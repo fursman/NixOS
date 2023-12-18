@@ -111,7 +111,7 @@
             "height" = 30;
             "modules-left" = ["hyprland/workspaces" "custom/weather" "custom/spaces" "wlr/taskbar"];
             "modules-center" = ["hyprland/window"];
-            "modules-right" = ["network" "memory" "cpu" "temperature" "tray" "pulseaudio" "battery" "clock#date" "clock#time" ];
+            "modules-right" = [ "tray" "network" "memory" "cpu" "temperature" "pulseaudio" "battery" "clock#date" "clock#time" ];
             "hyprland/workspaces" = {
               "on-click" = "activate";
               "format" = "{icon}";
