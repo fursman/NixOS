@@ -49,7 +49,7 @@
 
   networking = {
     hostName = "Block"; # Define your hostname.
-    firewall.allowedTCPPorts = [ 80 ];
+    firewall.allowedTCPPorts = [ 7860 ];
   };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
