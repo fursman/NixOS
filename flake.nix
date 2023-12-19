@@ -111,7 +111,7 @@
             "height" = 30;
             "modules-left" = ["hyprland/workspaces" "custom/weather" "custom/spaces" "wlr/taskbar"];
             "modules-center" = ["hyprland/window"];
-            "modules-right" = [ "tray" "network" "disk_root" "memory" "cpu" "temperature" "pulseaudio" "backlight" "battery" "clock#date" "clock#time" ];
+            "modules-right" = [ "tray" "network" "disk" "memory" "cpu" "temperature" "pulseaudio" "backlight" "battery" "clock#date" "clock#time" ];
             "hyprland/workspaces" = {
               "on-click" = "activate";
               "format" = "{icon}";
@@ -142,25 +142,25 @@
               "return-type" = "json";
             };
             "custom/spaces" = {
-                "format" = "  ";
-                "tooltip" = false;
-                "on-scroll-down" = "/usr/local/bin/hyprctl dispatch workspace m+1";
-                "on-scroll-up" = "/usr/local/bin/hyprctl dispatch workspace m-1";
-                "on-click" = "hyprctl hyprpaper wallpaper eDP-1,/etc/wallpaper/$((RANDOM%8+1)).jpg & hyprctl hyprpaper wallpaper HDMI-A-1,/etc/wallpaper/$((RANDOM%8+1)).jpg";
+              "format" = "  ";
+              "tooltip" = false;
+              "on-scroll-down" = "/usr/local/bin/hyprctl dispatch workspace m+1";
+              "on-scroll-up" = "/usr/local/bin/hyprctl dispatch workspace m-1";
+              "on-click" = "hyprctl hyprpaper wallpaper eDP-1,/etc/wallpaper/$((RANDOM%8+1)).jpg & hyprctl hyprpaper wallpaper HDMI-A-1,/etc/wallpaper/$((RANDOM%8+1)).jpg";
             };
           	"custom/disk" = {
-          		"format" = " {} ";
-          		"interval" = 30;
-          		"exec" = "df -h --output=used / | tail -1 | tr -d ' '";
+              "format" = " {} ";
+              "interval" = 30;
+              "exec" = "df -h --output=used / | tail -1 | tr -d ' '";
           	};
             "wlr/taskbar" = {
               "on-click" = "activate";
               "on-click-middle" = "close";
             };
             "backlight" = {
-          		"device" = "acpi_video1";
-          		"format" = "{icon} {percent}%";
-          		"format-icons" = [ "" ];
+              "device" = "acpi_video1";
+              "format" = "{icon} {percent}%";
+              "format-icons" = [ "" ];
           	};
             "battery" = {
               "interval" = 10;
