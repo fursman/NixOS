@@ -111,7 +111,7 @@
             "height" = 30;
             "modules-left" = ["hyprland/workspaces" "custom/weather" "custom/spaces" "wlr/taskbar"];
             "modules-center" = ["hyprland/window"];
-            "modules-right" = [ "tray" "network" "disk" "memory" "cpu" "temperature" "pulseaudio" "backlight" "battery" "clock#date" "clock#time" ];
+            "modules-right" = [ "tray" "network" "bluetooth" "disk" "memory" "cpu" "temperature" "pulseaudio" "backlight" "battery" "clock#date" "clock#time" ];
             "hyprland/workspaces" = {
               "on-click" = "activate";
               "format" = "{icon}";
@@ -148,6 +148,16 @@
               "on-scroll-up" = "/usr/local/bin/hyprctl dispatch workspace m-1";
               "on-click" = "hyprctl hyprpaper wallpaper eDP-1,/etc/wallpaper/$((RANDOM%8+1)).jpg & hyprctl hyprpaper wallpaper HDMI-A-1,/etc/wallpaper/$((RANDOM%8+1)).jpg";
             };
+            "bluetooth": {
+            	"format": " {status}",
+            	"format-connected": " {device_alias}",
+            	"format-connected-battery": " {device_alias} {device_battery_percentage}%",
+            	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+            	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+            	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+            	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+            	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+            }
             "disk" = {
               "interval" = 30;
               "format" = " {percentage_used}% {path}";
