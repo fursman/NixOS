@@ -10,7 +10,7 @@
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: let
     styleCss = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/waybar-style.css";
-      sha256 = "0wjwqfq8b8lk58vs34sxx3b81hbkv4y40fpr2z024m6wiy59fq3f";
+      sha256 = "0g6b7xlmgvnj8c5lcjnx6pmz3gk7f47w0gwf0vyjrs4k1bqvm5l2";
     };
     weatherScript = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/weather-script.py";
@@ -22,15 +22,15 @@
     };
     desktopNix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/desktop.nix";
-      sha256 = "1vxacy6b2cky5awd5rzpmazblsxas2655fqsx8dwhgqr8342ads1";
+      sha256 = "1waf302p89kxxj8wknl2faqnzkr1h69a71vc831yv98rllll57nj";
     };
     server3080Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server3080.nix";
-      sha256 = "1r7fhm8syzy2jx9dqqqf04wjrnanjjs1kvd1b7s2imvqscgi86ki";
+      sha256 = "194j4lssjlidvickaxfvr6vhxh99l6c60zb29jcwai50cvbkiak1";
     };
     server4090Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server4090.nix";
-      sha256 = "1021wh0a3q1xyanvdldixl7s3q5d2wjcg3zqg5yyknbqrrarr8kk";
+      sha256 = "0w7hrlpdlzf32w3qlbdrxi3cw9mgkvkg3fcv1s1jzllpkcfxqxcm";
     };
     
     sharedConfiguration = ({ config, pkgs, ... }: {
