@@ -264,9 +264,9 @@
         # Execute your favorite apps at launch
         exec-once = waybar
         exec-once = hyprpaper
-        exec-once = sleep 8 ; hyprctl hyprpaper wallpaper eDP-1,/etc/wallpaper/$((RANDOM%8+1)).jpg
-        exec-once = sleep 9 ; hyprctl hyprpaper wallpaper HDMI-A-1,/etc/wallpaper/$((RANDOM%8+1)).jpg
-        exec-once = sleep 10 ; hyprctl keyword misc:disable_hyprland_logo true
+        exec-once = sleep 3 ; hyprctl hyprpaper wallpaper eDP-1,/etc/wallpaper/$((RANDOM%8+1)).jpg
+        exec-once = sleep 4 ; hyprctl hyprpaper wallpaper HDMI-A-1,/etc/wallpaper/$((RANDOM%8+1)).jpg
+        exec-once = sleep 5 ; hyprctl keyword misc:disable_hyprland_logo true
         
         # Some default env vars.
         env = XCURSOR_SIZE,48
