@@ -157,10 +157,10 @@
               "on-click" = "activate";
               "on-click-middle" = "close";
             };
-            "backlight": {
+            "backlight" = {
           		"device" = "acpi_video1";
           		"format" = "{icon} {percent}%";
-          		"format-icons" = [ "" ];
+          		"format-icons" = [ "" ];
           	};
             "battery" = {
               "interval" = 10;
