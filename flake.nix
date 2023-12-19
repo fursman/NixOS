@@ -10,7 +10,7 @@
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: let
     styleCss = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/waybar-style.css";
-      sha256 = "0g6b7xlmgvnj8c5lcjnx6pmz3gk7f47w0gwf0vyjrs4k1bqvm5l2";
+      sha256 = "0nqlpdbwpzswn96kl0z98rb37p2jc8cz5d1ilxcr18icxzrizbxi";
     };
     weatherScript = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/weather-script.py";
