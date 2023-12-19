@@ -111,9 +111,9 @@ window#waybar.hidden {
     padding-right: 10px;
 }
 
-#pulseaudio, #battery, #network, #cpu, #memory, #temperature, #clock, #date, #window {
+#network, #disk, #memory, #cpu, #temperature, #pulseaudio, #backlight, #battery, #clock, #date, #window {
     color: #FFFFFF;
-    font-size: 20px;
+    font-size: 15px;
     padding-left: 10px;
     padding-right: 10px;
     background-color: transparent;
