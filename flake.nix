@@ -32,6 +32,10 @@
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server4090.nix";
       sha256 = "1p046y5hzav99014kkxcfm9vixfrd0rshf4nv17k28dz4n84f1cb";
     };
+    server1060Nix = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server1060.nix";
+      sha256 = "0cp83viq8z5if3nnii8ys4lj5crzia508dcaf32xlldj9yiapbfn";
+    };
     
     sharedConfiguration = ({ config, pkgs, ... }: {
       imports = [
@@ -159,7 +163,7 @@
             };
             "disk" = {
               "interval" = 30;
-              "format" = " {percentage_used}% {path}";
+              "format" = " {path} {percentage_used}%";
               "path" = "/";
             };
             "wlr/taskbar" = {
@@ -524,6 +528,14 @@
           sharedConfiguration
         ];  
       };  
+      rack = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hardware-configuration.nix
+          server1060Nix
+          sharedConfiguration
+        ];  
+      };   
       blade = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
