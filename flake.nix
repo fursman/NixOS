@@ -34,7 +34,7 @@
     };
     server1060Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server1060.nix";
-      sha256 = "1br7yzb9kd75hyga3kr7d52jc2f8iyh4gkb7cr05wj2gw4cs7hxq";
+      sha256 = "0qy517pybhy49q4xrii8qzav1gyblxxc15l2bqyhmyn0jyrxaf62";
     };
     
     sharedConfiguration = ({ config, pkgs, ... }: {
