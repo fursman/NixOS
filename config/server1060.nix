@@ -167,6 +167,7 @@
     git
     ntfs3g
     podman-desktop
+    cudaPackages.cudatoolkit
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
