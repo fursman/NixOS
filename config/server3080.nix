@@ -190,6 +190,7 @@
     ntfs3g
     adi1090x-plymouth-themes
     podman-desktop
+    cudaPackages.cudatoolkit
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
