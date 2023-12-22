@@ -489,6 +489,7 @@
           xfce.thunar
           xfce.tumbler
           gnome.eog
+          gnome.gnome-system-monitor
           links2
           wget
           vlc
