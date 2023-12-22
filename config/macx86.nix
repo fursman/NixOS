@@ -12,10 +12,6 @@
     '';
   };
 
-  environment.etc."tmpfiles.d/bluetooth.conf".text = ''
-    d /var/lib/bluetooth 0555 root root -
-  '';
-
   # Enable plymouth
   # boot.plymouth = {
   #   enable = true;
@@ -23,7 +19,7 @@
   #   themePackages = [(pkgs.adi1090x-plymouth-themes.override {selected_themes = ["abstract_ring"];})];
   # };
 
-  # Bootloader.
+  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.systemd.enable = true;
