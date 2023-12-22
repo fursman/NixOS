@@ -42,6 +42,17 @@
 
   # Bluethooth
   hardware.enableAllFirmware = true;
+  hardware.firmware = with pkgs; [
+    (stdenv.mkDerivation {
+      name = "broadcom-bt-firmware";
+      src = /lib/btfirmware.hcd;
+      phases = [ "installPhase" ];
+      installPhase = ''
+        mkdir -p $out/lib/firmware/brcm
+        cp $src $out/lib/firmware/brcm/
+      '';
+    })
+  ];
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
