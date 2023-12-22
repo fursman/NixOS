@@ -12,6 +12,10 @@
     '';
   };
 
+  environment.etc."tmpfiles.d/bluetooth.conf".text = ''
+    d /var/lib/bluetooth 0555 root root -
+  '';
+
   # Enable plymouth
   # boot.plymouth = {
   #   enable = true;
