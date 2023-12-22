@@ -38,7 +38,7 @@
     };
     macx86Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/macx86.nix";
-      sha256 = "0l4wwqiazzvgbkawkyv9pyl1650qz0sf3zgpm281rij2y1pb195m";
+      sha256 = "1lys4drqnlsp41qvkdjiwc0f9rl8d3qzslp45499y573f6mz5bk5";
     };
 
     sharedConfiguration = ({ config, pkgs, ... }: {
