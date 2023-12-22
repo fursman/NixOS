@@ -560,7 +560,7 @@
         system = "x86_64-linux";
         modules = [
           ./hardware-configuration.nix
-          macNix
+          macx86Nix
           sharedConfiguration
         ];  
       }; 
