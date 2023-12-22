@@ -28,6 +28,8 @@
   # boot.consoleLogLevel = 0;
   # boot.kernelParams = [ "quiet" "splash" ];
 
+  boot.kernelModules = [ "btusb" ];
+
   boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "MacbookX86"; # Define your hostname.
