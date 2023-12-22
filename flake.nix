@@ -36,7 +36,11 @@
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server1060.nix";
       sha256 = "0qy517pybhy49q4xrii8qzav1gyblxxc15l2bqyhmyn0jyrxaf62";
     };
-    
+    macx86Nix = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/macx86.nix";
+      sha256 = "";
+    };
+
     sharedConfiguration = ({ config, pkgs, ... }: {
       imports = [
         home-manager.nixosModules.home-manager
@@ -549,6 +553,14 @@
         modules = [
           ./hardware-configuration.nix
           server4090Nix
+          sharedConfiguration
+        ];  
+      };
+      macx86 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hardware-configuration.nix
+          macNix
           sharedConfiguration
         ];  
       }; 
