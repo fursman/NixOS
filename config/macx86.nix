@@ -41,6 +41,7 @@
   networking.networkmanager.enable = true;
 
   # Bluethooth
+  hardware.enableAllFirmware = true;
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
