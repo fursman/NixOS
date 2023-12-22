@@ -166,6 +166,7 @@
   environment.systemPackages = with pkgs; [
     git
     ntfs3g
+    linuxPackages.nvidia_x11
     nvidia-podman
     podman-desktop
     cudaPackages.cudatoolkit
