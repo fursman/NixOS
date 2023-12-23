@@ -397,6 +397,7 @@
         bind = $mainMod, X, exec, wlogout --protocol layer-shell
         bind = $mainMod, B, exec, firefox
         bind = $mainMod, F, exec, thunar
+        bind = $mainMod, A, exec, pavucontrol
         bind = $mainMod, P, exec, podman-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
         # bind = $mainMod, C, exec, code --password-store="gnome" --use-gl=desktop
         bind = $mainMod, C, exec, code --password-store="gnome"
@@ -490,6 +491,7 @@
           xfce.tumbler
           gnome.eog
           gnome.gnome-system-monitor
+          pavucontrol
           links2
           wget
           vlc
