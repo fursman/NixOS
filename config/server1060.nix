@@ -12,18 +12,10 @@
     '';
   };
 
-  # Enable plymouth
-  boot.plymouth = {
-    enable = true;
-    theme = "abstract_ring";
-    themePackages = [(pkgs.adi1090x-plymouth-themes.override {selected_themes = ["abstract_ring"];})];
-  };
-
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
-
   boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "Rack"; # Define your hostname.
