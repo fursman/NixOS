@@ -546,7 +546,7 @@
           server4090Nix
           sharedConfiguration
         ];  
-      };1gphalasxd7znrw6jrqsg1s85yjhixv715rapa2jc6zhw47kpw0r
+      };
       macx86 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
