@@ -189,8 +189,6 @@
     git
     ntfs3g
     adi1090x-plymouth-themes
-    podman-desktop
-    cudaPackages.cudatoolkit
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -206,15 +204,6 @@
 
   # Virtualization Settings
   virtualisation = {
-    docker = { # OCI Containers Settings
-      enable = true;
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      # dockerCompat = true;
-      # Required for containers under podman-compose to be able to talk to each other.
-      # defaultNetwork.settings.dns_enabled = true;
-      # Nvidia Enabled
-      enableNvidia = true;
-    };
     libvirtd = {
       enable = true;
       qemu.ovmf.enable = true;
