@@ -170,7 +170,6 @@
   environment.systemPackages = with pkgs; [
     git
     ntfs3g
-    podman-desktop
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -186,15 +185,6 @@
 
   # Virtualization Settings
   virtualisation = {
-    podman = { # OCI Containers Settings
-      enable = true;
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-      # Nvidia Enabled
-      enableNvidia = true;
-    };
     libvirtd = {
       enable = true;
       qemu.ovmf.enable = false;
