@@ -32,6 +32,10 @@
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server4090.nix";
       sha256 = "10i724s93bd7gb9znni9g0ijkzv7fhvhvkz85ly9i7n1cyql0jf2";
     };
+    server3060Nix = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server3060.nix";
+      sha256 = "10i724s93bd7gb9znni9g0ijkzv7fhvhvkz85ly9i7n1cyql0jf2";
+    };
     macx86Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/macx86.nix";
       sha256 = "1azdqibdwvccwsxzbg4vcmfbdc80xc6mbd05qgw7h0s9v0hhs41s";
@@ -534,6 +538,14 @@
         modules = [
           ./hardware-configuration.nix
           server3080Nix
+          sharedConfiguration
+        ];  
+      };
+      pile = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hardware-configuration.nix
+          server3060Nix
           sharedConfiguration
         ];  
       };   
