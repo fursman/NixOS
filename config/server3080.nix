@@ -104,9 +104,6 @@
   # Enable GVfs
   services.gvfs.enable = true;
 
-  # Enable VS Code for Wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
   # Enable PAM Config for Swaylock-effects
   security.pam.services.swaylock = {
     text = ''
