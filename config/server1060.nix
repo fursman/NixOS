@@ -37,8 +37,8 @@
   networking.networkmanager.enable = true;
 
   # Bluethooth
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  # hardware.bluetooth.enable = true;
+  # services.blueman.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Vancouver";
@@ -83,7 +83,7 @@
   services.gvfs.enable = true;
 
   # Enable VS Code for Wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  # environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Enable PAM Config for Swaylock-effects
   security.pam.services.swaylock = {
@@ -165,10 +165,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
-    ntfs3g
     linuxPackages.nvidia_x11
-    nvidia-podman
-    podman-desktop
     cudaPackages.cudatoolkit
   ];
 
@@ -179,7 +176,7 @@
     extraGroups = [ 
       "networkmanager"
       "wheel"
-      "libvirtd" #Necessary for virt-manager
+      # "libvirtd" #Necessary for virt-manager
     ];
   };
 
@@ -194,12 +191,8 @@
       # Nvidia Enabled
       enableNvidia = true;
     };
-    libvirtd = {
-      enable = true;
-      qemu.ovmf.enable = false;
-    };
   };
-  programs.virt-manager.enable = true;
+  # programs.virt-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
