@@ -42,7 +42,6 @@
   boot.initrd.verbose = false;
   boot.loader.timeout = 0;
   boot.consoleLogLevel = 0;
-  # Enable "quiet" output, "splash" screen and virtualization GPU options at boot
   boot.kernelParams = [ "quiet" "splash" "intel_iommu=on" ];
 
   boot.supportedFilesystems = [ "ntfs" ];
@@ -100,9 +99,6 @@
   # Enable GVfs
   services.gvfs.enable = true;
 
-  # Enable VS Code for Wayland
-  # environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
   # Enable PAM Config for Swaylock-effects
   security.pam.services.swaylock = {
     text = ''
@@ -157,7 +153,6 @@
   environment.systemPackages = with pkgs; [
     git
     ntfs3g
-    podman-desktop
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -173,15 +168,6 @@
 
   # Virtualization Settings
   virtualisation = {
-    podman = { # OCI Containers Settings
-      enable = true;
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-      # Nvidia Enabled
-      enableNvidia = true;
-    };
     libvirtd = {
       enable = true;
       qemu.ovmf.enable = true;
