@@ -41,7 +41,7 @@
       sha256 = "1azdqibdwvccwsxzbg4vcmfbdc80xc6mbd05qgw7h0s9v0hhs41s";
     };
     yogaNix = builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/yoga86.nix";
+      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/yoga.nix";
       sha256 = "0g46zr6kwqcbjc4xixf8c5hfrwa5mhi8s5l3x0i8i2hwrrgxb9gd";
     };
 
