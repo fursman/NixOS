@@ -541,24 +541,6 @@
           ./hardware-configuration.nix
           server1060Nix
           sharedConfiguration
-          { # This opens a new module
-            users.users.user = { # No '=' needed here
-              isNormalUser = true;
-              uid = 1000; # Replace with your actual user ID if different
-              subUidRanges = [
-                {
-                  startUid = 100000;
-                  count = 65536;
-                }
-              ];
-              subGidRanges = [
-                {
-                  startGid = 100000;
-                  count = 65536;
-                }
-              ];
-            };
-          }
         ];  
       };   
       blade = nixpkgs.lib.nixosSystem {
