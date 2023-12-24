@@ -132,10 +132,10 @@
                 "2" = " ";
                 "3" = " ";
                 "4" = " ";
-                "5" = " ";
+                "5" = " ";
                 "6" = " ";
                 "7" = " ";
-                "8" = " ";
+                "8" = " ";
               };
               "persistent-workspaces" = {
                 "1" = "[eDP-1],"; 
@@ -315,7 +315,7 @@
                 natural_scroll = yes
             }
         
-            sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+            sensitivity = 0.5 # -1.0 - 1.0, 0 means no modification.
         }
         
         general {
@@ -383,9 +383,9 @@
         
         # Example per-device config
         # See https://wiki.hyprland.org/Configuring/Keywords/#executing for more
-        device:epic-mouse-v1 {
-            sensitivity = -0.5
-        }
+        # device:epic-mouse-v1 {
+        #    sensitivity = -0.5
+        # }
         
         # Example windowrule v1
         # windowrule = float, ^(kitty)$
