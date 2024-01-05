@@ -174,7 +174,7 @@
 		
 		button:focus, button:active, button:hover {
 			background-color: #000000;
-			border-width: 10px;
+			border-width: 5px;
 			border-color: #47AFC4;
 			outline-style: none;
 		}
