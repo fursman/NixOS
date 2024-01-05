@@ -487,6 +487,7 @@
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
         bind = $mainMod, RETURN, exec, rofi -show run
         bind = $mainMod, T, exec, kitty
+        bind = $mainMod, G, exec, steam --tenfoot
         bind = $mainMod, Q, killactive, 
         bind = $mainMod, X, exec, wlogout --protocol layer-shell
         bind = $mainMod, B, exec, firefox
