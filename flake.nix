@@ -120,7 +120,7 @@
           layout = [
           {
               "label" = "lock";
-              "action" = "swaylock --screenshots --clock --indicator --indicator-radius 200 --indicator-thickness 40 --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --ring-color 44006666 --key-hl-color 00000000 --line-color 00000000 --inside-color 00000000 --separator-color 00000000 --grace 0 --fade-in 0.5 -F";
+              "action" = "sleep 1 && swaylock --screenshots --clock --indicator --indicator-radius 200 --indicator-thickness 40 --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --ring-color 44006666 --key-hl-color 00000000 --line-color 00000000 --inside-color 00000000 --separator-color 00000000 --grace 0 --fade-in 0.5 -F";
               "text" = "Lock";
               "keybind" = "l";
           }
@@ -166,7 +166,7 @@
 			background-color: #1E1E1E;
 			border-style: solid;
 			border-width: 2px;
-		        margin: 5px;
+		        margin: 10px;
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: 45%;
