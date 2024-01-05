@@ -159,7 +159,7 @@
 			background-image: none;
 		}
 		window {
-			background-color: rgba(12, 12, 12, 0.5);
+			background-color: rgba(12, 12, 12, 0.9);
 		}
 		button {
 		    color: #FFFFFF;
