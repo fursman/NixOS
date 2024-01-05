@@ -163,9 +163,9 @@
 		}
 		button {
 		    color: #FFFFFF;
-			background-color: #1E1E1E;
+			background-color: #1E1E30;
 			border-style: solid;
-			border-width: 2px;
+			border-width: 5px;
 		        margin: 10px;
 			background-repeat: no-repeat;
 			background-position: center;
