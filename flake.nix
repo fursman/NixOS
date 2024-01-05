@@ -155,51 +155,51 @@
               "keybind" = "r";
           }];
           style = ''
-* {
-	background-image: none;
-}
-window {
-	background-color: rgba(12, 12, 12, 0.5);
-}
-button {
-    color: #FFFFFF;
-	background-color: #1E1E1E;
-	border-style: solid;
-	border-width: 2px;
-        margin: 5px;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 35%;
-}
-
-button:focus, button:active, button:hover {
-	background-color: #000000;
-	outline-style: none;
-}
-
-#lock {
-    background-image: image(url("/etc/assets/wlogout/1.png"));
-}
-
-#logout {
-    background-image: image(url("/etc/assets/wlogout/2.png"));
-}
-
-#suspend {
-    background-image: image(url("/etc/assets/wlogout/3.png"));
-}
-
-#hibernate {
-    background-image: image(url("/etc/assets/wlogout/4.png"));
-}
-
-#shutdown {
-    background-image: image(url("/etc/assets/wlogout/5.png"));
-}
-
-#reboot {
-    background-image: image(url("/etc/assets/wlogout/6.png"));
-}
+		* {
+			background-image: none;
+		}
+		window {
+			background-color: rgba(12, 12, 12, 0.5);
+		}
+		button {
+		    color: #FFFFFF;
+			background-color: #1E1E1E;
+			border-style: solid;
+			border-width: 2px;
+		        margin: 5px;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 45%;
+		}
+		
+		button:focus, button:active, button:hover {
+			background-color: #000000;
+			outline-style: none;
+		}
+		
+		#lock {
+		    background-image: image(url("/etc/assets/wlogout/1.png"));
+		}
+		
+		#logout {
+		    background-image: image(url("/etc/assets/wlogout/2.png"));
+		}
+		
+		#suspend {
+		    background-image: image(url("/etc/assets/wlogout/3.png"));
+		}
+		
+		#hibernate {
+		    background-image: image(url("/etc/assets/wlogout/4.png"));
+		}
+		
+		#shutdown {
+		    background-image: image(url("/etc/assets/wlogout/5.png"));
+		}
+		
+		#reboot {
+		    background-image: image(url("/etc/assets/wlogout/6.png"));
+		}
           '';
         };
 
