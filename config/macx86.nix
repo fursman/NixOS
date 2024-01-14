@@ -59,7 +59,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.networkmanager.wantedBy = ["bluetooth.service"];
 
   # Set your time zone.
   time.timeZone = "America/Vancouver";
