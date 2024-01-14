@@ -38,7 +38,7 @@
     };
     macx86Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/macx86.nix";
-      sha256 = "1azdqibdwvccwsxzbg4vcmfbdc80xc6mbd05qgw7h0s9v0hhs41s";
+      sha256 = "020kid1c0n97h4wfc52y0307nqhhlw5jxpjs39b12k57n9waginh";
     };
     yogaNix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/yoga.nix";
