@@ -201,7 +201,7 @@
 
   networking = {
     hostName = "Block"; # Define your hostname.
-    firewall.allowedTCPPorts = [ 7860 ];
+    firewall.allowedTCPPorts = [ 7860 8080 ];
   };
 
   # This value determines the NixOS release from which the default
