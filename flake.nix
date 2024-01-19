@@ -600,6 +600,8 @@
           imagemagick
           neofetch
           waypipe
+          gparted
+          rpi-imager
         ];
           
         home.stateVersion = "23.11";
