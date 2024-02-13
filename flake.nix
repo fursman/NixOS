@@ -5,9 +5,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    assistant.url = "github:fursman/Assistant";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: let
+  outputs = inputs@{ self, nixpkgs, home-manager, assistant, ... }: let
+
     styleCss = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/waybar-style.css";
       sha256 = "0nqlpdbwpzswn96kl0z98rb37p2jc8cz5d1ilxcr18icxzrizbxi";
@@ -162,11 +164,11 @@
 			background-color: rgba(12, 12, 12, 0.9);
 		}
 		button {
-		    color: #FFFFFF;
+		   color: #FFFFFF;
 			background-color: #1E1E30;
 			border-style: solid;
 			border-width: 5px;
-		        margin: 10px;
+		       margin: 10px;
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: 45%;
@@ -180,27 +182,27 @@
 		}
 		
 		#lock {
-		    background-image: image(url("/etc/assets/wlogout/1.png"));
+		   background-image: image(url("/etc/assets/wlogout/1.png"));
 		}
 		
 		#logout {
-		    background-image: image(url("/etc/assets/wlogout/2.png"));
+		   background-image: image(url("/etc/assets/wlogout/2.png"));
 		}
 		
 		#suspend {
-		    background-image: image(url("/etc/assets/wlogout/3.png"));
+		   background-image: image(url("/etc/assets/wlogout/3.png"));
 		}
 		
 		#hibernate {
-		    background-image: image(url("/etc/assets/wlogout/4.png"));
+		   background-image: image(url("/etc/assets/wlogout/4.png"));
 		}
 		
 		#shutdown {
-		    background-image: image(url("/etc/assets/wlogout/5.png"));
+		   background-image: image(url("/etc/assets/wlogout/5.png"));
 		}
 		
 		#reboot {
-		    background-image: image(url("/etc/assets/wlogout/6.png"));
+		   background-image: image(url("/etc/assets/wlogout/6.png"));
 		}
           '';
         };
@@ -498,6 +500,7 @@
         bind = $mainMod, C, exec, code --password-store="gnome"
         bind = $mainMod, L, exec, swaylock --screenshots --clock --indicator --indicator-radius 200 --indicator-thickness 40 --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --ring-color 44006666 --key-hl-color 00000000 --line-color 00000000 --inside-color 00000000 --separator-color 00000000 --grace 0 --fade-in 0.5 -F
         bind = $mainMod, V, exec, virt-manager
+        bind = $mainMod, SPACE, exec, nohup python3 /home/user/Scripts/Assistant/assistant.py >/dev/null 2>&1 &
         bind = $mainMod, P, pseudo, # dwindle
         bind = $mainMod, J, togglesplit, # dwindle
         
@@ -602,6 +605,7 @@
           waypipe
           gparted
           rpi-imager
+          assistant.packages.${system}.assistant
         ];
           
         home.stateVersion = "23.11";
