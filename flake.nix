@@ -77,6 +77,14 @@
           preload = /etc/assets/Wallpaper/Cookies/8.jpg
         '';
 
+        home.file."/etc/wallpaper/wallpaper.sh".text = ''
+          #!/usr/bin/env bash
+          for monitor in $(hyprctl monitors | grep 'Monitor' | awk '{ print $2 }'); do
+          hyprctl hyprpaper wallpaper "$monitor,/etc/assets/Wallpaper/Cookies/$((RANDOM%8+1)).jpg"
+          done
+        '';
+        home.file."/etc/wallpaper/wallpaper.sh".permissions = "0755";  # This makes the file executable
+
         programs.home-manager.enable = true;
 
         home.pointerCursor = {
@@ -252,7 +260,7 @@
               "tooltip" = false;
               "on-scroll-down" = "/usr/local/bin/hyprctl dispatch workspace m+1";
               "on-scroll-up" = "/usr/local/bin/hyprctl dispatch workspace m-1";
-              "on-click" = "hyprctl hyprpaper wallpaper ,/etc/assets/Wallpaper/Cookies/$((RANDOM%8+1)).jpg";
+              "on-click" = "/etc/wallpaper/wallpaper.sh";
             };
             "bluetooth" = {
             	"format" = " {status}";
@@ -370,8 +378,7 @@
         # Execute your favorite apps at launch
         exec-once = waybar
         exec-once = hyprpaper
-        exec-once = sleep 3 ; hyprctl hyprpaper wallpaper ,/etc/assets/Wallpaper/Cookies/$((RANDOM%8+1)).jpg
-        exec-once = sleep 4 ; hyprctl hyprpaper wallpaper ,/etc/Wallpaper/Cookies/$((RANDOM%8+1)).jpg
+        exec-once = sleep 3 ; /etc/wallpaper/wallpaper.sh
         exec-once = sleep 5 ; hyprctl keyword misc:disable_hyprland_logo true
         
         # Some default env vars.
