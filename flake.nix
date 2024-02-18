@@ -260,7 +260,7 @@
               "tooltip" = false;
               "on-scroll-down" = "/usr/local/bin/hyprctl dispatch workspace m+1";
               "on-scroll-up" = "/usr/local/bin/hyprctl dispatch workspace m-1";
-              "on-click" = "/home/user/.config/hypr/wallpaper.sh/wallpaper.sh";
+              "on-click" = "/home/user/.config/hypr/wallpaper.sh";
             };
             "bluetooth" = {
             	"format" = " {status}";
@@ -378,7 +378,7 @@
         # Execute your favorite apps at launch
         exec-once = waybar
         exec-once = hyprpaper
-        exec-once = sleep 3 ; /home/user/.config/hypr/wallpaper.sh/wallpaper.sh
+        exec-once = sleep 3 ; /home/user/.config/hypr/wallpaper.sh
         exec-once = sleep 4 ; hyprctl keyword misc:disable_hyprland_logo true
         
         # Some default env vars.
