@@ -252,7 +252,7 @@
               "tooltip" = false;
               "on-scroll-down" = "/usr/local/bin/hyprctl dispatch workspace m+1";
               "on-scroll-up" = "/usr/local/bin/hyprctl dispatch workspace m-1";
-              "on-click" = "hyprctl hyprpaper wallpaper eDP-1,/etc/assets/Wallpaper/Cookies/$((RANDOM%8+1)).jpg & hyprctl hyprpaper wallpaper HDMI-A-1,/etc/assets/Wallpaper/Cookies/$((RANDOM%8+1)).jpg";
+              "on-click" = "hyprctl hyprpaper wallpaper ,/etc/assets/Wallpaper/Cookies/$((RANDOM%8+1)).jpg;
             };
             "bluetooth" = {
             	"format" = " {status}";
@@ -362,16 +362,16 @@
         ###########################################################################
         
         # See https://wiki.hyprland.org/Configuring/Monitors/
-        monitor=eDP-1,highres@highrr,0x0,1.0
-        monitor=HDMI-A-1,highres@highrr,auto,1.0
+        monitor=,highres@highrr,0x0,1.0
+        monitor=,highres@highrr,auto,1.0
         
         # See https://wiki.hyprland.org/Configuring/Keywords/ for more
         
         # Execute your favorite apps at launch
         exec-once = waybar
         exec-once = hyprpaper
-        exec-once = sleep 3 ; hyprctl hyprpaper wallpaper eDP-1,/etc/assets/Wallpaper/Cookies/$((RANDOM%8+1)).jpg
-        exec-once = sleep 4 ; hyprctl hyprpaper wallpaper HDMI-A-1,/etc/Wallpaper/Cookies/$((RANDOM%8+1)).jpg
+        exec-once = sleep 3 ; hyprctl hyprpaper wallpaper ,/etc/assets/Wallpaper/Cookies/$((RANDOM%8+1)).jpg
+        exec-once = sleep 4 ; hyprctl hyprpaper wallpaper ,/etc/Wallpaper/Cookies/$((RANDOM%8+1)).jpg
         exec-once = sleep 5 ; hyprctl keyword misc:disable_hyprland_logo true
         
         # Some default env vars.
@@ -605,7 +605,8 @@
           waypipe
           gparted
           rpi-imager
-          assistant.packages.${system}.assistant
+          dunst
+          # assistant.packages.${system}.assistant
         ];
           
         home.stateVersion = "23.11";
