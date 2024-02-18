@@ -83,7 +83,7 @@
           hyprctl hyprpaper wallpaper "$monitor,/etc/assets/Wallpaper/Cookies/$((RANDOM%8+1)).jpg"
           done
         '';
-        home.file.".config/hypr/wallpaper.sh".permissions = "0755";  # This makes the file executable
+        home.file.".config/hypr/wallpaper.sh".executable = true;
 
         programs.home-manager.enable = true;
 
