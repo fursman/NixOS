@@ -252,7 +252,7 @@
               "tooltip" = false;
               "on-scroll-down" = "/usr/local/bin/hyprctl dispatch workspace m+1";
               "on-scroll-up" = "/usr/local/bin/hyprctl dispatch workspace m-1";
-              "on-click" = "hyprctl hyprpaper wallpaper ,/etc/assets/Wallpaper/Cookies/$((RANDOM%8+1)).jpg;
+              "on-click" = "hyprctl hyprpaper wallpaper ,/etc/assets/Wallpaper/Cookies/$((RANDOM%8+1)).jpg";
             };
             "bluetooth" = {
             	"format" = " {status}";
