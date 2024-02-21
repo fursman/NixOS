@@ -10,6 +10,8 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, assistant, ... }: let
 
+    theme = "Cookies"; # Define the theme variable here
+
     styleCss = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/waybar-style.css";
       sha256 = "0nqlpdbwpzswn96kl0z98rb37p2jc8cz5d1ilxcr18icxzrizbxi";
@@ -67,20 +69,14 @@
 
         home.file.".config/hypr/hyprpaper.conf".text = ''
           ipc = on
-          preload = /etc/assets/Wallpaper/Cookies/1.jpg
-          preload = /etc/assets/Wallpaper/Cookies/2.jpg
-          preload = /etc/assets/Wallpaper/Cookies/3.jpg
-          preload = /etc/assets/Wallpaper/Cookies/4.jpg
-          preload = /etc/assets/Wallpaper/Cookies/5.jpg
-          preload = /etc/assets/Wallpaper/Cookies/6.jpg
-          preload = /etc/assets/Wallpaper/Cookies/7.jpg
-          preload = /etc/assets/Wallpaper/Cookies/8.jpg
+          ${lib.concatStringsSep "\n" (lib.map (i: "preload = /etc/assets/Wallpaper/${theme}/${toString i}.jpg") (lib.range 1 8))}
         '';
-
+ 
         home.file.".config/hypr/wallpaper.sh".text = ''
           #!/usr/bin/env bash
+          theme="${theme}" # Use the theme variable
           for monitor in $(hyprctl monitors | grep 'Monitor' | awk '{ print $2 }'); do
-          hyprctl hyprpaper wallpaper "$monitor,/etc/assets/Wallpaper/Cookies/$((RANDOM%8+1)).jpg"
+          hyprctl hyprpaper wallpaper "$monitor,/etc/assets/Wallpaper/$theme/$((RANDOM%8+1)).jpg"
           done
         '';
         home.file.".config/hypr/wallpaper.sh".executable = true;
