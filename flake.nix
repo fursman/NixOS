@@ -12,6 +12,9 @@
 
     theme = "Cookies"; # Define the theme variable here
 
+    # Extract `lib` from `nixpkgs`
+    inherit (nixpkgs) lib;
+
     styleCss = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/waybar-style.css";
       sha256 = "0nqlpdbwpzswn96kl0z98rb37p2jc8cz5d1ilxcr18icxzrizbxi";
