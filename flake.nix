@@ -11,8 +11,6 @@
   outputs = inputs@{ self, nixpkgs, home-manager, assistant, ... }: let
 
     theme = "Cookies"; # Define the theme variable here
-
-    # Extract `lib` from `nixpkgs`
     inherit (nixpkgs) lib;
 
     styleCss = builtins.fetchurl {
@@ -72,7 +70,7 @@
 
         home.file.".config/hypr/hyprpaper.conf".text = ''
           ipc = on
-          ${lib.concatStringsSep "\n" (lib.map (i: "preload = /etc/assets/Wallpaper/${theme}/${toString i}.jpg") (lib.range 1 8))}
+          ${lib.concatStringsSep "\n" (builtins.map (i: "preload = /etc/assets/Wallpaper/${theme}/${toString i}.jpg") (lib.range 1 8))}
         '';
  
         home.file.".config/hypr/wallpaper.sh".text = ''
