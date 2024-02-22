@@ -605,7 +605,7 @@
           gparted
           rpi-imager
           dunst
-          # assistant.packages.${system}.assistant
+          assistant.packages.${system}.assistant
         ];
           
         home.stateVersion = "23.11";
