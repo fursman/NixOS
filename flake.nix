@@ -360,7 +360,9 @@
                |___/|_|                                                      |___/ 
         
         ###########################################################################
-        
+
+        disable_splash_rendering = true
+
         # See https://wiki.hyprland.org/Configuring/Monitors/
         monitor=,highres@highrr,0x0,1.0
         monitor=,highres@highrr,auto,1.0
