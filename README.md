@@ -1,4 +1,4 @@
-# README.md for NixOS Configuration using Home Manager and Flakes
+# README.md for NixOS Configuration with virtualization and GPU acceleration using Home Manager and Flakes
 
 ## Introduction
 
@@ -23,6 +23,40 @@ This repository offers a simple yet powerful way to install and configure a NixO
    # ADVANCED CONFIGURATION: To pass your GPU to a virtual server use .#server to rebuild your system with exclusive GPU access for your virtual machine.
    # NOTE: This option requires a second GPU to display your desktop environment and you must update your GPU address in the server.nix config.
    ```
+## Hyprland Environment User Manual
+
+Welcome to the Hyprland Environment! This manual provides detailed instructions on how to utilize the key combinations defined in your Hyprland configuration file. Each key combination is designed to enhance your productivity and streamline your desktop experience.
+Key Combinations and Their Functions
+
+Launching Applications:
+
+    Open Application Launcher: Press SUPER + RETURN to open Rofi, a program launcher that allows you to search for and launch applications installed on your system.
+    Terminal: Press SUPER + T to open Kitty, a fast, feature-rich, GPU-based terminal emulator.
+    Gaming: Press SUPER + G to launch Steam in Big Picture mode, providing an immersive gaming experience.
+    Web Browsing: Press SUPER + B to open Firefox, a free and open-source web browser.
+    File Management: Press SUPER + F to open Thunar, a fast and easy-to-use file manager.
+    Sound Settings: Press SUPER + A to open Pavucontrol, a PulseAudio volume control tool.
+    Code Editor: Press SUPER + C to launch Visual Studio Code, a source-code editor with support for debugging, syntax highlighting, intelligent code completion, snippets, and code refactoring.
+    Virtual Machines: Press SUPER + V to open Virt-manager, a desktop user interface for managing virtual machines.
+    Miscellaneous:
+        Lock Screen: Press SUPER + L to lock the screen using Swaylock, enhancing your system's security with various customization options.
+        Logout: Press SUPER + X to initiate a logout sequence with wlogout, a Wayland-based logout menu.
+        Voice Assistant: Press SUPER + SPACE to start a background assistant process, useful for voice-controlled commands and tasks.
+
+Window Management:
+
+    Kill Active Window: Press SUPER + Q to immediately close the active window.
+    Toggle Window Split: Press SUPER + J to toggle the active window's split orientation, optimizing your workspace layout.
+    Pseudo-Tiling: Press SUPER + P to enable pseudo-tiling mode, allowing windows to mimic tiling behavior without fully adhering to a tiling window manager's strict layout rules.
+
+Workspace Management:
+
+    Switching Workspaces: Press SUPER + [1-9,0] to switch between workspaces, offering a quick way to navigate across different groups of applications and windows. Workspace 1 through 9 are accessed through 1-9, and Workspace 10 is accessed with 0.
+    Moving Windows to Workspaces: Press SUPER + SHIFT + [1-9,0] to move the active window to a specific workspace, facilitating organized task management and a cleaner desktop environment.
+
+Focus Management:
+
+    Move Focus: Use SUPER + [left/right/up/down arrow] to move the focus between windows in the specified direction. This feature allows you to navigate between your open windows with ease, improving multitasking efficiency.
 
 ## What's Inside?
 
