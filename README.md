@@ -20,8 +20,6 @@ This repository offers a simple yet powerful way to install and configure a NixO
    ```bash
    # Must be executed from within the /etc/nixos working directory.
    "sudo nixos-rebuild --flake .#desktop switch"
-   # ADVANCED CONFIGURATION: To pass your GPU to a virtual server use .#server to rebuild your system with exclusive GPU access for your virtual machine.
-   # NOTE: This option requires a second GPU to display your desktop environment and you must update your GPU address in the server.nix config.
    ```
 ## Hyprland Environment User Manual
 
@@ -38,14 +36,13 @@ Launching Applications:
     Sound Settings: Press SUPER + A to open Pavucontrol, a PulseAudio volume control tool.
     Code Editor: Press SUPER + C to launch Visual Studio Code, a source-code editor with support for debugging, syntax highlighting, intelligent code completion, snippets, and code refactoring.
     Virtual Machines: Press SUPER + V to open Virt-manager, a desktop user interface for managing virtual machines.
-    Miscellaneous:
-        Lock Screen: Press SUPER + L to lock the screen using Swaylock, enhancing your system's security with various customization options.
-        Logout: Press SUPER + X to initiate a logout sequence with wlogout, a Wayland-based logout menu.
-        Voice Assistant: Press SUPER + SPACE to start a background assistant process, useful for voice-controlled commands and tasks.
+    Lock Screen: Press SUPER + L to lock the screen using Swaylock, enhancing your system's security with various customization options.
+    Logout: Press SUPER + X to initiate a logout sequence with wlogout, a Wayland-based logout menu.
+    Voice Assistant: Press SUPER + SPACE to start a background assistant process, useful for voice-controlled commands and tasks.
 
 Window Management:
 
-    Kill Active Window: Press SUPER + Q to immediately close the active window.
+    Kill Active Window: Press SUPER + Q to close the active window.
     Toggle Window Split: Press SUPER + J to toggle the active window's split orientation, optimizing your workspace layout.
     Pseudo-Tiling: Press SUPER + P to enable pseudo-tiling mode, allowing windows to mimic tiling behavior without fully adhering to a tiling window manager's strict layout rules.
 
@@ -122,8 +119,6 @@ Fetches various configuration files and scripts from a remote repository:
   - **gnome.seahorse**: A front-end for GnuPG, useful for encryption, signing, and key management.
   - **imagemagick**: A software suite to create, edit, compose, or convert bitmap images, supporting many image formats.
 - **System State Version**: Defines the NixOS state version as 23.11
-
-### `desktop.nix (dynamically linked)`
 
 ## System Configuration
 
