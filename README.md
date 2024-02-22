@@ -42,7 +42,7 @@ Launching Applications:
 
 Window Management:
 
-    Kill Active Window: Press SUPER + Q to close the active window.
+    Quit Active Window: Press SUPER + Q to close the active window.
     Toggle Window Split: Press SUPER + J to toggle the active window's split orientation, optimizing your workspace layout.
     Pseudo-Tiling: Press SUPER + P to enable pseudo-tiling mode, allowing windows to mimic tiling behavior without fully adhering to a tiling window manager's strict layout rules.
 
