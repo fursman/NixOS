@@ -118,6 +118,9 @@ Fetches various configuration files and scripts from a remote repository:
   - **vscode.fhs**: Visual Studio Code packaged with FHS (Filesystem Hierarchy Standard) support, a popular code editor with a wide range of extensions.
   - **gnome.seahorse**: A front-end for GnuPG, useful for encryption, signing, and key management.
   - **imagemagick**: A software suite to create, edit, compose, or convert bitmap images, supporting many image formats.
+  - **Git**: Installs Git for version control.
+  - **NTFS-3G**: Provides NTFS filesystem support, enabling read/write operations on NTFS partitions.
+  - **Podman Desktop**: Installs Podman for managing OCI (Open Container Initiative) and Docker containers.
 - **System State Version**: Defines the NixOS state version as 23.11
 
 ## System Configuration
@@ -139,12 +142,6 @@ Fetches various configuration files and scripts from a remote repository:
 - **Bluetooth and Blueman**: Activates Bluetooth hardware support and Blueman services.
 - **NVIDIA Drivers**: Configures NVIDIA drivers with modesetting and optional power management features.
 - **OpenGL Support**: Enables OpenGL with support for 32-bit DRI (Direct Rendering Infrastructure).
-
-## Software and Packages
-
-- **Git**: Installs Git for version control.
-- **NTFS-3G**: Provides NTFS filesystem support, enabling read/write operations on NTFS partitions.
-- **Podman Desktop**: Installs Podman for managing OCI (Open Container Initiative) and Docker containers.
 
 ## User Configuration
 
