@@ -602,6 +602,7 @@
           imagemagick
           neofetch
           waypipe
+          virtio-win
           gparted
           rpi-imager
           dunst
