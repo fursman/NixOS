@@ -42,7 +42,7 @@
   boot.initrd.verbose = false;
   boot.loader.timeout = 0;
   boot.consoleLogLevel = 0;
-  boot.kernelParams = [ "quiet" "splash" "intel_iommu=on" ];
+  boot.kernelParams = [ "rd.driver.pre=vfio-pci" "quiet" "splash" "intel_iommu=on" "immou=pt" ];
 
   boot.supportedFilesystems = [ "ntfs" ];
 
