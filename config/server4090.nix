@@ -70,11 +70,11 @@
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.greetd.enableGnomeKeyring = true;
 
-  # Enable the GNOME Desktop Environment.
-  # services.xserver.desktopManager.gnome.enable = true;
-
   # Enable Mouse in Hyprland
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
+
+  # Enable the GNOME Desktop Environment.
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Enable Hyprlnd
   programs.hyprland.enable = true;
@@ -138,7 +138,7 @@
     driSupport32Bit = true;
   };
 
-  # Load nvidia driver for Xorg and Wayland
+  # Load intel driver for Xorg and Wayland
   services.xserver.videoDrivers = ["intel"];
 
   # Allow unfree packages
@@ -149,6 +149,7 @@
   environment.systemPackages = with pkgs; [
     git
     ntfs3g
+    util-linux
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -159,6 +160,8 @@
       "networkmanager"
       "wheel"
       "libvirtd" #Necessary for virt-manager
+      "kvm"
+      "qemu-libvirtd"
     ];
   };
 
@@ -166,12 +169,50 @@
   virtualisation = {
     libvirtd = {
       enable = true;
-      qemuOvmf = true;
-      qemuRunAsRoot = false;
       onBoot = "ignore";
       onShutdown = "shutdown";
+      qemu = {
+        package = pkgs.qemu_kvm;
+        ovmf = {
+          enable = true;
+          # https://github.com/NixOS/nixpkgs/issues/164064
+          packages = [
+            (pkgs.OVMF.override {
+              secureBoot = true;
+              csmSupport = false;
+              httpSupport = true;
+              tpmSupport = true;
+            }).fd
+          ];
+        };
+        swtpm.enable = true;
+        runAsRoot = false;
+      };
+      clearEmulationCapabilities = false;
+      deviceACL = [
+        "/dev/ptmx"
+        "/dev/kvm"
+        "/dev/kvmfr0"
+        "/dev/vfio/vfio"
+        "/dev/vfio/30"
+      ];
     };
+    # KVM FrameRelay for Looking Glass
+    kvmfr = {
+      enable = true;
+      shm = {
+        enable = true;
+        size = 128;
+        user = "user";
+        group = "qemu-libvirtd";
+        mode = "0666";
+      };
+    };
+    # USB redirection in virtual machine
+    spiceUSBRedirection.enable = true;
   };
+
+  programs.dconf.enable = true;
   programs.virt-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
