@@ -18,7 +18,11 @@
     "vfio"
     "vfio_iommu_type1"
     "vfio_virqfd"
-  
+
+    "nvidia"
+    "nvidia_modeset"
+    "nvidia_uvm"
+    "nvidia_drm"
   ];
   
   # CHANGE: Don't forget to put your own PCI IDs here (run lspci -nn and look for NVIDIA)
