@@ -192,13 +192,6 @@
         swtpm.enable = true;
         runAsRoot = false;
       };
-      deviceACL = [
-        "/dev/ptmx"
-        "/dev/kvm"
-        "/dev/kvmfr0"
-        "/dev/vfio/vfio"
-        "/dev/vfio/30"
-      ];
     };
     # USB redirection in virtual machine
     spiceUSBRedirection.enable = true;
