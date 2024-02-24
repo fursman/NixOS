@@ -1,3 +1,6 @@
+trace: warning: The option `services.xserver.xkbVariant' defined in `/nix/store/a5xd71psij7mf75byxnbf8aa7z6ln325-server4090.nix' has been renamed to `services.xserver.xkb.variant'.
+trace: warning: The option `services.xserver.layout' defined in `/nix/store/a5xd71psij7mf75byxnbf8aa7z6ln325-server4090.nix' has been renamed to `services.xserver.xkb.layout'.
+
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
@@ -108,8 +111,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+    xkb.variant = "";
   };
 
   # Enable CUPS to print documents.
