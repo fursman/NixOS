@@ -201,20 +201,13 @@
         "/dev/vfio/30"
       ];
     };
-    # KVM FrameRelay for Looking Glass
-    kvmfr = {
-      enable = true;
-      shm = {
-        enable = true;
-        size = 128;
-        user = "user";
-        group = "qemu-libvirtd";
-        mode = "0666";
-      };
-    };
     # USB redirection in virtual machine
     spiceUSBRedirection.enable = true;
   };
+
+  systemd.tmpfiles.rules = [
+    "f /dev/shm/looking-glass 0660 user qemu-libvirtd -"
+  ];
 
   programs.dconf.enable = true;
   programs.virt-manager.enable = true;
