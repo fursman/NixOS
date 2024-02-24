@@ -185,7 +185,7 @@
           ];
         };
         swtpm.enable = true;
-        # runAsRoot = false;
+        runAsRoot = false;
       };
     };
     # USB redirection in virtual machine
@@ -193,7 +193,7 @@
   };
 
   systemd.tmpfiles.rules = [
-    "f /dev/shm/looking-glass 0660 root qemu-libvirtd -"
+    "f /dev/shm/looking-glass 0660 qemu-libvirtd qemu-libvirtd -"
   ];
 
   programs.dconf.enable = true;
