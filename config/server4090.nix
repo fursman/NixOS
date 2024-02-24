@@ -1,6 +1,3 @@
-trace: warning: The option `services.xserver.xkbVariant' defined in `/nix/store/a5xd71psij7mf75byxnbf8aa7z6ln325-server4090.nix' has been renamed to `services.xserver.xkb.variant'.
-trace: warning: The option `services.xserver.layout' defined in `/nix/store/a5xd71psij7mf75byxnbf8aa7z6ln325-server4090.nix' has been renamed to `services.xserver.xkb.layout'.
-
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
@@ -21,11 +18,6 @@ trace: warning: The option `services.xserver.layout' defined in `/nix/store/a5xd
     "vfio"
     "vfio_iommu_type1"
     "vfio_virqfd"
-
-    "nvidia"
-    "nvidia_modeset"
-    "nvidia_uvm"
-    "nvidia_drm"
   ];
   
   # CHANGE: Don't forget to put your own PCI IDs here (run lspci -nn and look for NVIDIA)
@@ -45,7 +37,7 @@ trace: warning: The option `services.xserver.layout' defined in `/nix/store/a5xd
   boot.initrd.verbose = false;
   boot.loader.timeout = 0;
   boot.consoleLogLevel = 0;
-  boot.kernelParams = [ "rd.driver.pre=vfio-pci" "quiet" "splash" "intel_iommu=on" "immou=pt" ];
+  boot.kernelParams = [ "quiet" "splash" "intel_iommu=on" "immou=pt" ];
 
   boot.supportedFilesystems = [ "ntfs" ];
 
