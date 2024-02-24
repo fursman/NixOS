@@ -184,7 +184,7 @@
   };
 
   systemd.tmpfiles.rules = [
-    "f /dev/shm/looking-glass 0660 qemu-libvirtd qemu-libvirtd -"
+    "f /dev/shm/looking-glass 0777 qemu-libvirtd qemu-libvirtd -"
   ];
 
   programs.dconf.enable = true;
