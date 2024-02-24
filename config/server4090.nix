@@ -192,7 +192,6 @@
         swtpm.enable = true;
         runAsRoot = false;
       };
-      clearEmulationCapabilities = false;
       deviceACL = [
         "/dev/ptmx"
         "/dev/kvm"
