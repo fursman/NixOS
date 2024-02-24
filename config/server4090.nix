@@ -69,14 +69,14 @@
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.greetd.enableGnomeKeyring = true;
 
-  # Enable Mouse in Hyprland
-  environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
-
   # Enable the GNOME Desktop Environment.
   # services.xserver.desktopManager.gnome.enable = true;
 
   # Enable Hyprlnd
   programs.hyprland.enable = true;
+
+  # Enable Mouse in Hyprland
+  environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
 
   # Enable xfce dbus communication (for Thunar)
   services.dbus.packages = with pkgs; [
@@ -176,7 +176,7 @@
           enable = true;
         };
         swtpm.enable = true;
-        runAsRoot = true;
+        runAsRoot = false;
       };
     };
     # USB redirection in virtual machine
