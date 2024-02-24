@@ -37,7 +37,7 @@
   boot.initrd.verbose = false;
   boot.loader.timeout = 0;
   boot.consoleLogLevel = 0;
-  boot.kernelParams = [ "quiet" "splash" "intel_iommu=on" "immou=pt" ];
+  boot.kernelParams = [ "quiet" "splash" "intel_iommu=on" "iomu=pt" ];
 
   boot.supportedFilesystems = [ "ntfs" ];
 
