@@ -608,6 +608,7 @@
           gparted
           rpi-imager
           dunst
+          looking-glass-client
           assistant.packages.${system}.assistant
         ];
           
