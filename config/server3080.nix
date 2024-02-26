@@ -203,9 +203,26 @@
   virtualisation = {
     libvirtd = {
       enable = true;
-      qemu.ovmf.enable = true;
+      onBoot = "ignore";
+      onShutdown = "shutdown";
+      qemu = {
+        package = pkgs.qemu_kvm;
+        ovmf = {
+          enable = true;
+        };
+        swtpm.enable = true;
+        runAsRoot = false;
+      };
     };
+    # USB redirection in virtual machine
+    spiceUSBRedirection.enable = true;
   };
+
+  systemd.tmpfiles.rules = [
+    "f /dev/shm/looking-glass 0777 qemu-libvirtd qemu-libvirtd -"
+  ];
+
+  programs.dconf.enable = true;
   programs.virt-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
