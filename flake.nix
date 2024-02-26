@@ -440,7 +440,7 @@
             col.shadow = rgba(1a1a1aee)
             rounding = 5
             active_opacity = 0.95
-            inactive_opacity = 0.75
+            inactive_opacity = 0.85
         }
         
         animations {
