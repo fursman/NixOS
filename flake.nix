@@ -608,6 +608,8 @@
           gparted
           rpi-imager
           dunst
+          dust
+          btop
           looking-glass-client
           assistant.packages.${system}.assistant
         ];
