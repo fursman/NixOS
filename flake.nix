@@ -27,7 +27,7 @@
     };
     server3080Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server3080.nix";
-      sha256 = "1gphalasxd7znrw6jrqsg1s85yjhixv715rapa2jc6zhw47kpw0r";
+      sha256 = "0a0cia9b39v7cj7i4mkc3mdk7akhrnmafxw7xi4xg5ivprb3x9iq";
     };
     server4090Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server4090.nix";
