@@ -12,25 +12,9 @@
     '';
   };
 
-  # Enable plymouth
-  boot.plymouth = {
-    enable = true;
-    theme = "abstract_ring";
-    themePackages = [(pkgs.adi1090x-plymouth-themes.override {selected_themes = ["abstract_ring"];})];
-  };
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.systemd.enable = true;
-  boot.initrd.verbose = false;
-  boot.loader.timeout = 0;
-  boot.consoleLogLevel = 0;
-  boot.kernelParams = [ "quiet" "splash" ];
-
   boot.supportedFilesystems = [ "ntfs" ];
 
-  networking.hostName = "Yoga"; # Define your hostname.
+  networking.hostName = "Pi4"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -132,7 +116,7 @@
     driSupport32Bit = true;
   };
 
-  # Load nvidia driver for Xorg and Wayland
+  # Load driver for Xorg and Wayland
   services.xserver.videoDrivers = ["intel"];
 
   # Allow unfree packages
@@ -155,15 +139,6 @@
       "libvirtd" #Necessary for virt-manager
     ];
   };
-
-  # Virtualization Settings
-  virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu.ovmf.enable = false;
-    };
-  };
-  programs.virt-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
