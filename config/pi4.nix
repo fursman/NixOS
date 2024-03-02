@@ -5,6 +5,24 @@
 { config, pkgs, ... }:
 
 {
+  imports =
+    [
+      &lt;nixos-hardware/raspberry-pi/4&gt;
+      ./hardware-configuration.nix
+    ];
+  hardware = {
+    raspberry-pi."4".apply-overlays-dtmerge.enable = true;
+    deviceTree = {
+      enable = true;
+      filter = "*rpi-4-*.dtb";
+    };
+  };
+  console.enable = false;
+  environment.systemPackages = with pkgs; [
+    libraspberrypi
+    raspberrypi-eeprom
+  ];
+
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
@@ -29,15 +47,17 @@
     };
   };
 
-  networking.hostName = "Pi4"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking = {
+    hostName = "Pi4";
+    wireless = {
+      enable = true;
+      interfaces = [ wlan0 ];
+    };
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Bluethooth
   hardware.bluetooth.enable = true;
@@ -97,8 +117,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+    xkb.variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -175,6 +195,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 
 }
