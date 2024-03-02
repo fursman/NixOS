@@ -745,13 +745,6 @@
       # Enable touchpad support (enabled default in most desktopManager).
       # services.xserver.libinput.enable = true;
     
-      # Enable OpenGL
-      hardware.opengl = {
-        enable = true;
-        driSupport = true;
-        driSupport32Bit = true;
-      };
-    
       # Load nvidia driver for Xorg and Wayland
       services.xserver.videoDrivers = ["nvidia"];
       hardware.nvidia = {
