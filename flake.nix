@@ -41,9 +41,9 @@
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/macx86.nix";
       sha256 = "020kid1c0n97h4wfc52y0307nqhhlw5jxpjs39b12k57n9waginh";
     };
-    yogaNix = builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/yoga.nix";
-      sha256 = "0g46zr6kwqcbjc4xixf8c5hfrwa5mhi8s5l3x0i8i2hwrrgxb9gd";
+    Pi4Nix = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/pi4.nix";
+      sha256 = "01m62lfaxjicl69c459rxmvpqs11zzhk876wbj86yhiymcahmvrn";
     };
     sharedConfiguration = ({ config, pkgs, ... }: {
       imports = [
@@ -886,11 +886,11 @@
           sharedConfiguration
         ];  
       };
-      yoga = nixpkgs.lib.nixosSystem {
+      pi4 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./hardware-configuration.nix
-          yogaNix
+          Pi4Nix
           sharedConfiguration
         ];  
       };
