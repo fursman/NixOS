@@ -12,7 +12,22 @@
     '';
   };
 
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot = {
+    kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
+    initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
+    loader = {
+      grub.enable = false;
+      generic-extlinux-compatible.enable = true;
+    };
+  };
+
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-label/NIXOS_SD";
+      fsType = "ext4";
+      options = [ "noatime" ];
+    };
+  };
 
   networking.hostName = "Pi4"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -115,9 +130,6 @@
     driSupport = true;
     driSupport32Bit = true;
   };
-
-  # Load driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["intel"];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
