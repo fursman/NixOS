@@ -46,6 +46,9 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  # RTL-SDR
+  hardware.rtl-sdr.enable = true;
+
   # Bluethooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
@@ -91,9 +94,6 @@
 
   # Enable GVfs
   services.gvfs.enable = true;
-
-  # Enable VS Code for Wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Enable PAM Config for Swaylock-effects
   security.pam.services.swaylock = {
@@ -147,6 +147,7 @@
     ntfs3g
     libraspberrypi
     raspberrypi-eeprom
+    sdrpp
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -156,6 +157,7 @@
     extraGroups = [ 
       "networkmanager"
       "wheel"
+      "plugdev" 
     ];
   };
 
