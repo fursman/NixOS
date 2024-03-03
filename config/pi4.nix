@@ -7,8 +7,7 @@
 {
   imports =
     [
-      &lt;nixos-hardware/raspberry-pi/4&gt;
-      ./hardware-configuration.nix
+      <nixos-hardware/raspberry-pi/4>
     ];
   hardware = {
     raspberry-pi."4".apply-overlays-dtmerge.enable = true;
@@ -22,6 +21,8 @@
     libraspberrypi
     raspberrypi-eeprom
   ];
+
+  hardware.raspberry-pi."4".fkms-3d.enable = true;
 
   nix = {
     package = pkgs.nixFlakes;
