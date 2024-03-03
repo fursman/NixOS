@@ -39,7 +39,7 @@
     };
     Pi4Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/pi4.nix";
-      sha256 = "0j7zpi4sdjabky60kcqjjggj81dibb3i7c4hvpp2alk364ypmhl3";
+      sha256 = "16knjb5mgb3n8xr0yv935x7zfkj8fzpj9vrg3i5rgppz16ff367g";
     };
     sharedConfiguration = ({ config, pkgs, ... }: {
       imports = [
@@ -592,7 +592,6 @@
           vlc
           rofi-wayland
           swayosd
-          brightnessctl
           hyprpaper
           swaylock-effects
           vscode.fhs
@@ -600,13 +599,11 @@
           imagemagick
           neofetch
           waypipe
-          virtio-win
           gparted
           rpi-imager
           dunst
           dust
           btop
-          looking-glass-client
           assistant.packages.${system}.assistant
         ];
           
