@@ -39,7 +39,7 @@
     };
     Pi4Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/pi4.nix";
-      sha256 = "0gwal4qqw0yl5dawq9vnzzar4mjmda6b40zwh34hcdpj0wm7sr6g";
+      sha256 = "0j7zpi4sdjabky60kcqjjggj81dibb3i7c4hvpp2alk364ypmhl3";
     };
     sharedConfiguration = ({ config, pkgs, ... }: {
       imports = [
