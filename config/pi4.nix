@@ -48,7 +48,7 @@
     hostName = "Pi4";
     wireless = {
       enable = true;
-      interfaces = [ wlan0 ];
+      interfaces = [ "wlan0" ];
     };
   };
 
