@@ -38,13 +38,8 @@
     };
   };
 
-  networking = {
-    hostName = "Pi4";
-    wireless = {
-      enable = true;
-      interfaces = [ "wlan0" ];
-    };
-  };
+  networking.networkmanager.enable = true;
+  networking.hostName = "Pi4";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
