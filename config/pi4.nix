@@ -46,8 +46,28 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Bluethooth
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  # hardware.bluetooth.enable = true;
+  # services.blueman.enable = true;
+
+  environment.systemPackages = with pkgs; [ bluez bluez-tools ];
+    hardware = {
+      bluetooth.enable = true;
+      raspberry-pi = {
+        config = {
+          all = {
+            base-dt-params = {
+              # enable autoprobing of bluetooth driver
+              # https://github.com/raspberrypi/linux/blob/c8c99191e1419062ac8b668956d19e788865912a/arch/arm/boot/dts/overlays/README#L222-L224
+              krnbt = {
+                enable = true;
+                value = "on";
+              };
+            };
+          };
+        };
+      };
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "America/Vancouver";
