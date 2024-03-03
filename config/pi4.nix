@@ -17,12 +17,6 @@
     };
   };
   console.enable = false;
-  environment.systemPackages = with pkgs; [
-    libraspberrypi
-    raspberrypi-eeprom
-  ];
-
-  hardware.raspberry-pi."4".fkms-3d.enable = true;
 
   nix = {
     package = pkgs.nixFlakes;
@@ -30,6 +24,8 @@
         experimental-features = nix-command flakes
     '';
   };
+
+  hardware.raspberry-pi."4".fkms-3d.enable = true;
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
@@ -159,6 +155,8 @@
   environment.systemPackages = with pkgs; [
     git
     ntfs3g
+    libraspberrypi
+    raspberrypi-eeprom
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
