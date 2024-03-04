@@ -27,7 +27,7 @@
     };
     server3080Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server3080.nix";
-      sha256 = "0a0cia9b39v7cj7i4mkc3mdk7akhrnmafxw7xi4xg5ivprb3x9iq";
+      sha256 = "1pv94wzhqn03m0jr4g5iplrx49gkxx9id17vgsw45swizh93z5al";
     };
     server4090Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server4090.nix";
@@ -506,6 +506,7 @@
         bind = $mainMod, right, movefocus, r
         bind = $mainMod, up, movefocus, u
         bind = $mainMod, down, movefocus, d
+        bind = $mainMod, ESCAPE, fullscreen
         
         # Switch workspaces with mainMod + [0-9]
         bind = $mainMod, 1, workspace, 1
