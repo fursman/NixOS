@@ -57,6 +57,9 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # RTL-SDR
+  hardware.rtl-sdr.enable = true;
+
   # Bluethooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
@@ -186,6 +189,7 @@
     git
     ntfs3g
     adi1090x-plymouth-themes
+    sdrpp
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -196,6 +200,7 @@
       "networkmanager"
       "wheel"
       "libvirtd" #Necessary for virt-manager
+      "plugdev"
     ];
   };
 
