@@ -858,7 +858,7 @@
         ];  
       };      
       pi3 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system = "aarch64-linux";
         modules = [
           ./hardware-configuration.nix
           Pi3Nix
@@ -866,7 +866,7 @@
         ];  
       };   
       pi4 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system = "aarch64-linux";
         modules = [
           ./hardware-configuration.nix
           Pi4Nix
