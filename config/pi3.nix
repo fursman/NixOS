@@ -23,10 +23,10 @@
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
       raspberryPi = {
-        firmwareConfig = dtparam=audio=on;
         enable = true;
         version = 3;
         firmwareConfig = ''
+          dtparam=audio=on
           start_x=1
           gpu_mem=256
           core_freq=250
