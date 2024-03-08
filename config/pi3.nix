@@ -5,10 +5,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      <nixos-hardware/raspberry-pi/3>
-    ];
 
   console.enable = true;
 
@@ -19,8 +15,6 @@
     '';
   };
 
-  hardware.raspberry-pi."3".fkms-3d.enable = true;
-
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi3;
     kernelParams = [ "fbcon=rotate:1" ];
@@ -28,6 +22,16 @@
     loader = {
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
+      raspberryPi = {
+        firmwareConfig = dtparam=audio=on;
+        enable = true;
+        version = 3;
+        firmwareConfig = ''
+          start_x=1
+          gpu_mem=256
+          core_freq=250
+        '';
+      }
     };
   };
 
@@ -49,9 +53,15 @@
   # RTL-SDR
   hardware.rtl-sdr.enable = true;
 
-  # Bluethooth
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  # Bluetooth
+  systemd.services.btattach = {
+    before = [ "bluetooth.service" ];
+    after = [ "dev-ttyAMA0.device" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.bluez}/bin/btattach -B /dev/ttyAMA0 -P bcm -S 3000000";
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "America/Vancouver";
