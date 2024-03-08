@@ -35,7 +35,7 @@
     };
     Pi3Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/pi3.nix";
-      sha256 = "1aqzhw71ns8dvs9c7qagavxbndyz44b449wbzhpym3ymycj0scnq";
+      sha256 = "02njsplk82p4659d2gdqw5awwsxx9w016clw7wiykf1hkix8bwy1";
     };
     Pi4Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/pi4.nix";
