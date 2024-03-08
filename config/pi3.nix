@@ -7,7 +7,7 @@
 {
   imports =
     [
-      <nixos-hardware/raspberry-pi/4>
+      <nixos-hardware/raspberry-pi/3>
     ];
 
   console.enable = true;
@@ -22,7 +22,7 @@
   hardware.raspberry-pi."3".fkms-3d.enable = true;
 
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
+    kernelPackages = pkgs.linuxKernel.packages.linux_rpi3;
     kernelParams = [ "fbcon=rotate:1" ];
     initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
     loader = {
