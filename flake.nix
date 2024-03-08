@@ -34,8 +34,8 @@
       sha256 = "196r5j43vws1m0486z1vbi66j4m6s3ydbg7diamdyz7cax5z7c32";
     };
     Pi3Nix = builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/pi4.nix";
-      sha256 = "";
+      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/pi3.nix";
+      sha256 = "0ijdpchlxgh3aayz98ipsrl7acfx5j445spgcvwcq6xnfq9yai85";
     };
     Pi4Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/pi4.nix";
@@ -849,14 +849,6 @@
           sharedConfiguration
         ];  
       };
-      pile = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hardware-configuration.nix
-          server3060Nix
-          sharedConfiguration
-        ];  
-      };   
       block = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -864,7 +856,15 @@
           server4090Nix
           sharedConfiguration
         ];  
-      };
+      };      
+      pi3 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hardware-configuration.nix
+          Pi3Nix
+          sharedConfiguration
+        ];  
+      };   
       pi4 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
