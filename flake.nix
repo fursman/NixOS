@@ -605,6 +605,7 @@
           dunst
           dust
           btop
+          pika-backup
           assistant.packages.${system}.assistant
         ];
           
