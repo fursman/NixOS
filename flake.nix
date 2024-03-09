@@ -493,6 +493,7 @@
         bind = $mainMod, X, exec, wlogout --protocol layer-shell
         bind = $mainMod, B, exec, firefox
         bind = $mainMod, F, exec, thunar
+        bind = $mainMod, R, exec, pika-backup
         bind = $mainMod, A, exec, pavucontrol
         bind = $mainMod, C, exec, code --password-store="gnome"
         bind = $mainMod, L, exec, swaylock --screenshots --clock --indicator --indicator-radius 200 --indicator-thickness 40 --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --ring-color 44006666 --key-hl-color 00000000 --line-color 00000000 --inside-color 00000000 --separator-color 00000000 --grace 0 --fade-in 0.5 -F
