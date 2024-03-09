@@ -49,14 +49,6 @@
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
 
-			home-manager.users.gdm = { lib, ... }: {
-			  dconf.settings = {
-			    "org/gnome/desktop/interface" = {
-			      scaling-factor = lib.hm.gvariant.mkUint32 1;
-			    };
-			  };
-			};
-
       home-manager.users.user = { pkgs, ... }: {
         home.username = "user";
         home.homeDirectory = "/home/user";
@@ -80,6 +72,10 @@
           done
         '';
         home.file.".config/hypr/wallpaper.sh".executable = true;
+
+	programs.dconf.profiles.gdm.database = [{
+	  settings."org/gnome/desktop/interface".scaling-factor = lib.gvariant.mkUint32 1;
+	}];
 
         programs.home-manager.enable = true;
 
