@@ -48,7 +48,15 @@
     
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-    
+
+			home-manager.users.gdm = { lib, ... }: {
+			  dconf.settings = {
+			    "org/gnome/desktop/interface" = {
+			      scaling-factor = lib.hm.gvariant.mkUint32 1;
+			    };
+			  };
+			};
+
       home-manager.users.user = { pkgs, ... }: {
         home.username = "user";
         home.homeDirectory = "/home/user";
