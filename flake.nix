@@ -73,10 +73,6 @@
         '';
         home.file.".config/hypr/wallpaper.sh".executable = true;
 
-	programs.dconf.profiles.gdm.database = [{
-	  settings."org/gnome/desktop/interface".scaling-factor = lib.gvariant.mkUint32 1;
-	}];
-
         programs.home-manager.enable = true;
 
         home.pointerCursor = {
