@@ -230,10 +230,6 @@
 
   programs.dconf.enable = true;
 
-	programs.dconf.profiles.gdm.database = [{
-	  settings."org/gnome/desktop/interface".scaling-factor = lib.gvariant.mkUint32 1;
-	}];
-
   programs.virt-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
