@@ -23,7 +23,7 @@
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
-    kernelParams = [ "fbcon=rotate:0" ];
+    kernelParams = [ "fbcon=rotate:2" ];
     initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
     loader = {
       grub.enable = false;
@@ -63,8 +63,8 @@
   services.xserver.enable = true;
 
   # Enable Greeter
-  # services.xserver.displayManager.gdm.wayland = true;
-  # services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.lightdm.wayland.enable = true;
+  services.xserver.displayManager.lightdm.enable = true;
 
   # Enagle the gnome-keyring
   services.gnome.gnome-keyring.enable = true;
