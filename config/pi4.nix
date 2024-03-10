@@ -23,7 +23,7 @@
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
-    kernelParams = [ "fbcon=rotate:1" ];
+    kernelParams = [ "fbcon=rotate:0" ];
     initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
     loader = {
       grub.enable = false;
