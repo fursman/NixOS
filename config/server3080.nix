@@ -224,7 +224,11 @@
   };
 
   systemd.tmpfiles.rules = [
-    "f /dev/shm/looking-glass 0777 user qemu-libvirtd -"
+  ];
+
+  systemd.tmpfiles.rules = [
+    ''f+ /run/gdm/.config/monitors.xml - gdm gdm - <monitors version="2"><configuration><logicalmonitor><x>0</x><y>0</y><scale>1</scale><primary>yes</primary><monitor><mode><width>3840</width><height>2160</height><rate>60</rate></mode></monitor></logicalmonitor></configuration></monitors>''
+    ''f /dev/shm/looking-glass 0777 user qemu-libvirtd -''
   ];
 
   programs.dconf.enable = true;
