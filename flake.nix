@@ -652,6 +652,9 @@
     
       # Enable networking
       networking.networkmanager.enable = true;
+
+      # RTL-SDR
+      hardware.rtl-sdr.enable = true;
     
       # Bluethooth
       hardware.bluetooth.enable = true;
@@ -708,8 +711,8 @@
     
       # Configure keymap in X11
       services.xserver = {
-        layout = "us";
-        xkbVariant = "";
+        xkb.layout = "us";
+        xkb.variant = "";
       };
     
       # Enable CUPS to print documents.
@@ -773,6 +776,7 @@
       environment.systemPackages = with pkgs; [
         git
         ntfs3g
+        sdrpp
       ];
     
       # Define a user account. Don't forget to set a password with ‘passwd’.
