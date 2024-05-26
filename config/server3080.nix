@@ -43,7 +43,7 @@
   boot.loader.timeout = 0;
   boot.consoleLogLevel = 0;
   # Enable "quiet" output, "splash" screen and virtualization GPU options at boot
-  boot.kernelParams = [ "quiet" "splash" "intel_iommu=on" "video=3840x2160" ];
+  boot.kernelParams = [ "quiet" "splash" "intel_iommu=on" ];
 
   boot.supportedFilesystems = [ "ntfs" ];
 
