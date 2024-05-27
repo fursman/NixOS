@@ -372,20 +372,21 @@
         
             # Enable Keyboard Special Keys
         
-            # Sink volume raise optionally with --device
-            binde = ,XF86AudioRaiseVolume, exec, swayosd --output-volume raise
-            # Sink volume lower optionally with --device
-            binde = ,XF86AudioLowerVolume, exec,  swayosd --output-volume lower
+            # Enable Keyboard Special Keys
+            # Sink volume raise
+            binde = ,XF86AudioRaiseVolume, exec, pamixer --increase 5; dunstify -a "volume" -i audio-volume-high-symbolic "Volume Increased"
+            # Sink volume lower
+            binde = ,XF86AudioLowerVolume, exec, pamixer --decrease 5; dunstify -a "volume" -i audio-volume-low-symbolic "Volume Decreased"
             # Sink volume toggle mute
-            bindr = ,XF86AudioMute, exec, swayosd --output-volume mute-toggle
+            bindr = ,XF86AudioMute, exec, pamixer --toggle-mute; dunstify -a "volume" -i audio-volume-muted-symbolic "Volume Muted"
             # Source volume toggle mute
-            bindr = ,XF86AudioMicMute, exec, swayosd --input-volume mute-toggle
-        
+            bindr = ,XF86AudioMicMute, exec, pamixer --default-source --toggle-mute; dunstify -a "volume" -i microphone-sensitivity-muted-symbolic "Microphone Muted"
+
             # Brightness raise
-            binde = ,XF86MonBrightnessUp, exec, brightnessctl s +5
+            binde = ,XF86MonBrightnessUp, exec, brightnessctl set +5%; dunstify -a "brightness" -i display-brightness-high-symbolic "Brightness Increased"
             # Brightness lower
-            binde = ,XF86MonBrightnessDown, exec, brightnessctl s 5-
-        
+            binde = ,XF86MonBrightnessDown, exec, brightnessctl set 5%-; dunstify -a "brightness" -i display-brightness-low-symbolic "Brightness Decreased"
+
             follow_mouse = 1
         
             touchpad {
