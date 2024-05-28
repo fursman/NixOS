@@ -71,7 +71,39 @@
           hyprctl hyprpaper wallpaper "$monitor,/etc/assets/Wallpaper/$theme/$((RANDOM%8+1)).jpg"
           done
         '';
+
         home.file.".config/hypr/wallpaper.sh".executable = true;
+
+        # Dunst Configuration
+        home.file.".config/dunst/dunstrc".text = ''
+          [global]
+          font = Monospace 10
+          format = "%s %b %I %a %t"
+
+          ### Geometry ###
+
+          # dynamic width from 0 to 1000
+          width = (0, 1000)
+
+          # The height of a single notification, excluding the frame.
+          height = (0, 1000)
+
+          # Position the notification in the top right corner
+          origin = top-right
+
+          # Offset from the origin
+          offset = (50, 50)
+
+          # Scale factor. It is auto-detected if value is 0.
+          scale = 0
+
+          # Maximum number of notification (0 means no limit)
+          notification_limit = 20
+
+          frame_color = "#ffffff"
+
+          transparency = 0
+        '';
 
         programs.home-manager.enable = true;
 
@@ -83,6 +115,10 @@
             enable = true;
             defaultCursor = "Adwaita";
           };
+        };
+
+        programs.dunst = {
+          enable = true;
         };
 
         programs.kitty = {
@@ -594,7 +630,6 @@
           waypipe
           gparted
           rpi-imager
-          dunst
           dust
           btop
           pika-backup
