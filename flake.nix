@@ -77,7 +77,7 @@
         # Dunst Configuration
         home.file.".config/dunst/dunstrc".text = ''
           [global]
-          
+
           font = Monospace 16
 
           # dynamic width from 0 to 1000
@@ -100,7 +100,7 @@
 
           frame_color = "#ffffff"
 
-          transparency = 0.5
+          transparency = 0.05
         '';
 
         programs.home-manager.enable = true;
