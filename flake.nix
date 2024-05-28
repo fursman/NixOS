@@ -621,6 +621,7 @@
           pika-backup
           brightnessctl
           pamixer
+          wl-clipboard
           assistant.packages.${system}.assistant
         ];
           
