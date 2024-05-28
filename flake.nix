@@ -77,16 +77,14 @@
         # Dunst Configuration
         home.file.".config/dunst/dunstrc".text = ''
           [global]
-          font = Monospace 10
-          format = "%s %b %I %a %t"
-
-          ### Geometry ###
+          
+          font = Monospace 16
 
           # dynamic width from 0 to 1000
-          width = (0, 1000)
+          width = (0, 2000)
 
           # The height of a single notification, excluding the frame.
-          height = (0, 1000)
+          height = (0, 2000)
 
           # Position the notification in the top right corner
           origin = top-right
@@ -102,7 +100,7 @@
 
           frame_color = "#ffffff"
 
-          transparency = 0
+          transparency = 0.5
         '';
 
         programs.home-manager.enable = true;
