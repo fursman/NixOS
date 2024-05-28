@@ -64,6 +64,17 @@
           ${lib.concatStringsSep "\n" (builtins.map (i: "preload = /etc/assets/Wallpaper/${theme}/${toString i}.jpg") (lib.range 1 8))}
         '';
  
+        home.file.".soundrc".text = ''
+					pcm.!default {
+					    type plug
+					    slave.pcm "null"
+					}
+					
+					pcm.null {
+					    type null
+					}
+        '';
+
         home.file.".config/hypr/wallpaper.sh".text = ''
           #!/usr/bin/env bash
           theme="${theme}" # Use the theme variable
