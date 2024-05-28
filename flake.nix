@@ -65,14 +65,14 @@
         '';
  
         home.file.".soundrc".text = ''
-					pcm.!default {
-							type plug
-							slave.pcm "null"
-					}
-					
-					pcm.null {
-							type null
-					}
+	pcm.!default {
+			type plug
+			slave.pcm "null"
+	}
+	
+	pcm.null {
+			type null
+	}
         '';
 
         home.file.".config/hypr/wallpaper.sh".text = ''
