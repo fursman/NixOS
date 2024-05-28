@@ -117,10 +117,6 @@
           };
         };
 
-        programs.dunst = {
-          enable = true;
-        };
-
         programs.kitty = {
           enable = true;
           settings = {
@@ -630,6 +626,7 @@
           waypipe
           gparted
           rpi-imager
+          dunst
           dust
           btop
           pika-backup
