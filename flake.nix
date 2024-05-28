@@ -66,12 +66,12 @@
  
         home.file.".soundrc".text = ''
 	pcm.!default {
-			type plug
-			slave.pcm "null"
+		type plug
+		slave.pcm "null"
 	}
 	
 	pcm.null {
-			type null
+		type null
 	}
         '';
 
