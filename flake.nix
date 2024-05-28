@@ -619,6 +619,7 @@
           dust
           btop
           pika-backup
+          brightnessctl
           assistant.packages.${system}.assistant
         ];
           
