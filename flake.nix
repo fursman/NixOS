@@ -63,17 +63,6 @@
           ipc = on
           ${lib.concatStringsSep "\n" (builtins.map (i: "preload = /etc/assets/Wallpaper/${theme}/${toString i}.jpg") (lib.range 1 8))}
         '';
- 
-        home.file.".soundrc".text = ''
-	pcm.!default {
-		type plug
-		slave.pcm "null"
-	}
-	
-	pcm.null {
-		type null
-	}
-        '';
 
         home.file.".config/hypr/wallpaper.sh".text = ''
           #!/usr/bin/env bash
@@ -88,15 +77,15 @@
         # Dunst Configuration
         home.file.".config/dunst/dunstrc".text = ''
           [global]
-          font = Monospace 16
+          font = Monospace 12
           # dynamic width from 0 to 1000
-          width = (0, 2000)
+          width = (0, 1000)
           # The height of a single notification, excluding the frame.
-          height = (0, 2000)
+          height = (0, 1000)
           # Position the notification in the top right corner
           origin = top-right
           # Offset from the origin
-          offset = (50, 50)
+          offset = (50, -50)
           # Scale factor. It is auto-detected if value is 0.
           scale = 0
           # Maximum number of notification (0 means no limit)
