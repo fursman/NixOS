@@ -620,6 +620,7 @@
           btop
           pika-backup
           brightnessctl
+          pamixer
           assistant.packages.${system}.assistant
         ];
           
