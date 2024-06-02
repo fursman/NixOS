@@ -599,7 +599,9 @@
           xfce.thunar
           xfce.tumbler
           gnome.eog
+          gnome.zenity
           gnome.gnome-system-monitor
+          gnome-disk-utility
           pavucontrol
           links2
           wget
