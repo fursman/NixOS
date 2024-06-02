@@ -601,7 +601,7 @@
           gnome.eog
           gnome.zenity
           gnome.gnome-system-monitor
-          gnome-disk-utility
+          gnome.gnome-disk-utility
           pavucontrol
           links2
           wget
