@@ -29,6 +29,10 @@
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server3080.nix";
       sha256 = "12bgkkvpb0p1ciyry2y0x6p9z9md45wrv88rvl0z4b89w62yy9pd";
     };
+    serverTitanVNix = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/serverTitanV.nix";
+      sha256 = "1hy6zwk1153xfwmgmjd4rqbq5bqclch54ffiwxxfrk1y733ra3q0";
+    };
     server4090Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server4090.nix";
       sha256 = "196r5j43vws1m0486z1vbi66j4m6s3ydbg7diamdyz7cax5z7c32";
@@ -623,6 +627,9 @@
           pika-backup
           brightnessctl
           pamixer
+          usbutils
+          pciutils
+          nmap
           wl-clipboard
           assistant.packages.${system}.assistant
         ];
@@ -880,6 +887,14 @@
           sharedConfiguration
         ];  
       };      
+      pile = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hardware-configuration.nix
+          serverTitanVNix
+          sharedConfiguration
+        ];  
+      };     
       pi3 = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = [
