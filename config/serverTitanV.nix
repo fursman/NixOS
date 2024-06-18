@@ -26,7 +26,7 @@
   ];
   
   # CHANGE: Don't forget to put your own PCI IDs here (run lspci -nn and look for NVIDIA)
-  boot.extraModprobeConfig ="options vfio-pci ids=10de:2684,10de:2684";
+  boot.extraModprobeConfig ="options vfio-pci ids=10de:2684,10de:22ba";
 
   # Enable plymouth
   boot.plymouth = {
