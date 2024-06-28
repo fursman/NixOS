@@ -131,10 +131,9 @@
   # services.xserver.libinput.enable = true;
 
   # Enable OpenGL
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   # Load intel driver for Xorg and Wayland
@@ -148,7 +147,9 @@
   environment.systemPackages = with pkgs; [
     git
     ntfs3g
-    util-linux
+    adi1090x-plymouth-themes
+    sdrpp
+    looking-glass-client
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
