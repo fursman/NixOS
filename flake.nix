@@ -519,10 +519,10 @@
         bind = $mainMod, J, togglesplit, # dwindle
 
         # Copy a full-screen screenshot to clipboard using Print Screen
-        bind = , Print, exec, "grim - | wl-copy"
+        bind = , Print, exec, grim - | wl-copy
 
         # Save a full-screen screenshot to the ~/Pictures directory using Super (Mod) + F12
-        bind = $mainMod, F12, exec, "grim ~/Pictures/Screenshots/Screenshot-$(date +'%Y-%m-%d-%H-%M-%S').png"
+        bind = $mainMod, F12, exec, grim ~/Pictures/Screenshot-$(date +'%Y-%m-%d-%H-%M-%S').png
         
         # Move focus with mainMod + arrow keys
         bind = $mainMod, left, movefocus, l
