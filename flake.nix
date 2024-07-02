@@ -517,6 +517,12 @@
         bind = $mainMod, SPACE, exec, nohup assistant >/dev/null 2>&1 &
         bind = $mainMod, P, pseudo, # dwindle
         bind = $mainMod, J, togglesplit, # dwindle
+
+        # Copy a full-screen screenshot to clipboard using Print Screen
+        bind = , Print, exec, "grim - | wl-copy"
+
+        # Save a full-screen screenshot to the ~/Pictures directory using Super (Mod) + F12
+        bind = $mainMod, F12, exec, "grim ~/Pictures/Screenshots/Screenshot-$(date +'%Y-%m-%d-%H-%M-%S').png"
         
         # Move focus with mainMod + arrow keys
         bind = $mainMod, left, movefocus, l
@@ -631,6 +637,7 @@
           pciutils
           nmap
           wl-clipboard
+          grim
           assistant.packages.${system}.assistant
         ];
           
