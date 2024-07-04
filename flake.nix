@@ -602,16 +602,23 @@
         programs.firefox.enable = true;
 
         home.packages = with pkgs; [
-          (python3.withPackages (ps: with ps; [ requests ]))                  
+
+          #Python
+          (python3.withPackages (ps: with ps; [ requests ]))
+
+          #Gnome Applications
+          eog
+          gnome-system-monitor
+          gnome-disk-utility
+          seahorse
+          zenity
+
+          #System
           gimp
           signal-desktop
           steam           
           xfce.thunar
           xfce.tumbler
-          gnome.eog
-          gnome.zenity
-          gnome.gnome-system-monitor
-          gnome.gnome-disk-utility
           pavucontrol
           links2
           wget
@@ -621,7 +628,6 @@
           hyprpaper
           swaylock-effects
           vscode.fhs
-          gnome.seahorse
           imagemagick
           neofetch
           waypipe
@@ -641,7 +647,7 @@
           assistant.packages.${system}.assistant
         ];
           
-        home.stateVersion = "23.11";
+        home.stateVersion = "24.05";
       };
 
       environment.interactiveShellInit = ''
