@@ -508,10 +508,11 @@
         bind = $mainMod, Q, killactive, 
         bind = $mainMod, X, exec, wlogout --protocol layer-shell
         bind = $mainMod, B, exec, firefox
+        bind = $mainMod SHIFT, B, exec, microsoft-edge
+        bind = $mainMod ALT, B, exec, chromium
         bind = $mainMod, F, exec, thunar
         bind = $mainMod, P, exec, seahorse
         bind = $mainMod, S, exec, signal-desktop
-        bind = $mainMod, E, exec, microsoft-edge
         bind = $mainMod, R, exec, pika-backup
         bind = $mainMod, A, exec, pavucontrol
         bind = $mainMod, C, exec, code --password-store="gnome"
@@ -558,9 +559,9 @@
         bind = $mainMod SHIFT, 9, movetoworkspace, 9
         bind = $mainMod SHIFT, 0, movetoworkspace, 10
         
-        # Scroll through existing workspaces with mainMod + scroll
-        bind = $mainMod, mouse_down, workspace, e+1
-        bind = $mainMod, mouse_up, workspace, e-1
+        # Scroll through existing workspaces with mainMod SHIFT + arrows
+        bind = $mainMod SHIFT, right, workspace, e+1
+        bind = $mainMod SHIFT, left, workspace, e-1
         
         # Move/resize windows with mainMod + LMB/RMB and dragging
         bindm = $mainMod, mouse:272, movewindow
@@ -646,6 +647,7 @@
           pciutils
           nmap
           microsoft-edge
+          chromium
           wl-clipboard
           grim
           assistant.packages.${system}.assistant
