@@ -510,6 +510,7 @@
         bind = $mainMod, B, exec, firefox
         bind = $mainMod, F, exec, thunar
         bind = $mainMod, P, exec, seahorse
+        bind = $mainMod, S, exec, signal-desktop
         bind = $mainMod, E, exec, microsoft-edge
         bind = $mainMod, R, exec, pika-backup
         bind = $mainMod, A, exec, pavucontrol
