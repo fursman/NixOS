@@ -509,6 +509,8 @@
         bind = $mainMod, X, exec, wlogout --protocol layer-shell
         bind = $mainMod, B, exec, firefox
         bind = $mainMod, F, exec, thunar
+        bind = $mainMod, P, exec, seahorse
+        bind = $mainMod, E, exec, microsoft-edge
         bind = $mainMod, R, exec, pika-backup
         bind = $mainMod, A, exec, pavucontrol
         bind = $mainMod, C, exec, code --password-store="gnome"
@@ -642,6 +644,7 @@
           usbutils
           pciutils
           nmap
+          microsoft-edge
           wl-clipboard
           grim
           assistant.packages.${system}.assistant
