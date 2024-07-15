@@ -70,6 +70,12 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
 
+  # Set CPU Governor to Performance
+  services.cpufrequtils = {
+    enable = true;
+    governor = "performance";
+  };
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   #services.xserver.resolutions = [{ x = 3840; y = 2160; }];
