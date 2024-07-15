@@ -43,7 +43,7 @@
   boot.loader.timeout = 0;
   boot.consoleLogLevel = 0;
   # Enable "quiet" output, "splash" screen and virtualization GPU options at boot
-  boot.kernelParams = [ "quiet" "splash" "iommu=pt" "vfio_iommu_type1.allow_unsafe_interrupts=1" ];
+  boot.kernelParams = [ "quiet" "splash" "iommu=pt" "vfio_iommu_type1.allow_unsafe_interrupts=1" "governor=performance" ];
 
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -69,12 +69,6 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
-
-  # Set CPU Governor to Performance
-  services.cpufrequtils = {
-    enable = true;
-    governor = "performance";
-  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
