@@ -513,6 +513,7 @@
         bind = $mainMod, F, exec, thunar
         bind = $mainMod, P, exec, seahorse
         bind = $mainMod, S, exec, signal-desktop
+        bind = $mainMod, Z, exec, zoom-us
         bind = $mainMod, R, exec, pika-backup
         bind = $mainMod, A, exec, pavucontrol
         bind = $mainMod, C, exec, code --password-store="gnome"
@@ -650,6 +651,7 @@
           chromium
           wl-clipboard
           grim
+          zoom-us
           assistant.packages.${system}.assistant
         ];
           
