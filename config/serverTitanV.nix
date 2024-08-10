@@ -43,7 +43,7 @@
   boot.loader.timeout = 0;
   boot.consoleLogLevel = 0;
   # Enable "quiet" output, "splash" screen and virtualization GPU options at boot
-  boot.kernelParams = [ "quiet" "splash" "iommu=pt" "vfio_iommu_type1.allow_unsafe_interrupts=1" "governor=performance" ];
+  boot.kernelParams = [ "quiet" "splash" "iommu=pt" "vfio_iommu_type1.allow_unsafe_interrupts=1" ];
 
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -118,6 +118,12 @@
   services.xserver = {
     xkb.layout = "us";
     xkb.variant = "";
+  };
+
+  # Configure ollama for local LLMs
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda";
   };
 
   # Enable CUPS to print documents.
