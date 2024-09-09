@@ -33,7 +33,7 @@ Launching Applications:
     Gaming: Press SUPER + G to launch Steam in Big Picture mode, providing an immersive gaming experience.
     Web Browsing: Press SUPER + B to open Firefox, a free and open-source web browser.
     File Management: Press SUPER + F to open Thunar, a fast and easy-to-use file manager.
-    Sound Settings: Press SUPER + A to open Pavucontrol, a PulseAudio volume control tool.
+    Audio Settings: Press SUPER + A to open Pavucontrol, a PulseAudio volume control tool.
     Code Editor: Press SUPER + C to launch Visual Studio Code, a source-code editor with support for debugging, syntax highlighting, intelligent code completion, snippets, and code refactoring.
     Virtual Machines: Press SUPER + V to open Virt-manager, a desktop user interface for managing virtual machines.
     Lock Screen: Press SUPER + L to lock the screen using Swaylock, enhancing your system's security with various customization options.
