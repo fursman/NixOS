@@ -12,39 +12,26 @@
     '';
   };
 
-  # These modules are required for PCI passthrough, and must come before early modesetting stuff
-  boot.kernelModules = [
-    "vfio_pci"
-    "vfio"
-    "vfio_iommu_type1"
-    "vfio_virqfd"
-  
-    "nvidia"
-    "nvidia_modeset"
-    "nvidia_uvm"
-    "nvidia_drm"
-  ];
-  
-  # CHANGE: Don't forget to put your own PCI IDs here (run lspci -nn and look for NVIDIA)
-  boot.extraModprobeConfig ="options vfio-pci ids=10de:1b06,10de:10ef";
-
-  # Enable plymouth
-  boot.plymouth = {
-    enable = true;
-    theme = "red_loader";
-    themePackages = [(pkgs.adi1090x-plymouth-themes.override {selected_themes = ["red_loader"];})];
-  };
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.systemd.enable = true;
-  boot.initrd.verbose = false;
+  boot.initrd.verbose = true;
   boot.loader.timeout = 0;
   boot.consoleLogLevel = 0;
-  boot.kernelParams = [ "quiet" "splash" "intel_iommu=on" ];
+  boot.kernelParams = [ 
+    "snd-intel-dspcfg.dsp_driver=1" 
+    "snd_hda_intel.probe_mask=1" 
+  ];
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  boot.blacklistedKernelModules = [ "snd_sof_intel_hda_common" "snd_sof_intel_hda" "snd_sof_pci" "snd_sof_xtensa_dsp" ];
 
   boot.supportedFilesystems = [ "ntfs" ];
+
+  networking.hostName = "MacBookPro-Nix"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -52,6 +39,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # RTL-SDR
+  hardware.rtl-sdr.enable = true;
 
   # Bluethooth
   hardware.bluetooth.enable = true;
@@ -108,15 +98,14 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+    xkb.variant = "";
   };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -125,22 +114,24 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
+    jack.enable = true;
+    wireplumber.enable = true;
+    extraConfig.pipewire = {
+      "context.properties" = {
+        "default.clock.rate" = 48000;
+        "default.clock.quantum" = 32;
+        "default.clock.min-quantum" = 32;
+        "default.clock.max-quantum" = 32;
+      };
+    };    
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Enable OpenGL
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
+  services.libinput.enable = true;
+  services.libinput.touchpad.tapping = false;  # This disables tap-to-click entirely.
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
@@ -180,6 +171,7 @@
   environment.systemPackages = with pkgs; [
     git
     ntfs3g
+    sdrpp
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -197,7 +189,7 @@
   virtualisation = {
     libvirtd = {
       enable = true;
-      qemu.ovmf.enable = true;
+      qemu.ovmf.enable = false;
     };
   };
   programs.virt-manager.enable = true;
@@ -212,24 +204,13 @@
 
   # List services that you want to enable:
   # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-    extraConfig = ''
-      allowTcpForwarding yes
-      gatewayPorts clientspecified
-    '';
-  };
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ 7860 ];
+  # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  networking = {
-    hostName = "Pile"; # Define your hostname.
-    firewall.allowedTCPPorts = [ 7860 ];
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -237,6 +218,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
-}
+};
