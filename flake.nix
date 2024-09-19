@@ -502,7 +502,7 @@
         $mainMod = SUPER
         
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-        bind = $mainMod, L_SUPER, exec, nohup assistant >/dev/null 2>&1 &
+        bind = $mainMod, SUPER_L, exec, nohup assistant >/dev/null 2>&1 &
         bind = $mainMod, RETURN, exec, rofi -show run
         bind = $mainMod, T, exec, kitty
         bind = $mainMod, G, exec, steam --tenfoot
@@ -569,6 +569,12 @@
         bindm = $mainMod, mouse:273, resizewindow
         
         '';
+
+        dconf.settings = {
+          "org/gnome/desktop/interface" = {
+            color-scheme = "prefer-dark";
+          };
+        };
 
         gtk = {
           enable = true;
