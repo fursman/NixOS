@@ -253,6 +253,8 @@
                 "6" = " ";
                 "7" = " ";
                 "8" = "☂ ";
+                "9" = " ";
+                "10" = "⚑ ";
               };
               "persistent-workspaces" = {
                 "1" = "[eDP-1],"; 
@@ -263,7 +265,8 @@
                 "6" = "[eDP-1],"; 
                 "7" = "[eDP-1],"; 
                 "8" = "[eDP-1],"; 
-              }; 
+                "9" = "[eDP-1],"; 
+                "10" = "[eDP-1],"; 
             }; 
             "custom/weather" = {
               "exec" = "python ${weatherScript}";
@@ -508,6 +511,7 @@
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
         bind = $mainMod, SUPER_L, exec, nohup assistant >/dev/null 2>&1 &
         bind = $mainMod, RETURN, exec, rofi -show run
+        bind = $mainMod, M, exec, missioncontrol
         bind = $mainMod, T, exec, kitty
         bind = $mainMod, G, exec, steam --tenfoot
         bind = $mainMod, Q, killactive, 
@@ -623,7 +627,6 @@
 
           #Gnome Applications
           eog
-          gnome-system-monitor
           gnome-disk-utility
           seahorse
           zenity
@@ -662,6 +665,7 @@
           wl-clipboard
           grim
           zoom-us
+          mission-control
           assistant.packages.${system}.assistant
         ];
           
