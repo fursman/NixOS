@@ -166,6 +166,15 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Enable OpenGL
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  # Load intel driver for Xorg and Wayland
+  services.xserver.videoDrivers = ["intel"];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
