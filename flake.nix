@@ -689,7 +689,7 @@
     # Define the desktop configuration inline, previously contained in desktop.nix
     desktopConfiguration = { config, pkgs, ... }: {
       nix = {
-        package = pkgs.nixFlakes;
+        package = pkgs.nixVersions.stable;;
         extraOptions = ''
           experimental-features = nix-command flakes
         '';
