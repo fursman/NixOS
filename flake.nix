@@ -31,11 +31,11 @@
     };
     serverTitanVNix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/serverTitanV.nix";
-      sha256 = "0m9g8nk9a3q5j8kn7bbga84hy6162mbnss4wyydzsnkayp089zs3";
+      sha256 = "03wd2q0vrghcjy6d99nbiha9j4jhs7ai1zqc1xx5dqbqdwna78fx";
     };
     server4090Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server4090.nix";
-      sha256 = "1a6a8qhhm2sisk21k2brd2j90hn16hsvhcy0pqmfd2yn0mxfnk5q";
+      sha256 = "1n52y7qcpqfx89qq2psvrbivfikp8j277jdlhv9x0hsrccv2f6qj";
     };
     MacbookProNix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/MacbookPro.nix";
