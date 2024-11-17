@@ -454,10 +454,12 @@
                 passes = 2
                 new_optimizations = on
             }
-            drop_shadow = yes
-            shadow_range = 4
-            shadow_render_power = 3
-            col.shadow = rgba(1a1a1aee)
+            shadow {
+                enable = yes
+                range = 4
+                render_power = 3
+                color = rgba(1a1a1aee)
+            }
             rounding = 5
             active_opacity = 1
             inactive_opacity = 0.9
