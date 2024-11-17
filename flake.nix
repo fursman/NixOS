@@ -39,15 +39,15 @@
     };
     MacbookProNix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/MacbookPro.nix";
-      sha256 = "1n52y7qcpqfx89qq2psvrbivfikp8j277jdlhv9x0hsrccv2f6qj";
+      sha256 = "0ifl8c08jcdml3abzahklyxdsibxc4n7clc201vjxh73zimaf1cb";
     };
     Pi3Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/pi3.nix";
-      sha256 = "1flmbvwcda95s7539z0jwz83x49zx5f4bkrdlvqpwqpnqzyh6p4y";
+      sha256 = "1plny5f5k0spfl2ayw7c9gxf8c2lvhsxllzp3psj1p9fxg1kmm8f";
     };
     Pi4Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/pi4.nix";
-      sha256 = "0nkcs60g1dpavbxkv3as0hawdbq8lkl6w3m2a9dg4xya9rraxz6g";
+      sha256 = "1x5fpc1vf7ygajpw1f87lahxv66rdmiid0hdbs2rkpclfqappg74";
     };
     sharedConfiguration = ({ config, pkgs, ... }: {
       imports = [
