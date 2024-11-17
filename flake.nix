@@ -514,7 +514,6 @@
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
         bind = $mainMod, SUPER_L, exec, nohup assistant >/dev/null 2>&1 &
         bind = $mainMod, RETURN, exec, rofi -show run
-        bind = $mainMod, M, exec, missioncenter
         bind = $mainMod, T, exec, kitty
         bind = $mainMod, G, exec, steam --tenfoot
         bind = $mainMod, Q, killactive, 
@@ -668,7 +667,6 @@
           wl-clipboard
           grim
           zoom-us
-          mission-center
           assistant.packages.${system}.assistant
         ];
           
