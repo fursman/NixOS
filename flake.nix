@@ -667,6 +667,7 @@
           wl-clipboard
           grim
           zoom-us
+          tmux
           assistant.packages.${system}.assistant
         ];
           
