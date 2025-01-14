@@ -148,9 +148,6 @@
     enable32Bit = true;
   };
 
-  # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["intel"];
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
