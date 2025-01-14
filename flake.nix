@@ -291,6 +291,7 @@
             	"tooltip-format-connected" = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
             	"tooltip-format-enumerate-connected" = "{device_alias}\t{device_address}";
             	"tooltip-format-enumerate-connected-battery" = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
+                "on-click" = "kitty blueman-manager";
             };
             "disk" = {
               "interval" = 30;
@@ -349,6 +350,7 @@
               "format-ethernet" = "  {ifname}: {ipaddr}/{cidr}";
               "format-disconnected" = "  Disconnected";
               "tooltip-format" = "{ifname}: {ipaddr}";
+              "on-click" = "kitty nmtui";
             };
             "pulseaudio" = {
               "scroll-step" = 1;
@@ -634,6 +636,7 @@
           zenity
 
           #System
+          blueman
           gimp
           signal-desktop
           steam           
