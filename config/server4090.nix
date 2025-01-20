@@ -135,9 +135,6 @@
     enable32Bit = true;
   };
 
-  # Load intel driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["intel"];
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
