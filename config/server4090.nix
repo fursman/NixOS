@@ -141,7 +141,7 @@
       shm = {
         enable = true;
         size = 128;
-        user = "j-brn";
+        user = "user";
         group = "libvirtd";
         mode = "0600";
       };
