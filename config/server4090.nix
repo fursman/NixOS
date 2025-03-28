@@ -8,7 +8,7 @@ let
       size = 128;
       user = "qemu-libvirtd";
       group = "qemu-libvirtd";
-      mode = "0600";
+      mode = "0660";
     };
   };
   # Inline kvmfr kernel module derivation
@@ -83,6 +83,12 @@ in {
       "/dev/tty"
     ];
   '';
+
+  systemd.services.libvirtd = {
+    serviceConfig = {
+      DeviceAllow = "/dev/kvmfr0 rw";
+    };
+  };
 
   networking.networkmanager.enable = true;
 
