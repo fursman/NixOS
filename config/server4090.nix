@@ -43,6 +43,8 @@ in {
   };
 
   boot.kernelModules = [
+    "kvm"
+    "kvm_intel"
     "vfio_pci"
     "vfio"
     "vfio_iommu_type1"
