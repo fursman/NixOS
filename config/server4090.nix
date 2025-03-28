@@ -7,7 +7,7 @@ let
       enable = true;
       size = 128;
       user = "user";
-      group = "kvm";
+      group = "qemu-libvirtd";
       mode = "0600";
     };
   };
@@ -68,6 +68,8 @@ in {
     ++ (if kvmfrSettings.shm.enable then [ "kvmfr.static_size_mb=${toString kvmfrSettings.shm.size}" ] else []);
 
   boot.supportedFilesystems = [ "ntfs" ];
+
+  environment.etc."modules-load.d/kvmfr.conf".text = "kvmfr\n";
 
   networking.networkmanager.enable = true;
 
