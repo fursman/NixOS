@@ -133,7 +133,7 @@ in {
     ];
   };
 
-  virtualisation = {
+  virtualisation = lib.mkForce {
     libvirtd = {
       enable = true;
       onBoot = "ignore";
