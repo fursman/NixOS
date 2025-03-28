@@ -7,7 +7,7 @@ let
       enable = true;
       size = 128;
       user = "user";
-      group = "libvirtd";
+      group = "kvm";
       mode = "0600";
     };
   };
