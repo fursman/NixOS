@@ -54,7 +54,8 @@ in {
   boot.initrd.verbose = false;
   boot.loader.timeout = 0;
   boot.consoleLogLevel = 0;
-  boot.kernelParams = [ "quiet" "splash" "intel_iommu=on" "iommu=pt" ];
+  boot.kernelParams = [ "quiet" "splash" "intel_iommu=on" "iommu=pt" ]
+    ++ (if config.virtualisation.kvmfr.shm.enable then [ "kvmfr.static_size_mb=${toString config.virtualisation.kvmfr.shm.size}" ] else []);
 
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -162,14 +163,11 @@ in {
   # Build and load the KVMFR module
   boot.extraModulePackages = [ kvmfrModule ];
   boot.initrd.kernelModules = [ "kvmfr" ];
-  boot.kernelParams = optionals config.virtualisation.kvmfr.shm.enable [
-    "kvmfr.static_size_mb=${toString config.virtualisation.kvmfr.shm.size}"
-  ];
   services.udev.extraRules = optionals config.virtualisation.kvmfr.shm.enable ''
     SUBSYSTEM=="kvmfr", OWNER="${config.virtualisation.kvmfr.shm.user}", GROUP="${config.virtualisation.kvmfr.shm.group}", MODE="${config.virtualisation.kvmfr.shm.mode}"
   '';
 
-  # (Optional) Remove tmpfiles rule if not needed with the new setup.
+  # (Optional) Remove tmpfiles rule since the new setup manages shared memory automatically.
   # systemd.tmpfiles.rules = [ "f /dev/shm/looking-glass 0777 user qemu-libvirtd -" ];
 
   programs.dconf.enable = true;
