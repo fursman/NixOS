@@ -6,7 +6,7 @@ let
     shm = {
       enable = true;
       size = 128;
-      user = "user";
+      user = "qemu-libvirtd";
       group = "qemu-libvirtd";
       mode = "0600";
     };
