@@ -1,11 +1,30 @@
 { config, pkgs, ... }:
 
-{
-  # Import the KVMFR module options (and its build derivation, see kvmfr-package.nix)
-  imports = [
-    ./kvmfr-options.nix
-  ];
-
+let
+  # Inline kvmfr kernel module derivation
+  kvmfrModule = pkgs.stdenv.mkDerivation rec {
+    pname = "kvmfr-${pkgs.looking-glass-client.version}-${config.boot.kernelPackages.kernel.version}";
+    version = pkgs.looking-glass-client.version;
+    src = pkgs.looking-glass-client.src;
+    sourceRoot = "source/module";
+    hardeningDisable = [ "pic" "format" ];
+    nativeBuildInputs = config.boot.kernelPackages.kernel.moduleBuildDependencies;
+    makeFlags = [
+      "KVER=${config.boot.kernelPackages.kernel.modDirVersion}"
+      "KDIR=${config.boot.kernelPackages.kernel.dev}/lib/modules/${config.boot.kernelPackages.kernel.modDirVersion}/build"
+    ];
+    installPhase = ''
+      install -D kvmfr.ko -t "$out/lib/modules/${config.boot.kernelPackages.kernel.modDirVersion}/kernel/drivers/misc/"
+    '';
+    meta = with pkgs.lib; {
+      description = "This kernel module implements a basic interface to the IVSHMEM device for LookingGlass";
+      homepage = "https://github.com/gnif/LookingGlass";
+      license = licenses.gpl2Only;
+      maintainers = [ "j-brn" ];
+      platforms = [ "x86_64-linux" ];
+    };
+  };
+in {
   nix = {
     package = pkgs.nixVersions.stable;
     extraOptions = ''
@@ -19,7 +38,6 @@
     "vfio_iommu_type1"
     "vfio_virqfd"
   ];
-  
   boot.extraModprobeConfig = "options vfio-pci ids=10de:2684,10de:22ba";
 
   boot.plymouth = {
@@ -50,7 +68,6 @@
   i18n.defaultLocale = "en_CA.UTF-8";
 
   services.xserver.enable = true;
-
   services.xserver.displayManager.gdm.wayland = true;
   services.xserver.displayManager.gdm.enable = true;
 
@@ -60,14 +77,9 @@
   programs.hyprland.enable = true;
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
 
-  services.dbus.packages = with pkgs; [
-    xfce.xfconf
-  ];
+  services.dbus.packages = with pkgs; [ xfce.xfconf ];
 
-  fonts.packages = with pkgs; [
-    font-awesome
-  ];
-
+  fonts.packages = with pkgs; [ font-awesome ];
   fonts.fontconfig.enable = true;
   services.gvfs.enable = true;
 
@@ -114,7 +126,7 @@
     extraGroups = [ 
       "networkmanager"
       "wheel"
-      "libvirtd"  # Needed for virt-manager
+      "libvirtd"   # Needed for virt-manager
       "kvm"
       "qemu-libvirtd"
     ];
@@ -132,10 +144,9 @@
         runAsRoot = false;
       };
     };
-
     spiceUSBRedirection.enable = true;
 
-    # KVMFR configuration:
+    # Inline KVMFR configuration:
     kvmfr = {
       enable = true;
       shm = {
@@ -147,6 +158,19 @@
       };
     };
   };
+
+  # Build and load the KVMFR module
+  boot.extraModulePackages = [ kvmfrModule ];
+  boot.initrd.kernelModules = [ "kvmfr" ];
+  boot.kernelParams = optionals config.virtualisation.kvmfr.shm.enable [
+    "kvmfr.static_size_mb=${toString config.virtualisation.kvmfr.shm.size}"
+  ];
+  services.udev.extraRules = optionals config.virtualisation.kvmfr.shm.enable ''
+    SUBSYSTEM=="kvmfr", OWNER="${config.virtualisation.kvmfr.shm.user}", GROUP="${config.virtualisation.kvmfr.shm.group}", MODE="${config.virtualisation.kvmfr.shm.mode}"
+  '';
+
+  # (Optional) Remove tmpfiles rule if not needed with the new setup.
+  # systemd.tmpfiles.rules = [ "f /dev/shm/looking-glass 0777 user qemu-libvirtd -" ];
 
   programs.dconf.enable = true;
   programs.virt-manager.enable = true;
