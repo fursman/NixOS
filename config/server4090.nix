@@ -71,6 +71,19 @@ in {
 
   environment.etc."modules-load.d/kvmfr.conf".text = "kvmfr\n";
 
+  environment.etc."libvirt/qemu.conf".text = ''
+    # Enable QEMU to access necessary devices for guest RAM
+    cgroup_device_acl = [
+      "/dev/kvmfr0"
+      "/dev/null"
+      "/dev/zero"
+      "/dev/full"
+      "/dev/random"
+      "/dev/urandom"
+      "/dev/tty"
+    ];
+  '';
+
   networking.networkmanager.enable = true;
 
   hardware.bluetooth.enable = true;
