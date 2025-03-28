@@ -1,6 +1,16 @@
 { config, pkgs, ... }:
 let
   lib = pkgs.lib;
+  kvmfrSettings = {
+    enable = true;
+    shm = {
+      enable = true;
+      size = 128;
+      user = "user";
+      group = "libvirtd";
+      mode = "0600";
+    };
+  };
   # Inline kvmfr kernel module derivation
   kvmfrModule = pkgs.stdenv.mkDerivation rec {
     pname = "kvmfr-${pkgs.looking-glass-client.version}-${config.boot.kernelPackages.kernel.version}";
@@ -55,7 +65,7 @@ in {
   boot.loader.timeout = 0;
   boot.consoleLogLevel = 0;
   boot.kernelParams = [ "quiet" "splash" "intel_iommu=on" "iommu=pt" ]
-    ++ (if config.virtualisation.kvmfr.shm.enable then [ "kvmfr.static_size_mb=${toString config.virtualisation.kvmfr.shm.size}" ] else []);
+    ++ (if kvmfrSettings.shm.enable then [ "kvmfr.static_size_mb=${toString kvmfrSettings.shm.size}" ] else []);
 
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -133,7 +143,7 @@ in {
     ];
   };
 
-  virtualisation = lib.mkForce {
+  virtualisation = {
     libvirtd = {
       enable = true;
       onBoot = "ignore";
@@ -146,25 +156,13 @@ in {
       };
     };
     spiceUSBRedirection.enable = true;
-
-    # Inline KVMFR configuration:
-    kvmfr = {
-      enable = true;
-      shm = {
-        enable = true;
-        size = 128;
-        user = "user";
-        group = "libvirtd";
-        mode = "0600";
-      };
-    };
   };
 
-  # Build and load the KVMFR module
+  # Build and load the KVMFR module using our custom kvmfrSettings
   boot.extraModulePackages = [ kvmfrModule ];
   boot.initrd.kernelModules = [ "kvmfr" ];
-  services.udev.extraRules = lib.optionals config.virtualisation.kvmfr.shm.enable ''
-    SUBSYSTEM=="kvmfr", OWNER="${config.virtualisation.kvmfr.shm.user}", GROUP="${config.virtualisation.kvmfr.shm.group}", MODE="${config.virtualisation.kvmfr.shm.mode}"
+  services.udev.extraRules = lib.optionals kvmfrSettings.shm.enable ''
+    SUBSYSTEM=="kvmfr", OWNER="${kvmfrSettings.shm.user}", GROUP="${kvmfrSettings.shm.group}", MODE="${kvmfrSettings.shm.mode}"
   '';
 
   # (Optional) Remove tmpfiles rule since the new setup manages shared memory automatically.
