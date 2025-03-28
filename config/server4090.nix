@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
-
 let
+  lib = pkgs.lib;
   # Inline kvmfr kernel module derivation
   kvmfrModule = pkgs.stdenv.mkDerivation rec {
     pname = "kvmfr-${pkgs.looking-glass-client.version}-${config.boot.kernelPackages.kernel.version}";
@@ -163,7 +163,7 @@ in {
   # Build and load the KVMFR module
   boot.extraModulePackages = [ kvmfrModule ];
   boot.initrd.kernelModules = [ "kvmfr" ];
-  services.udev.extraRules = optionals config.virtualisation.kvmfr.shm.enable ''
+  services.udev.extraRules = lib.optionals config.virtualisation.kvmfr.shm.enable ''
     SUBSYSTEM=="kvmfr", OWNER="${config.virtualisation.kvmfr.shm.user}", GROUP="${config.virtualisation.kvmfr.shm.group}", MODE="${config.virtualisation.kvmfr.shm.mode}"
   '';
 
