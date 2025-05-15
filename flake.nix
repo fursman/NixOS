@@ -63,16 +63,6 @@
 
       home-manager.users.user = { pkgs, ... }: {
 
-        programs.swayidle = {
-          enable = true;
-          extraOptions = [
-            "-w"
-            "timeout" "300" "swaylock --screenshots --effect-blur 8x8 --effect-vignette 0.8:0.8 \
-                      --text-color ffffff --grace 0 --fade-in 0.5 -F"
-          ];
-          resumeCommand = "swaylock --grace 0 -f";
-        };
-
         home.username = "user";
         home.homeDirectory = "/home/user";
 
@@ -397,6 +387,12 @@
         wayland.windowManager.hyprland.enable = true;
         wayland.windowManager.hyprland.extraConfig = ''
 
+        services.swayidle = {
+          enable = true;
+          timeout = 60;
+          command = "swaymsg 'exec swaylock --screenshots --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --grace 0 --fade-in 0.5 -F'";
+        };
+
         # See https://wiki.hyprland.org/Configuring/Monitors/
         monitor=,highres@highrr,0x0,1.0
         monitor=,highres@highrr,auto,1.0
@@ -472,7 +468,7 @@
                 new_optimizations = on
             }
             shadow {
-		enabled = yes
+		            enabled = yes
                 range = 4
                 render_power = 3
                 color = rgba(1a1a1aee)
@@ -668,7 +664,6 @@
           rofi-wayland
           swayosd
           hyprpaper
-          swaylock-effects
           vscode.fhs
           imagemagick
           neofetch
