@@ -387,12 +387,6 @@
         wayland.windowManager.hyprland.enable = true;
         wayland.windowManager.hyprland.extraConfig = ''
 
-        services.swayidle = {
-          enable = true;
-          timeout = 60;
-          command = "swaymsg 'exec swaylock --screenshots --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --grace 0 --fade-in 0.5 -F'";
-        };
-
         # See https://wiki.hyprland.org/Configuring/Monitors/
         monitor=,highres@highrr,0x0,1.0
         monitor=,highres@highrr,auto,1.0
@@ -636,7 +630,13 @@
         home.sessionVariables.GTK_THEME = "Dracula";
 
         programs.firefox.enable = true;
-      
+
+        services.swayidle = {
+          enable = true;
+          timeout = 60;
+          command = "swaymsg 'exec swaylock --screenshots --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --grace 0 --fade-in 0.5 -F'";
+        };
+
         home.packages = with pkgs; [
 
           #Python
