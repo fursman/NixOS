@@ -651,6 +651,8 @@
           links2
           wget
           vlc
+          ffmpeg
+          mpv
           rofi-wayland
           swayosd
           hyprpaper
