@@ -638,16 +638,7 @@
           timeouts = [
             {
               timeout = 60;
-              command = ''
-                swaymsg "exec ${pkgs.swaylock-effects}/bin/swaylock \
-                  --screenshots \
-                  --effect-blur 8x8 \
-                  --effect-vignette 0.8:0.8 \
-                  --text-color ffffff \
-                  --grace 0 \
-                  --fade-in 0.5 -F"
-              '';
-              # resumeCommand = "...";   # run something when activity resumes (optional)
+              command = "swaymsg 'exec ${pkgs.swaylock-effects}/bin/swaylock --screenshots --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --grace 0 --fade-in 0.5 -F'";              # resumeCommand = "...";   # run something when activity resumes (optional)
             }
           ];
 
