@@ -351,7 +351,7 @@
             "network" = {
               "interval" = 5;
               "format-wifi" = "  {essid} ({signalStrength}%)  {bandwidthUpBits}  {bandwidthDownBits}";
-              "format-ethernet" = "  {ifname}: {ipaddr}/{cidr}  {bandwidthUpBits}  {bandwidthDownBits";
+              "format-ethernet" = "  {ifname}: {ipaddr}/{cidr}  {bandwidthUpBits}  {bandwidthDownBits}";
               "format-disconnected" = "  Disconnected";
               "tooltip-format" = "{ifname}: {ipaddr}";
               "on-click" = "kitty nmtui";
@@ -528,11 +528,12 @@
         bind = $mainMod SHIFT, B, exec, microsoft-edge
         bind = $mainMod ALT, B, exec, chromium
         bind = $mainMod, F, exec, thunar
-        bind = $mainMod, P, exec, seahorse
+        bind = $mainMod, K, exec, seahorse
         bind = $mainMod, S, exec, signal-desktop
         bind = $mainMod, Z, exec, zoom-us
         bind = $mainMod, R, exec, pika-backup
         bind = $mainMod, A, exec, pavucontrol
+        bind = $mainMod, D, exec, podman-desktop
         bind = $mainMod, C, exec, code --password-store="gnome"
         bind = $mainMod, L, exec, swaylock --screenshots --clock --indicator --indicator-radius 200 --indicator-thickness 40 --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --ring-color 44006666 --key-hl-color 00000000 --line-color 00000000 --inside-color 00000000 --separator-color 00000000 --grace 0 --fade-in 0.5 -F
         bind = $mainMod, V, exec, virt-manager
