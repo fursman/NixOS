@@ -27,11 +27,11 @@
     };
     server3080Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server3080.nix";
-      sha256 = "0srkwgj4pg55bnya1da38bynv5wrixjbj8wx2y53jg0ysvx3dr4d";
+      sha256 = "08byx63vkkpac3nns52dfnxd0wwaxkc0xfxnis4mg07h721yaswn";
     };
     serverTitanVNix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/serverTitanV.nix";
-      sha256 = "03wd2q0vrghcjy6d99nbiha9j4jhs7ai1zqc1xx5dqbqdwna78fx";
+      sha256 = "1jwbdyrfdyddgkmqvhf1dh2y3rlnqxzrlsswwpnsrbq21frx1jll";
     };
     server4090Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server4090.nix";
@@ -39,11 +39,11 @@
     };
     MacBookProNix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/MacBookPro.nix";
-      sha256 = "";
+      sha256 = "0nlbi37y9qhbhli8fdabjhdcpyqirzdlia5payf32x4w02mqwxyc";
     };
     MacMiniNix = builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/MacbookPro.nix";
-      sha256 = "";
+      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/MacMini.nix";
+      sha256 = "07fyvbr5hdss1ghlrf3jkid6srr9d6wqmapd5ii6gxgsq5y0klri";
     };
     Pi3Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/pi3.nix";
