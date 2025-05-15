@@ -864,6 +864,7 @@
         podman-tui # status of containers in the terminal
         podman-desktop
         docker-compose # start group of containers for dev
+        nvidia-container-toolkit
         #podman-compose # start group of containers for dev
       ];
     
