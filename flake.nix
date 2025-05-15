@@ -62,6 +62,17 @@
       home-manager.useUserPackages = true;
 
       home-manager.users.user = { pkgs, ... }: {
+
+        programs.swayidle = {
+          enable = true;
+          extraOptions = [
+            "-w"
+            "timeout" "300" "swaylock --screenshots --effect-blur 8x8 --effect-vignette 0.8:0.8 \
+                      --text-color ffffff --grace 0 --fade-in 0.5 -F"
+          ];
+          resumeCommand = "swaylock --grace 0 -f";
+        };
+
         home.username = "user";
         home.homeDirectory = "/home/user";
 
@@ -116,15 +127,6 @@
             enable = true;
             defaultCursor = "Adwaita";
           };
-        };
-
-        programs.swayidle = {
-          enable = true;
-          extraOptions = [
-            "-w"
-            "timeout" "300" "swaylock --screenshots --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --grace 0 --fade-in 0.5 -F"
-          ];
-          resumeCommand = "swaylock --grace 0 -f";
         };
 
         programs.kitty = {
