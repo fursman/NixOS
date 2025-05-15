@@ -629,6 +629,15 @@
         home.sessionVariables.GTK_THEME = "Dracula";
 
         programs.firefox.enable = true;
+
+        programs.swayidle = {
+          enable = true;
+          extraOptions = [
+            "-w"
+            "timeout" "300" "swaylock --screenshots --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --grace 0 --fade-in 0.5 -F"
+            # you could add more: "timeout" "600" "systemctl suspend"
+          ];
+        };
       
         home.packages = with pkgs; [
 
