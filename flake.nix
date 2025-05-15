@@ -351,7 +351,7 @@
             "network" = {
               "interval" = 5;
               "format-wifi" = "  {essid} ({signalStrength}%)  {bandwidthUpBits}  {bandwidthDownBits}";
-              "format-ethernet" = "  {ifname}: {ipaddr}/{cidr}";
+              "format-ethernet" = "  {ifname}: {ipaddr}/{cidr}  {bandwidthUpBits}  {bandwidthDownBits";
               "format-disconnected" = "  Disconnected";
               "tooltip-format" = "{ifname}: {ipaddr}";
               "on-click" = "kitty nmtui";
@@ -864,6 +864,7 @@
         podman-tui # status of containers in the terminal
         podman-desktop
         docker-compose # start group of containers for dev
+        kubectl
         nvidia-container-toolkit
         #podman-compose # start group of containers for dev
       ];
