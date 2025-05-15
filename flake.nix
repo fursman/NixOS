@@ -684,6 +684,7 @@
           mpv
           rofi-wayland
           swayosd
+          swaylock-effects
           hyprpaper
           vscode.fhs
           imagemagick
