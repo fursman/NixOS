@@ -37,9 +37,13 @@
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/server4090.nix";
       sha256 = "02da1qfw2jz3ligfsl3w0v9208x4jqyl9vwzxf0jc4f6n2979zx8";
     };
-    MacbookProNix = builtins.fetchurl {
+    MacBookProNix = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/MacBookPro.nix";
+      sha256 = "";
+    };
+    MacMiniNix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/MacbookPro.nix";
-      sha256 = "0ifl8c08jcdml3abzahklyxdsibxc4n7clc201vjxh73zimaf1cb";
+      sha256 = "";
     };
     Pi3Nix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/pi3.nix";
@@ -961,7 +965,7 @@
         system = "x86_64-linux";
         modules = [
           ./hardware-configuration.nix
-          MacbookProNix
+          MacBookProNix
           sharedConfiguration
         ];  
       };     
