@@ -130,7 +130,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -195,6 +195,12 @@
     adi1090x-plymouth-themes
     sdrpp
     looking-glass-client
+    dive # look into docker image layers
+    podman-tui # status of containers in the terminal
+    podman-desktop
+    docker-compose # start group of containers for dev
+    nvidia-container-toolkit
+    #podman-compose # start group of containers for dev
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -213,6 +219,7 @@
 
   # Virtualization Settings
   virtualisation = {
+
     libvirtd = {
       enable = true;
       onBoot = "ignore";
@@ -226,6 +233,19 @@
         runAsRoot = false;
       };
     };
+
+    containers.enable = true;
+  
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+
     # USB redirection in virtual machine
     spiceUSBRedirection.enable = true;
   };
