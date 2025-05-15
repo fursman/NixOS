@@ -971,6 +971,14 @@
           sharedConfiguration
         ];  
       };     
+      mini = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hardware-configuration.nix
+          MacMiniNix
+          sharedConfiguration
+        ];  
+      };     
       pi3 = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = [
