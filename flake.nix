@@ -637,9 +637,7 @@
           timeouts = [
             {
               timeout = 60;
-
-              # run swaylock directly (no swaymsg needed)
-              command = 'swaylock --screenshots --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --grace 0 --fade-in 0.5 -F';
+              command = "${pkgs.swaylock-effects}/bin/swaylock --screenshots --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --grace 0 --fade-in 0.5 -F";
             }
           ];
         };
