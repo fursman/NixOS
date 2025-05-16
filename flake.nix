@@ -836,7 +836,9 @@
         enable = true;
         enable32Bit = true;
       };
-    
+
+      hardware.nvidia-container-toolkit.enable = true;
+
       # Load nvidia driver for Xorg and Wayland
       services.xserver.videoDrivers = ["nvidia"];
       hardware.nvidia = {
@@ -881,7 +883,6 @@
         podman-desktop
         docker-compose # start group of containers for dev
         kubectl
-        nvidia-container-toolkit
         #podman-compose # start group of containers for dev
       ];
     
