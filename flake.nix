@@ -537,7 +537,7 @@
         bind = $mainMod, D, exec, podman-desktop
         bind = $mainMod, C, exec, code --password-store="gnome"
         bind = $mainMod, L, exec, swaylock --screenshots --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --grace 0 --fade-in 0.5 -F
-        # bind = $mainMod, L, exec, swaylock --screenshots --clock --indicator --indicator-radius 200 --indicator-thickness 40 --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --ring-color 44006666 --key-hl-color 00000000 --line-color 00000000 --inside-color 00000000 --separator-color 00000000 --grace 0 --fade-in 0.5 -F
+        # bind = $mainMod, L, exec, swaylock -f --screenshots --clock --indicator --indicator-radius 200 --indicator-thickness 40 --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --ring-color 44006666 --key-hl-color 00000000 --line-color 00000000 --inside-color 00000000 --separator-color 00000000 --grace 0 --fade-in 0.5 -F
         bind = $mainMod, V, exec, virt-manager
         bind = $mainMod, P, pseudo, # dwindle
         bind = $mainMod, J, togglesplit, # dwindle
@@ -637,7 +637,7 @@
           timeouts = [
             {
               timeout = 60;
-              command = "${pkgs.swaylock-effects}/bin/swaylock --screenshots --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --grace 0 --fade-in 0.5 -F";
+              command = "${pkgs.swaylock-effects}/bin/swaylock -f --screenshots --effect-blur 8x8 --effect-vignette 0.8:0.8 --text-color ffffff --grace 0 --fade-in 0.5 -F";
             }
           ];
         };
