@@ -10,7 +10,7 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, assistant, ... }: let
 
-    theme = "Icecream"; # Define the theme variable here
+    theme = "Propaganda"; # Define the theme variable here
     inherit (nixpkgs) lib;
 
     styleCss = builtins.fetchurl {
@@ -654,6 +654,7 @@
           zenity
 
           #System
+          appimage-run
           blueman
           gimp
           signal-desktop
@@ -705,7 +706,7 @@
         owner = "fursman";
         repo = "NixOS-Assets";
         rev = "main";
-        sha256 = "sha256-/4uyeufopHmyDJOy9XFn0pe6u+NUVSAD4o3UYHCzojc=";
+        sha256 = "";
       };
       environment.etc."assets".target = "assets";
     });
