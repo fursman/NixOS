@@ -10,7 +10,7 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, assistant, ... }: let
 
-    theme = "Donuts"; # Define the theme variable here
+    theme = "Icecream"; # Define the theme variable here
     inherit (nixpkgs) lib;
 
     styleCss = builtins.fetchurl {
