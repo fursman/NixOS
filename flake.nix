@@ -705,7 +705,7 @@
         owner = "fursman";
         repo = "NixOS-Assets";
         rev = "main";
-        sha256 = "sha256-SdGbqfhYg9/JP9slHw9RNv55v7FjUV1gyjTdox88P9g=";
+        sha256 = "sha256-/4uyeufopHmyDJOy9XFn0pe6u+NUVSAD4o3UYHCzojc=";
       };
       environment.etc."assets".target = "assets";
     });
