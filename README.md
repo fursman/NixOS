@@ -43,15 +43,11 @@ This flake focuses on a single output – **`.#desktop`** – that delivers:
 # 1. Install NixOS from the minimal ISO
 #    ↳ https://nixos.org/download.html
 
-# 2. Enable flakes inside the installer / target system (if not already)
-sudo nix-env -iA nixpkgs.nix
-echo 'experimental-features = nix-command flakes' | sudo tee -a /etc/nix/nix.conf
-
-# 3. Fetch this flake
+# 2. Fetch this flake
 cd /etc/nixos
-sudo nix-shell -p git --run "git clone https://github.com/fursman/NixOS ."
+sudo nix-shell -p git --run "wget https://raw.githubusercontent.com/fursman/NixOS/main/flake.nix"
 
-# 4. Build & activate the desktop
+# 3. Build & activate the desktop
 sudo nixos-rebuild --flake .#desktop switch
 ```
 
@@ -165,21 +161,11 @@ See the [NixOS Wiki – Hyprland](https://nixos.wiki/wiki/Hyprland) and [NixOS D
 
 ---
 
-## Contributing
-
-PRs welcome! Please:
-
-1. Follow `nix fmt` for style.
-2. Test changes in a VM (`nixos-rebuild build-vm`).
-3. Keep the `.#desktop` output backward‑compatible.
-
----
-
 ## License
 
 > “Do what thou wilt shall be the whole of the Law”
 
-This project is released under the [Do What You Want license](LICENSE) – basically, have fun but **no warranty** is provided. 
+This project is released under the [Do What Thou Wilt license](LICENSE) – Have fun because **no warranty** is provided. 
 
 ---
 
