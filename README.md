@@ -39,16 +39,16 @@ This flake focuses on a single output – **`.#desktop`** – that delivers:
 
 ## Quick Start
 
-# 1. Install NixOS from the minimal ISO
-#    ↳ [NixOS Image Download](https://nixos.org/download.html)
+1. Install NixOS from the minimal ISO
+    ↳ [NixOS Image Download](https://nixos.org/download.html)
 
-# 2. Fetch this flake
+2. Fetch this flake
 ```bash
 cd /etc/nixos
 sudo nix-shell -p git --run "wget https://raw.githubusercontent.com/fursman/NixOS/main/flake.nix"
 ```
 
-# 3. Build & activate the desktop
+3. Build & activate the desktop
 ```bash
 sudo nixos-rebuild --flake .#desktop switch
 ```
