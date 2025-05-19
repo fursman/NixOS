@@ -41,7 +41,7 @@ This flake focuses on a single output – **`.#desktop`** – that delivers:
 
 ```bash
 # 1. Install NixOS from the minimal ISO
-#    ↳ [NixOS Image Download](https://nixos.org/download.html)
+#    ↳ [NixOS Image Download](https://nixos.org/download.html) [git](https://git-scm.com/)
 
 # 2. Fetch this flake
 cd /etc/nixos
