@@ -130,7 +130,6 @@ _See `flake.nix` ➜ `desktopNix` for the complete list._
 ├── config/
 │   ├── desktop.nix    # .#desktop system modules
 │   └── server‑*.nix   # alt. GPU‑passthrough configs
-├── resources/         # wallpapers, styleCss, weatherScript, …
 └── README.md
 ```
 
