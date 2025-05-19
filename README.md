@@ -62,63 +62,75 @@ sudo nixos-rebuild --flake .#desktop switch
 
 | Component | Notes |
 |-----------|-------|
-| **Hyprland** | Wayland compositor with NVIDIA patches + basic wobbling‑window eye‑candy |
-| Waybar     | Custom theming, weather & media modules |
-| Rofi‑Wayland | Spotlight‑like launcher with Dracula theme |
-| Hyprpaper  | Multi‑monitor wallpapers with gentle cross‑fade |
-| Kitty      | GPU‑accelerated terminal; ligatures & truecolour |
-| Dracula GTK/Qt | Consistent dark theming across apps |
+| **[Hyprland](https://github.com/hyprwm/Hyprland)** | Wayland compositor with NVIDIA patches + wobbling‑window eye‑candy |
+| **[Waybar](https://github.com/Alexays/Waybar)** | Custom top bar; weather & media modules |
+| **[Rofi‑Wayland](https://github.com/lbonn/rofi)** | Spotlight‑like launcher (Dracula theme) |
+| **[Hyprpaper](https://github.com/hyprwm/hyprpaper)** | Multi‑monitor wallpapers with cross‑fade |
+| **[Kitty](https://sw.kovidgoyal.net/kitty/)** | GPU‑accelerated terminal (ligatures & true‑colour) |
+| **[Dracula GTK/Qt](https://github.com/dracula/gtk)** | Consistent dark theming across apps |
 
-### Virtualisation & Containers
+### Virtualisation & Containers
 
-* **libvirt + virt‑manager** with SPICE & UEFI firmware
-* **VFIO hooks** ready for single‑GPU passthrough (see `config/server*.nix`)
-* **Podman Desktop** & rootless containers
-* QEMU with OpenGL and 3D acceleration
-* USB redirection & shared folders (9p, virtfs)
+* **[libvirt](https://libvirt.org/) + [virt‑manager](https://virt-manager.org/)** with SPICE & UEFI firmware  
+* **VFIO hooks** ready for single‑GPU passthrough (see `config/server*.nix`)  
+* **[Podman Desktop](https://podman-desktop.io/)** & rootless containers (`podman‑tui`, `dive`, `kubectl`, `docker‑compose`)  
+* QEMU with OpenGL / 3‑D acceleration, USB redirection & shared folders (9p / virtfs)
 
 ### Hardware Support
 
-* NVIDIA proprietary driver (`nvidia`, modesetting, Vulkan, 32‑bit GL)
-* Bluetooth + Blueman
-* Plymouth graphical boot splash
-* systemd‑boot (EFI) with auto‑rollback generation menu
-* NTFS‑3G read/write, `brightnessctl`, `swayosd` OSD
+* **NVIDIA** proprietary driver (modesetting, Vulkan, 32‑bit GL)
+* **Bluetooth** + [Blueman](https://github.com/blueman-project/blueman)
+* **Plymouth** graphical boot splash
+* **systemd‑boot** (EFI) with auto‑rollback menu
+* NTFS‑3G read/write, `brightnessctl`, **[SwayOSD](https://github.com/ErikReider/SwayOSD)** on‑screen display
 
 ### Pre‑installed Applications
 
 | Category | Packages |
 |----------|----------|
-| Essentials | `git`, `wget`, `imagemagick`, `python3.withPackages (requests)` |
-| Media     | `vlc`, `gimp`, `eog`, `signal-desktop` |
-| Gaming    | `steam` (Big Picture desktop entry) |
-| Dev Tools | `vscode.fhs`, `links2` (TUI browser) |
-| Utils     | `swaylock-effects`, `wlogout`, `ntfs-3g` |
-
-_See `flake.nix` ➜ `desktopNix` for the complete list._
+| **Essentials / CLI** | [git](https://git-scm.com/), [wget](https://www.gnu.org/software/wget/), [links2](https://links.twibright.com/), [ntfs‑3g](https://github.com/tuxera/ntfs-3g), [neofetch](https://github.com/dylanaraps/neofetch), [dust](https://github.com/bootandy/dust), [btop](https://github.com/aristocratos/btop), [tmux](https://github.com/tmux/tmux), [usbutils](https://github.com/gregkh/usbutils), [pciutils](https://github.com/pciutils/pciutils), [nmap](https://nmap.org/) |
+| **Browsers** | [Firefox](https://www.mozilla.org/firefox), [Microsoft Edge](https://www.microsoft.com/edge), [Chromium](https://www.chromium.org/), *links2 (TUI)* |
+| **Media / Graphics** | [VLC](https://www.videolan.org/vlc/), [GIMP](https://www.gimp.org/), [MPV](https://mpv.io/), [FFmpeg](https://ffmpeg.org/), [ImageMagick](https://imagemagick.org/), [Eye of GNOME (eog)](https://wiki.gnome.org/Apps/Eog) |
+| **Gaming** | [Steam](https://store.steampowered.com/about) (Big Picture desktop entry) |
+| **Dev Tools** | [VS Code (FHS)](https://code.visualstudio.com/), [Podman Desktop](https://podman-desktop.io/), [podman‑tui](https://github.com/containers/podman-tui), [dive](https://github.com/wagoodman/dive), [docker‑compose](https://docs.docker.com/compose/), [kubectl](https://kubernetes.io/docs/tasks/tools/), [waypipe](https://github.com/ArcticaProject/waypipe) |
+| **Utilities** | [Thunar](https://docs.xfce.org/xfce/thunar/start), [Gnome Disks](https://wiki.gnome.org/Apps/Disks), [GParted](https://gparted.org/), [Seahorse](https://wiki.gnome.org/Apps/Seahorse), [Blueman](https://github.com/blueman-project/blueman), [Signal Desktop](https://signal.org/download), [Zoom](https://zoom.us/), [Pika Backup](https://github.com/pika-backup/pika-backup), [Pavucontrol](https://freedesktop.org/software/pulseaudio/pavucontrol/), [Pamixer](https://github.com/cdemoulins/pamixer), [AppImage Run](https://github.com/probonopd/AppImageKit), [Raspberry Pi Imager](https://github.com/raspberrypi/rpi-imager), [wl‑clipboard](https://github.com/bugaevc/wl-clipboard), [grim](https://github.com/emersion/grim), [dunst](https://github.com/dunst-project/dunst), [swaylock‑effects](https://github.com/jirutka/swaylock-effects), [sdrpp](https://github.com/AlexandreRouma/SDRPlusPlus) |
+| **Background / UX** | [rofi‑wayland](https://github.com/lbonn/rofi), [SwayOSD](https://github.com/ErikReider/SwayOSD), [Hyprpaper](https://github.com/hyprwm/hyprpaper), [brightnessctl](https://github.com/Hummer12007/brightnessctl) |
+| **Assistant** | [Assistant](https://github.com/fursman/Assistant) voice/AI helper |
 
 ---
 
 ## Keybindings Cheat‑Sheet
 
-> **MOD** = `SUPER` (Windows / ⌘)
+> **MOD** = <kbd>SUPER</kbd> (Windows / ⌘)
 
 | Action | Keys |
 |--------|------|
 | Launcher | **MOD + Return** |
-| Terminal | **MOD + T** |
-| Browser  | **MOD + B** |
-| File Manager | **MOD + F** |
-| Steam (Big Picture) | **MOD + G** |
-| Voice Assistant | **MOD + Space** |
-| Lock Screen | **MOD + L** |
-| Logout Menu | **MOD + X** |
-| Close Window | **MOD + Q** |
-| Toggle Split | **MOD + J** |
-| Pseudo‑tile  | **MOD + P** |
-| Focus Move | **MOD + Arrows** |
-| Workspace Switch | **MOD + 1‑0** |
-| Move Window to Workspace | **MOD + Shift + 1‑0** |
+| Terminal | **MOD + T** |
+| Browser – Firefox | **MOD + B** |
+| Browser – Edge | **MOD + Shift + B** |
+| Browser – Chromium | **MOD + Alt + B** |
+| File Manager | **MOD + F** |
+| Steam | **MOD + G** |
+| Screenshot → Clipboard | **Print** |
+| Screenshot → `~/Pictures` | **MOD + F12** |
+| Lock Screen | **MOD + L** |
+| Logout Menu | **MOD + X** |
+| Close Window | **MOD + Q** |
+| Toggle Split | **MOD + J** |
+| Pseudo‑tile | **MOD + P** |
+| Focus Move | **MOD + ← ↑ ↓ →** |
+| Workspace Switch | **MOD + 1‑0** |
+| Move Window → Workspace | **MOD + Shift + 1‑0** |
+| Open Podman Desktop | **MOD + D** |
+| Open Virt‑Manager | **MOD + V** |
+| Open Pika Backup | **MOD + R** |
+| Open Signal Desktop | **MOD + S** |
+| Open Zoom | **MOD + Z** |
+| Open Seahorse | **MOD + K** |
+| Quick Assistant | **MOD + SUPER_L** |
+
+_See `flake.nix` ➜ `home.packages` & `environment.systemPackages` for the exhaustive declarative list._
 
 ---
 
