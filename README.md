@@ -138,10 +138,9 @@ _See `flake.nix` ➜ `home.packages` & `environment.systemPackages` for the ex
 
 ```
 .
-├── flake.nix          # entry‑point, inputs & outputs
+├── flake.nix - desktop.nix # entry‑point, inputs & outputs
 ├── config/
-│   ├── desktop.nix    # .#desktop system modules
-│   └── server‑*.nix   # alt. GPU‑passthrough configs
+│   └── server‑*.nix        # alt. GPU‑passthrough configs
 └── README.md
 ```
 
