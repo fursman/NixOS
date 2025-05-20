@@ -114,23 +114,23 @@ sudo nixos-rebuild --flake .#desktop switch
 | Browser – Edge | **MOD + Shift + B** |
 | Browser – Chromium | **MOD + Alt + B** |
 | File Manager | **MOD + F** |
-| Steam | **MOD + G** |
+| Games | **MOD + G** |
 | Screenshot → Clipboard | **Print** |
 | Screenshot → `~/Pictures` | **MOD + F12** |
 | Lock Screen | **MOD + L** |
-| Logout Menu | **MOD + X** |
-| Close Window | **MOD + Q** |
+| Exit Menu | **MOD + X** |
+| Quit Window | **MOD + Q** |
 | Toggle Split | **MOD + J** |
 | Pseudo‑tile | **MOD + P** |
 | Focus Move | **MOD + ← ↑ ↓ →** |
 | Workspace Switch | **MOD + 1‑0** |
 | Move Window → Workspace | **MOD + Shift + 1‑0** |
-| Open Podman Desktop | **MOD + D** |
-| Open Virt‑Manager | **MOD + V** |
-| Open Pika Backup | **MOD + R** |
+| Open 'Docker' Desktop | **MOD + D** |
+| Open Virtual Machines | **MOD + V** |
+| Open Recovery | **MOD + R** |
 | Open Signal Desktop | **MOD + S** |
 | Open Zoom | **MOD + Z** |
-| Open Seahorse | **MOD + K** |
+| Open Keys | **MOD + K** |
 | Quick Assistant | **MOD + SUPER_L** |
 
 _See `flake.nix` ➜ `home.packages` & `environment.systemPackages` for the exhaustive declarative list._
@@ -179,11 +179,3 @@ See the [NixOS Wiki – Hyprland](https://nixos.wiki/wiki/Hyprland) and [NixOS D
 > “Do what thou wilt shall be the whole of the Law”
 
 This project is released under the [Do What Thou Wilt license](LICENSE) – Have fun because **no warranty** is provided. 
-
----
-
-## Screenshots
-
-<p align="center">
-  <i>Send a PR with your desktop!</i>
-</p>
