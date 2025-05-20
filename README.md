@@ -45,7 +45,7 @@ This flake focuses on a single output – **`.#desktop`** – that delivers:
 2. Fetch this flake
 ```bash
 cd /etc/nixos
-sudo nix-shell -p git --run "wget https://raw.githubusercontent.com/fursman/NixOS/main/flake.nix"
+sudo nix-shell -p wget --run "wget https://raw.githubusercontent.com/fursman/NixOS/main/flake.nix"
 ```
 
 3. Build & activate the desktop
