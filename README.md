@@ -1,5 +1,4 @@
-
-# NixOS Desktop Flake
+# NixOS Desktop Flake | A Desktop / Server Hybrid for NVIDIA GPU Development 
 
 [![NixOS Unstable](https://img.shields.io/badge/NixOS-unstable-blue?logo=nixos)](https://status.nixos.org)
 [![Home Manager](https://img.shields.io/badge/Home%20Manager-enabled-brightgreen)](https://github.com/nix-community/home-manager)
