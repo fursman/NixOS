@@ -6,7 +6,7 @@
 [![Hyprland](https://img.shields.io/badge/Wayland-Hyprland-purple?logo=wayland)](https://github.com/hyprwm/Hyprland)
 [![License](https://img.shields.io/badge/License-Do%20what%20thou%20wilt-red)](#license)
 [![Stars](https://img.shields.io/github/stars/fursman/NixOS?style=social)](https://github.com/fursman/NixOS)
-https://github.com/fursman/NixOS/blob/main/Screenshot-2025-05-19-20-32-04.png?raw=true
+![The Desktop](Screenshot-2025-05-19-20-32-04.png?raw=true)
 
 A **fully‑featured, reproducible desktop** powered by Nix Flakes.  
 This flake focuses on a single output – **`.#desktop`** – that delivers:
