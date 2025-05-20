@@ -130,7 +130,7 @@ sudo nixos-rebuild --flake .#desktop switch
 | Open Signal Desktop | **MOD + S** |
 | Open Zoom | **MOD + Z** |
 | Open Keys | **MOD + K** |
-| Quick Assistant | **MOD + SUPER_L** |
+| Quick Assistant | **MOD** |
 
 _See `flake.nix` ➜ `home.packages` & `environment.systemPackages` for the exhaustive declarative list._
 
