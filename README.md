@@ -42,7 +42,7 @@ This flake focuses on a single output – **`.#desktop`** – that delivers:
 1. Install NixOS from the minimal ISO - This flake.nix assumes a username 'user' 
     ↳ [NixOS Image Download](https://nixos.org/download.html)
 
-2. Fetch this flake
+2. Fetch this flake from the new system
 ```bash
 cd /etc/nixos
 sudo nix-shell -p wget --run "wget https://raw.githubusercontent.com/fursman/NixOS/main/flake.nix"
