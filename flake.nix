@@ -530,7 +530,6 @@
         bind = $mainMod, Q, killactive, 
         bind = $mainMod, X, exec, wlogout --protocol layer-shell
         bind = $mainMod, B, exec, firefox
-        bind = $mainMod SHIFT, B, exec, microsoft-edge
         bind = $mainMod ALT, B, exec, chromium
         bind = $mainMod, F, exec, thunar
         bind = $mainMod, K, exec, seahorse
@@ -689,7 +688,6 @@
           usbutils
           pciutils
           nmap
-          microsoft-edge
           chromium
           wl-clipboard
           grim
