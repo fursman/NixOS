@@ -376,6 +376,7 @@
         # Execute your favorite apps at launch
         exec-once = waybar
         exec-once = hyprpaper
+        exec-once = swayosd-server
         exec-once = sleep 3 ; /home/user/.config/hypr/wallpaper.sh
         exec-once = sleep 4 ; hyprctl keyword misc:disable_hyprland_logo true
         
