@@ -705,6 +705,25 @@
         sha256 = "sha256-ZNgllzd3SdFvOUEcH99gFlEgP8yl+4++M8mtua72SYc=";
       };
       environment.etc."assets".target = "assets";
+  
+      environment.systemPackages = [ pkgs.swayosd ];
+      services.udev.packages = [ pkgs.swayosd ];
+  
+      systemd.services.swayosd-libinput-backend = {
+        description = "SwayOSD LibInput backend for listening to certain keys like CapsLock, ScrollLock, VolumeUp, etc.";
+        documentation = [ "https://github.com/ErikReider/SwayOSD" ];
+        wantedBy = [ "graphical.target" ];
+        partOf = [ "graphical.target" ];
+        after = [ "graphical.target" ];
+  
+        serviceConfig = {
+          Type = "dbus";
+          BusName = "org.erikreider.swayosd";
+          ExecStart = "${pkgs.swayosd}/bin/swayosd-libinput-backend";
+          Restart = "on-failure";
+        };
+      };
+
     });
 
     # Define the desktop configuration inline, previously contained in desktop.nix
