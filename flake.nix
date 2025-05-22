@@ -392,20 +392,44 @@
         
             # Enable Keyboard Special Keys
         
-            # Enable Keyboard Special Keys
-            # Sink volume raise
-            binde = ,XF86AudioRaiseVolume, exec, pamixer --increase 5; dunstify -a "volume" -i audio-volume-high-symbolic "Volume Increased"
-            # Sink volume lower
-            binde = ,XF86AudioLowerVolume, exec, pamixer --decrease 5; dunstify -a "volume" -i audio-volume-low-symbolic "Volume Decreased"
+            # Sink volume raise optionally with --device
+            bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume raise
+            # Sink volume lower optionally with --device
+            bindsym XF86AudioLowerVolume exec  swayosd-client --output-volume lower --device alsa_output.pci-0000_11_00.4.analog-stereo.monitor
             # Sink volume toggle mute
-            bindr = ,XF86AudioMute, exec, pamixer --toggle-mute; dunstify -a "volume" -i audio-volume-muted-symbolic "Volume Muted"
+            bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
             # Source volume toggle mute
-            bindr = ,XF86AudioMicMute, exec, pamixer --default-source --toggle-mute; dunstify -a "volume" -i microphone-sensitivity-muted-symbolic "Microphone Muted"
-
+            bindsym XF86AudioMicMute exec swayosd-client --input-volume mute-toggle
+            
+            # Volume raise with custom value
+            bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume 15
+            # Volume lower with custom value
+            bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -15
+            
+            # Volume raise with max value
+            bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume raise --max-volume 120
+            # Volume lower with max value
+            bindsym XF86AudioLowerVolume exec swayosd-client --output-volume lower --max-volume 120
+            
+            # Sink volume raise with custom value optionally with --device
+            bindsym XF86AudioRaiseVolume exec  swayosd-client --output-volume +10 --device alsa_output.pci-0000_11_00.4.analog-stereo.monitor
+            # Sink volume lower with custom value optionally with --device
+            bindsym XF86AudioLowerVolume exec  swayosd-client --output-volume -10 --device alsa_output.pci-0000_11_00.4.analog-stereo.monitor
+            
+            # Capslock (If you don't want to use the backend)
+            bindsym --release Caps_Lock exec swayosd-client --caps-lock
+            # Capslock but specific LED name (/sys/class/leds/)
+            bindsym --release Caps_Lock exec swayosd-client --caps-lock-led input19::capslock
+            
             # Brightness raise
-            binde = ,XF86MonBrightnessUp, exec, brightnessctl set +5%; dunstify -a "brightness" -i display-brightness-high-symbolic "Brightness Increased"
+            bindsym XF86MonBrightnessUp exec swayosd-client --brightness raise
             # Brightness lower
-            binde = ,XF86MonBrightnessDown, exec, brightnessctl set 5%-; dunstify -a "brightness" -i display-brightness-low-symbolic "Brightness Decreased"
+            bindsym XF86MonBrightnessDown exec swayosd-client --brightness lower
+            
+            # Brightness raise with custom value('+' sign needed)
+            bindsym XF86MonBrightnessUp  exec swayosd-client --brightness +10
+            # Brightness lower with custom value('-' sign needed)
+            bindsym XF86MonBrightnessDown exec swayosd-client --brightness -10
 
             follow_mouse = 1
         
