@@ -396,7 +396,7 @@
             # ── AUDIO ─────────────────────────────
             # sink volume: raise / lower / mute
             bind  =  ,XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise
-            bind  =  ,XF86AudioLowerVolume, exec, swayosd-client --output-volume lower --device alsa_output.pci-0000_11_00.4.analog-stereo.monitor
+            bind  =  ,XF86AudioLowerVolume, exec, swayosd-client --output-volume lower
             bind  =  ,XF86AudioMute,        exec, swayosd-client --output-volume mute-toggle
             bind  =  ,XF86AudioMicMute,     exec, swayosd-client --input-volume  mute-toggle
             
