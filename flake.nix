@@ -87,26 +87,6 @@
 
         home.file.".config/hypr/wallpaper.sh".executable = true;
 
-        # Dunst Configuration
-        home.file.".config/dunst/dunstrc".text = ''
-          [global]
-          font = Monospace 12
-          # dynamic width from 0 to 1000
-          width = (0, 1000)
-          # The height of a single notification, excluding the frame.
-          height = (0, 1000)
-          # Position the notification in the top right corner
-          origin = top-right
-          # Offset from the origin
-          offset = (50, -50)
-          # Scale factor. It is auto-detected if value is 0.
-          scale = 0
-          # Maximum number of notification (0 means no limit)
-          notification_limit = 20
-          frame_color = "#ffffff"
-          transparency = 0.1
-        '';
-
         programs.home-manager.enable = true;
 
         home.pointerCursor = {
@@ -677,7 +657,6 @@
           waypipe
           gparted
           rpi-imager
-          dunst
           dust
           btop
           pika-backup
