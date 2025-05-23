@@ -22,7 +22,16 @@ let
           sha256 = "sha256-MRB4GgBh4qvzrq8sdGpNhSJ3/rVUQcS+kKLkT6QBhV0=";  # ← from `nix flake prefetch`
           fetchSubmodules = true;
         };
-  
+
+        patchPhase = ''
+          # header removals in kernel ≥ 6.12
+          for f in applespi.c apple_spi_keyboard.c apple_spi_touchpad.c; do
+            substituteInPlace $f \
+              --replace "<linux/input-polldev.h>" "<linux/input.h>" \
+              --replace "<asm/unaligned.h>"       "<linux/unaligned.h>"
+          done
+        '';
+
         nativeBuildInputs = kernel.moduleBuildDependencies;
   
         buildPhase = ''
