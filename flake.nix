@@ -1029,7 +1029,7 @@
         system = "x86_64-linux";
         modules = [
           ./hardware-configuration.nix
-          inputs.nixos-hardware.nixosModules.apple.macbook-pro."14-1"
+          nixos-hardware.nixosModules.apple-macbook-pro-14-1
           MacBookProNix
           sharedConfiguration
         ];  
