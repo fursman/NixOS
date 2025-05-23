@@ -22,13 +22,15 @@ let
           sha256 = "sha256-MRB4GgBh4qvzrq8sdGpNhSJ3/rVUQcS+kKLkT6QBhV0=";  # ← from `nix flake prefetch`
           fetchSubmodules = true;
         };
-
-        patchPhase = ''
-          # Replace removed kernel headers in ALL .c files
+        
+         patchPhase = ''
+          # Replace removed kernel headers in every C source file.
           find . -type f -name '*.c' -print0 | while IFS= read -r -d '' f; do
-            substituteInPlace "$f" --replace-warn "<linux/input-polldev.h>" "<linux/input.h>" --replace-warn "<asm/unaligned.h>" "<linux/unaligned.h>"
+            substituteInPlace "$f" \
+              --replace-warn "<linux/input-polldev.h>" "<linux/input.h>" \
+              --replace-warn "<asm/unaligned.h>"       "<linux/unaligned.h>"
           done
-        '';
+        ''; 
 
         nativeBuildInputs = kernel.moduleBuildDependencies;
   
