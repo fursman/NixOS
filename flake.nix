@@ -636,21 +636,21 @@
           settings = {
             # ---------- global look ----------
             background-color = "#282a36";
-            text-color       = "#44475a";
-            border-color     = "#282a36";
+            text-color       = "#F8F8F2";
+            border-color     = "#BD93F9";
         
             # ---------- behaviour ----------
             default-timeout  = 5000;        # 5 s
         
             # ---------- per‑urgency colours ----------
             "urgency=low" = {
-              border-color = "#282a36";
+              border-color = "#8BE9FD";
             };
             "urgency=normal" = {
-              border-color = "#f1fa8c";
+              border-color = "#BD93F9";
             };
             "urgency=high" = {
-              border-color = "#ff5555";
+              border-color = "#FF5555";
             };
           };
         };
