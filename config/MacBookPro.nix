@@ -19,14 +19,8 @@
   boot.initrd.verbose = true;
   boot.loader.timeout = 0;
   boot.consoleLogLevel = 0;
-  boot.kernelParams = [ 
-    "snd-intel-dspcfg.dsp_driver=1" 
-    "snd_hda_intel.probe_mask=1" 
-  ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  boot.blacklistedKernelModules = [ "snd_sof_intel_hda_common" "snd_sof_intel_hda" "snd_sof_pci" "snd_sof_xtensa_dsp" ];
 
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -43,9 +37,13 @@
   # RTL-SDR
   hardware.rtl-sdr.enable = true;
 
-  # Bluethooth
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  #################################################
+  #  Bluetooth – Broadcom BCM43xx
+  #################################################
+  hardware.enableRedistributableFirmware = true;
+  hardware.firmware = with pkgs; [ broadcom-bt-firmware ];
+  hardware.bluetooth.enable = true;          
+  services.blueman.enable   = true;          
 
   # Set your time zone.
   time.timeZone = "America/Vancouver";
