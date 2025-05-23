@@ -633,25 +633,28 @@
         services.mako = {
           enable = true;
         
-          # give Home‑Manager an *exact* mako.conf to drop into ~/.config/mako/config
-          extraConfig = ''
-            background-color=#282a36
-            text-color=#44475a
-            border-color=#282a36
+          settings = {
+            # ---------- global look ----------
+            "background-color" = "#282a36";
+            "text-color"       = "#44475a";
+            "border-color"     = "#282a36";
         
-            default-timeout=5000        # 5 s
+            # ---------- behaviour ----------
+            "default-timeout"  = 5000;     # 5 s fade‑out  :contentReference[oaicite:0]{index=0}
+            # "ignore-timeout" = 1;        # uncomment if you want *everything* to obey 5 s  :contentReference[oaicite:1]{index=1}
         
-            [urgency=low]
-            border-color=#282a36
-        
-            [urgency=normal]
-            border-color=#f1fa8c
-        
-            [urgency=high]
-            border-color=#ff5555
-          '';
+            # ---------- per‑urgency colours ----------
+            "[urgency=low]" = {
+              "border-color" = "#282a36";
+            };
+            "[urgency=normal]" = {
+              "border-color" = "#f1fa8c";
+            };
+            "[urgency=high]" = {
+              "border-color" = "#ff5555";
+            };
+          };
         };
-
 
         services.swayidle = {
           enable = true;
