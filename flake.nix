@@ -630,7 +630,33 @@
 
         programs.firefox.enable = true;
 
-        services.mako.enable = true;
+        services.mako = {
+          enable = true;
+        
+          # A “sensible” 5‑second lifetime for any
+          # notification whose app supplies 0 ms.
+          defaultTimeout = 5000;          # milliseconds
+        
+          # Full mako.conf expressed as an attrset
+          settings = {
+            background-color = "#282a36";
+            text-color       = "#44475a";
+            border-color     = "#282a36";
+        
+            # Section overrides
+            "[urgency=low]" = {
+              border-color = "#282a36";
+            };
+        
+            "[urgency=normal]" = {
+              border-color = "#f1fa8c";
+            };
+        
+            "[urgency=high]" = {
+              border-color = "#ff5555";
+            };
+          };
+        };
 
         services.swayidle = {
           enable = true;
