@@ -193,6 +193,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
+    mako
     ntfs3g
     adi1090x-plymouth-themes
     sdrpp
