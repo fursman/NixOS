@@ -655,6 +655,7 @@
           zenity
 
           #System
+          libnotify
           appimage-run
           blueman
           gimp
