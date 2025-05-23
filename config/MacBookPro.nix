@@ -23,14 +23,12 @@ let
           fetchSubmodules = true;
         };
         
-         patchPhase = ''
-          # Replace removed kernel headers in every C source file.
-          find . -type f -name '*.c' -print0 | while IFS= read -r -d '' f; do
-            substituteInPlace "$f" \
-              --replace-warn "<linux/input-polldev.h>" "<linux/input.h>" \
-              --replace-warn "<asm/unaligned.h>"       "<linux/unaligned.h>"
+        patchPhase = ''
+          # Replace removed kernel headers in every C source file
+          find . -type f -name "*.c" -print0 | while IFS= read -r -d '' f; do
+            substituteInPlace "$f" --replace-warn "<linux/input-polldev.h>" "<linux/input.h>" --replace-warn "<asm/unaligned.h>" "<linux/unaligned.h>"
           done
-        ''; 
+        '';
 
         nativeBuildInputs = kernel.moduleBuildDependencies;
   
