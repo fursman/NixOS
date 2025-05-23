@@ -26,7 +26,8 @@ let
         patchPhase = ''
           find . -type f -name "*.c" -exec sed -i \
             -e 's|<linux/input-polldev.h>|<linux/input.h>|g' \
-            -e 's|<asm/unaligned.h>|<linux/unaligned.h>|g' {} +
+            -e 's|<asm/unaligned.h>|<linux/unaligned.h>|g' \
+            -e 's|\<no_llseek\>|noop_llseek|g' {} +
         '';
 
         buildPhase = ''
