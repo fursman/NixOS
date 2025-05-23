@@ -18,8 +18,8 @@ let
         src = fetchFromGitHub {
           owner  = "marc-git";
           repo   = "macbook12-spi-driver";
-          rev    = "e5d4b9304c438e5a5b0a7b4e237b9131c2d7dac9";  # 2024‑06‑10 (= AUR 0+git.315)
-          sha256 = "sha256-KhFDyf1KslJvScH+FX6M+9HhJ5l1WlXgVVtQnGTcxTo=";  # ← from `nix flake prefetch`
+          rev    = "807b65b6d9d7c29bd7ff633fbb80596a343e9eb9";  # 2024‑06‑10 (= AUR 0+git.315)
+          sha256 = "sha256-MRB4GgBh4qvzrq8sdGpNhSJ3/rVUQcS+kKLkT6QBhV0=";  # ← from `nix flake prefetch`
           fetchSubmodules = true;
         };
   
