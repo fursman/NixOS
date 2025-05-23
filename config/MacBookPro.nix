@@ -12,8 +12,8 @@ in
     (callPackage (fetchFromGitHub {
       owner  = "roadrunner2";
       repo   = "macbook12-spi-driver";
-      rev    = "f5c0528d1e977b0f3c8305f4c2ce97ec4a949e55";  # good for 6.8 / 6.9
-      sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; # ← fix‑me
+      rev    = "259cc39e243daef170f145ba87ad134239b5967f";  # good for 6.8 / 6.9
+      sha256 = "sha256-M1dE4QC7mYFGFU3n4mrkelqU/ZfCA4ycwIcYVsrA4MY=";
     }) { })
   ];
 
