@@ -629,32 +629,27 @@
         home.sessionVariables.GTK_THEME = "Dracula";
 
         programs.firefox.enable = true;
-
+        
         services.mako = {
           enable = true;
         
-          # notifications that specify 0 ms (most apps’ default) will now fade after 5 s
-          defaultTimeout = 5000;         # milliseconds
-        
-          # add this if you want *every* toast to time‑out in 5 s, even when an app
-          # explicitly asks for longer
-          # ignoreTimeout = true;
-        
-          # mako.conf as an attr‑set — section names are plain strings,
-          # their contents are nested attr‑sets
           settings = {
+            # global look‑and‑feel
             "background-color" = "#282a36";
             "text-color"       = "#44475a";
             "border-color"     = "#282a36";
         
+            # global behaviour
+            "default-timeout"  = 5000;      # 5 s fade‑out  :contentReference[oaicite:1]{index=1}
+            # "ignore-timeout" = 1;         # uncomment to override app‑specific timeouts  :contentReference[oaicite:2]{index=2}
+        
+            # per‑urgency tweaks
             "[urgency=low]" = {
               "border-color" = "#282a36";
             };
-        
             "[urgency=normal]" = {
               "border-color" = "#f1fa8c";
             };
-        
             "[urgency=high]" = {
               "border-color" = "#ff5555";
             };
