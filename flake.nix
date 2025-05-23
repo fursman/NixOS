@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     assistant.url = "github:fursman/Assistant";
@@ -1028,6 +1029,7 @@
         system = "x86_64-linux";
         modules = [
           ./hardware-configuration.nix
+          nixos-hardware.nixosModules.apple.macbook-pro."14-1"
           MacBookProNix
           sharedConfiguration
         ];  
