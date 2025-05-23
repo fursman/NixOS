@@ -41,35 +41,39 @@ let
 
         meta.description = "SPI keyboard/trackpad driver for 2016‑17 MacBooks";
       }) { };
-
+  
   ## 1‑b  Cirrus CS8409 audio driver
   sndHdaMBP = kernelPkgs.callPackage
     ({ stdenv, fetchFromGitHub, kernel }:
       stdenv.mkDerivation {
         pname    = "snd_hda_macbookpro";
         version  = "2025-05-20";
-
+  
         src = fetchFromGitHub {
           owner  = "davidjo";
           repo   = "snd_hda_macbookpro";
           rev    = "259cc39e243daef170f145ba87ad134239b5967f";
           sha256 = "sha256-M1dE4QC7mYFGFU3n4mrkelqU/ZfCA4ycwIcYVsrA4MY=";
         };
-
+  
         nativeBuildInputs = kernel.moduleBuildDependencies;
-
+  
+        # build inside the writable work directory
         buildPhase = ''
           make -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build \
                M=$PWD modules
         '';
-
+  
+        # copy **all** .ko files that were produced
         installPhase = ''
-          install -Dm644 snd-hda-macbookpro.ko \
-            $out/lib/modules/${kernel.modDirVersion}/extra/snd-hda-macbookpro.ko
+          mkdir -p $out/lib/modules/${kernel.modDirVersion}/extra
+          find . -name '*.ko' -exec install -Dm644 {} \
+            $out/lib/modules/${kernel.modDirVersion}/extra/ \;
         '';
-
+  
         meta.description = "Audio driver for Cirrus 8409 on 2016‑17 MacBook Pro";
       }) { };
+
 in
 {
   # ─────────── Kernel & bootloader ───────────
