@@ -127,4 +127,40 @@ in
   users.users.user = {
     isNormalUser = true;
     description  = "user";
-    extraGroups  = [ "networkm]()
+    extraGroups  = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+    ];
+  };
+
+  ########################################################################
+  # System‑wide packages you wanted
+  ########################################################################
+  environment.systemPackages = with pkgs; [
+    git ntfs3g sdrpp dive podman-tui podman-desktop docker-compose
+  ];
+
+  ########################################################################
+  # Virtualisation & Podman
+  ########################################################################
+  virtualisation = {
+    libvirtd.enable = true;
+    containers.enable = true;
+    podman = {
+      enable       = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
+  ########################################################################
+  # OpenSSH service
+  ########################################################################
+  services.openssh.enable = true;
+
+  ########################################################################
+  # Remember the release you first installed
+  ########################################################################
+  system.stateVersion = "24.05";
+}
