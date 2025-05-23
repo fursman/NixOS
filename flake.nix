@@ -40,7 +40,7 @@
     };
     MacBookProNix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/MacBookPro.nix";
-      sha256 = "1w7d258y9vgj83wfv2ajj0wzjc999lbnlqlzmjszhcpd0q4f6npb";
+      sha256 = "0ycn19r7zjv1wqhksh3n5fikzvjniscamb3ilykhqaj3ppc50xv8";
     };
     MacMiniNix = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/fursman/NixOS/main/config/MacMini.nix";
