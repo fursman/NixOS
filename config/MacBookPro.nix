@@ -14,32 +14,27 @@ let
       stdenv.mkDerivation {
         pname    = "apple-spi-driver";
         version  = "2025-05-20";
-
+  
         src = fetchFromGitHub {
-          owner  = "roadrunner2";
+          owner  = "marc-git";
           repo   = "macbook12-spi-driver";
-          rev    = "29239b299ae7034486aadadb195f58a333afeef7";
-          sha256 = "sha256-qV6TN+L+HtFLbmxYyfh6QmvwQog4mMVtOXTLvu3/q4g=";
+          rev    = "e5d4b9304c438e5a5b0a7b4e237b9131c2d7dac9";  # 2024‑06‑10 (= AUR 0+git.315)
+          sha256 = "sha256-KhFDyf1KslJvScH+FX6M+9HhJ5l1WlXgVVtQnGTcxTo=";  # ← from `nix flake prefetch`
+          fetchSubmodules = true;
         };
-
+  
         nativeBuildInputs = kernel.moduleBuildDependencies;
-
-        # build inside the writable work‑dir, not the read‑only store
+  
         buildPhase = ''
           make -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build \
                M=$PWD modules
         '';
-
+  
         installPhase = ''
-          install -Dm644 applespi.ko \
-            $out/lib/modules/${kernel.modDirVersion}/extra/applespi.ko
-          install -Dm644 apple_spi_keyboard.ko \
-            $out/lib/modules/${kernel.modDirVersion}/extra/apple_spi_keyboard.ko
-          install -Dm644 apple_spi_touchpad.ko \
-            $out/lib/modules/${kernel.modDirVersion}/extra/apple_spi_touchpad.ko
+          mkdir -p $out/lib/modules/${kernel.modDirVersion}/extra
+          find . -name '*.ko' -exec install -Dm644 {} \
+               $out/lib/modules/${kernel.modDirVersion}/extra/ \;
         '';
-
-        meta.description = "SPI keyboard/trackpad driver for 2016‑17 MacBooks";
       }) { };
   
   ## 1‑b  Cirrus CS8409 audio driver
