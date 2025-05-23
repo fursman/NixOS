@@ -24,12 +24,7 @@ let
         };
 
         patchPhase = ''
-          # Replace removed kernel headers in **all** source files:
-          #   <linux/input-polldev.h> → <linux/input.h>
-          #   <asm/unaligned.h>       → <linux/unaligned.h>
-          #
-          # Works no matter what the filenames are in this commit.
-          #
+          # replace removed kernel headers in all .c sources
           find . -type f -name '*.c' -print0 | while IFS= read -r -d '' f; do
             substituteInPlace "$f" \
               --replace-warn "<linux/input-polldev.h>" "<linux/input.h>" \
