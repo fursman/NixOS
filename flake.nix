@@ -630,6 +630,8 @@
 
         programs.firefox.enable = true;
 
+        services.mako.enable = true;
+
         services.swayidle = {
           enable = true;
 
