@@ -21,6 +21,12 @@ in
   ##  Kernel & boot
   ##########################################################################
   boot.kernelPackages      = pkgs.linuxPackages_latest;
+
+  # choose ONE loader: systemd‑boot for this MacBook
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.enable = false;        # <── add this line
+
   boot.extraModulePackages = [
     pkgs.apple-spi-driver
     pkgs.macbookpro-cs8409
