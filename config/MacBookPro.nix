@@ -24,11 +24,16 @@ let
         };
 
         patchPhase = ''
-          # header removals in kernel ≥ 6.12
-          for f in applespi.c apple_spi_keyboard.c apple_spi_touchpad.c; do
-            substituteInPlace $f \
-              --replace "<linux/input-polldev.h>" "<linux/input.h>" \
-              --replace "<asm/unaligned.h>"       "<linux/unaligned.h>"
+          # Replace removed kernel headers in **all** source files:
+          #   <linux/input-polldev.h> → <linux/input.h>
+          #   <asm/unaligned.h>       → <linux/unaligned.h>
+          #
+          # Works no matter what the filenames are in this commit.
+          #
+          find . -type f -name '*.c' -print0 | while IFS= read -r -d '' f; do
+            substituteInPlace "$f" \
+              --replace-warn "<linux/input-polldev.h>" "<linux/input.h>" \
+              --replace-warn "<asm/unaligned.h>"       "<linux/unaligned.h>"
           done
         '';
 
