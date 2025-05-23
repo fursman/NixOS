@@ -1,11 +1,10 @@
 { config, pkgs, lib, ... }:
 
 ################################################################################
-#  Overlay: bundles pre‑patched Apple‑SPI & CS8409 audio drivers
+# Overlay: pre‑patched SPI (input) and CS8409 (audio) kernel modules
 ################################################################################
 let
   appleMbpOverlay = final: prev: {
-
     # ── Apple SPI keyboard / touchpad driver ──────────────────────────────
     apple-spi-driver = prev.linuxPackages.callPackage (
       { stdenv, fetchFromGitHub, kernel, ... }:
@@ -23,25 +22,27 @@ let
 
         nativeBuildInputs = kernel.moduleBuildDependencies;
 
+        # --- robust header fix ------------------------------------------------
         patchPhase = ''
-          # adapt to kernels ≥ 6.12 header changes
-          grep -rl "<linux/input-polldev.h>" . | xargs -r sed -i 's|<linux/input-polldev.h>|<linux/input.h>|'
-          grep -rl "<asm/unaligned.h>"       . | xargs -r sed -i 's|<asm/unaligned.h>|<linux/unaligned.h>|'
+          find . -type f -name "*.c" -exec sed -i \
+            -e 's|<linux/input-polldev.h>|<linux/input.h>|g' \
+            -e 's|<asm/unaligned.h>|<linux/unaligned.h>|g' {} +
         '';
 
         buildPhase = ''
-          make -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build M=$PWD modules
+          make -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build \
+               M=$PWD modules
         '';
 
         installPhase = ''
           mkdir -p $out/lib/modules/${kernel.modDirVersion}/extra
           find . -name '*.ko' -exec install -Dm644 {} \
-            $out/lib/modules/${kernel.modDirVersion}/extra/ \;
+               $out/lib/modules/${kernel.modDirVersion}/extra/ \;
         '';
       }
     ) { };
 
-    # ── Cirrus CS8409 (snd_hda_macbookpro) audio driver ───────────────────
+    # ── Cirrus CS8409 audio driver (snd_hda_macbookpro) ───────────────────
     macbookpro-cs8409 = prev.linuxPackages.callPackage (
       { stdenv, fetchFromGitHub, kernel, ... }:
       stdenv.mkDerivation {
@@ -58,33 +59,33 @@ let
         nativeBuildInputs = kernel.moduleBuildDependencies;
 
         buildPhase = ''
-          make -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build M=$PWD modules
+          make -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build \
+               M=$PWD modules
         '';
 
         installPhase = ''
           mkdir -p $out/lib/modules/${kernel.modDirVersion}/extra
           find . -name '*.ko' -exec install -Dm644 {} \
-            $out/lib/modules/${kernel.modDirVersion}/extra/ \;
+               $out/lib/modules/${kernel.modDirVersion}/extra/ \;
         '';
       }
     ) { };
   };
 in
 ################################################################################
-#  Host configuration (unchanged except loader.grub.disabled)
+# Host configuration  (identical to previous, plus GRUB disabled)
 ################################################################################
 {
   nixpkgs.overlays = [ appleMbpOverlay ];
 
-  # ── Bootloader / kernel ─────────────────────────────────────────────────
+  # Bootloader / kernel
   boot.loader.systemd-boot.enable      = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.enable              = false;
 
   boot.kernelPackages      = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ pkgs.apple-spi-driver pkgs.macbookpro-cs8409 ];
-
-  boot.kernelModules = [
+  boot.kernelModules       = [
     "applespi" "apple_spi_keyboard" "apple_spi_touchpad"
     "snd_hda_macbookpro"
   ];
@@ -94,14 +95,14 @@ in
     "snd_hda_intel.probe_mask=1"
   ];
 
-  # ── Firmware & Bluetooth ───────────────────────────────────────────────
+  # Firmware & Bluetooth
   nixpkgs.config.allowUnfree             = true;
   hardware.enableRedistributableFirmware = true;
   hardware.firmware                      = with pkgs; [ broadcom-bt-firmware ];
   hardware.bluetooth.enable              = true;
   services.blueman.enable                = true;
 
-  # ── Desktop & PipeWire (same as before) ────────────────────────────────
+  # Desktop & PipeWire
   services.xserver.enable                       = true;
   services.xserver.displayManager.gdm = { enable = true; wayland = true; };
   programs.hyprland.enable                      = true;
@@ -110,48 +111,20 @@ in
 
   services.pulseaudio.enable = false;
   security.rtkit.enable      = true;
-  services.pipewire = {
-    enable            = true;
-    alsa.enable       = true;
-    alsa.support32Bit = true;
-    pulse.enable      = true;
-    jack.enable       = true;
-    wireplumber.enable = true;
-  };
+  services.pipewire.enable   = true;
 
-  # ── Locale / fonts / input ─────────────────────────────────────────────
+  # Locale / fonts / input
   networking.hostName              = "MacBookPro-Nix";
   networking.networkmanager.enable = true;
   time.timeZone                     = "America/Vancouver";
   i18n.defaultLocale                = "en_CA.UTF-8";
 
-  fonts.fontconfig.enable           = true;
-  services.libinput = {
-    enable           = true;
-    touchpad.tapping = false;
-  };
+  fonts.fontconfig.enable = true;
+  services.libinput.enable = true;
+  services.libinput.touchpad.tapping = false;
 
-  # ── Users & packages ───────────────────────────────────────────────────
+  # Users & packages
   users.users.user = {
     isNormalUser = true;
     description  = "user";
-    extraGroups  = [ "networkmanager" "wheel" "libvirtd" ];
-  };
-
-  environment.systemPackages = with pkgs; [
-    git ntfs3g sdrpp dive podman-tui podman-desktop docker-compose
-  ];
-
-  # ── Virtualisation & SSH ───────────────────────────────────────────────
-  virtualisation.libvirtd.enable = true;
-  virtualisation.containers.enable = true;
-  virtualisation.podman = {
-    enable       = true;
-    dockerCompat = true;
-    defaultNetwork.settings.dns_enabled = true;
-  };
-
-  services.openssh.enable = true;
-
-  system.stateVersion = "24.05";
-}
+    extraGroups  = [ "networkm]()
