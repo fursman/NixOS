@@ -631,30 +631,24 @@
         programs.firefox.enable = true;
 
         services.mako = {
-          enable = true;
+          enable         = true;
         
-          # A “sensible” 5‑second lifetime for any
-          # notification whose app supplies 0 ms.
-          defaultTimeout = 5000;          # milliseconds
+          # 5‑second expiry for any app that sends timeout = 0
+          defaultTimeout = 5000;
         
-          # Full mako.conf expressed as an attrset
+          # if you *always* want 5 s, even for apps that ask for longer,
+          # uncomment the next line
+          # ignoreTimeout  = true;
+        
+          # flat keys – strings on the left, values or sub‑attrs on the right
           settings = {
-            background-color = "#282a36";
-            text-color       = "#44475a";
-            border-color     = "#282a36";
+            "background-color" = "#282a36";
+            "text-color"       = "#44475a";
+            "border-color"     = "#282a36";
         
-            # Section overrides
-            "[urgency=low]" = {
-              border-color = "#282a36";
-            };
-        
-            "[urgency=normal]" = {
-              border-color = "#f1fa8c";
-            };
-        
-            "[urgency=high]" = {
-              border-color = "#ff5555";
-            };
+            "[urgency=low]border-color"    = "#282a36";
+            "[urgency=normal]border-color" = "#f1fa8c";
+            "[urgency=high]border-color"   = "#ff5555";
           };
         };
 
