@@ -24,11 +24,9 @@ let
         };
 
         patchPhase = ''
-          # replace removed kernel headers in all .c sources
+          # Replace removed kernel headers in ALL .c files
           find . -type f -name '*.c' -print0 | while IFS= read -r -d '' f; do
-            substituteInPlace "$f" \
-              --replace-warn "<linux/input-polldev.h>" "<linux/input.h>" \
-              --replace-warn "<asm/unaligned.h>"       "<linux/unaligned.h>"
+            substituteInPlace "$f" --replace-warn "<linux/input-polldev.h>" "<linux/input.h>" --replace-warn "<asm/unaligned.h>" "<linux/unaligned.h>"
           done
         '';
 
