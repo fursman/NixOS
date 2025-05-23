@@ -635,23 +635,22 @@
         
           settings = {
             # ---------- global look ----------
-            "background-color" = "#282a36";
-            "text-color"       = "#44475a";
-            "border-color"     = "#282a36";
+            background-color = "#282a36";
+            text-color       = "#44475a";
+            border-color     = "#282a36";
         
             # ---------- behaviour ----------
-            "default-timeout"  = 5000;     # 5 s fade‑out  :contentReference[oaicite:0]{index=0}
-            # "ignore-timeout" = 1;        # uncomment if you want *everything* to obey 5 s  :contentReference[oaicite:1]{index=1}
+            default-timeout  = 5000;        # 5 s
         
             # ---------- per‑urgency colours ----------
-            "[urgency=low]" = {
-              "border-color" = "#282a36";
+            "urgency=low" = {
+              border-color = "#282a36";
             };
-            "[urgency=normal]" = {
-              "border-color" = "#f1fa8c";
+            "urgency=normal" = {
+              border-color = "#f1fa8c";
             };
-            "[urgency=high]" = {
-              "border-color" = "#ff5555";
+            "urgency=high" = {
+              border-color = "#ff5555";
             };
           };
         };
