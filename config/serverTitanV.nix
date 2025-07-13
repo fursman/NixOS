@@ -124,6 +124,8 @@
   services.ollama = {
     enable = true;
     acceleration = "cuda";
+    host = "0.0.0.0";            # Listen on all IPv4 interfaces
+    port = 11434;   
   };
 
   # Enable CUPS to print documents.
