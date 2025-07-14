@@ -124,8 +124,9 @@
   services.ollama = {
     enable = true;
     acceleration = "cuda";
-    host = "0.0.0.0";            # Listen on all IPv4 interfaces
-    port = 11434;   
+    host = "0.0.0.0";
+    port = 11434;
+    openFirewall = true; 
   };
 
   # Enable CUPS to print documents.
@@ -280,7 +281,7 @@
   };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 7860 8000 11434 ];
+  networking.firewall.allowedTCPPorts = [ 7860 8000 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
