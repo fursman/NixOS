@@ -679,6 +679,8 @@
           zenity
 
           #System
+          ollama-cuda
+          ventoy-full
           libnotify
           appimage-run
           blueman
