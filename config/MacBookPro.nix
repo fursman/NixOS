@@ -43,31 +43,40 @@ let
       }
     ) { };
 
-    # ── Cirrus CS8409 audio driver (snd_hda_macbookpro) ───────────────────
-    macbookpro-cs8409 = prev.linuxPackages.callPackage (
+    # ── Cirrus CS8409 audio driver (snd-hda-codec-cs8409) ─────────────────
+    snd-hda-codec-cs8409 = prev.linuxPackages.callPackage (
       { stdenv, fetchFromGitHub, kernel, ... }:
       stdenv.mkDerivation {
-        pname   = "snd_hda_macbookpro";
+        pname   = "snd-hda-codec-cs8409";
         version = "2025-05-20";
 
         src = fetchFromGitHub {
-          owner  = "davidjo";
-          repo   = "snd_hda_macbookpro";
-          rev    = "259cc39e243daef170f145ba87ad134239b5967f";
-          sha256 = "sha256-M1dE4QC7mYFGFU3n4mrkelqU/ZfCA4ycwIcYVsrA4MY=";
+          owner  = "egorenar";
+          repo   = "snd-hda-codec-cs8409";
+          rev    = "d0d785dc1859b09299bde6d0f1d6786a0d610e7f";
+          sha256 = "sha256-0UeoERcYpM+ojeZ7dDIE3ruTIoHkkC+s7FcoEVUTR0w=";
         };
+
+        hardeningDisable = [ "pic" ];
 
         nativeBuildInputs = kernel.moduleBuildDependencies;
 
+        postPatch = ''
+          sed --in-place 's|<sound/cs42l42.h>|"${kernel.dev}/lib/modules/${kernel.modDirVersion}/source/include/sound/cs42l42.h"|' patch_cs8409.h
+          sed --in-place 's|hda_local.h|${kernel.dev}/lib/modules/${kernel.modDirVersion}/source/sound/pci/hda/hda_local.h|' patch_cs8409.h
+          sed --in-place 's|hda_jack.h|${kernel.dev}/lib/modules/${kernel.modDirVersion}/source/sound/pci/hda/hda_jack.h|' patch_cs8409.h
+          sed --in-place 's|hda_generic.h|${kernel.dev}/lib/modules/${kernel.modDirVersion}/source/sound/pci/hda/hda_generic.h|' patch_cs8409.h
+          sed --in-place 's|hda_auto_parser.h|${kernel.dev}/lib/modules/${kernel.modDirVersion}/source/sound/pci/hda/hda_auto_parser.h|' patch_cs8409.h
+        '';
+
+        makeFlags = kernel.makeFlags ++ [ "INSTALL_MOD_PATH=$(out)" "KERNELRELEASE=${kernel.modDirVersion}" "KERNEL_DIR=${kernel.dev}/lib/modules/${kernel.modDirVersion}/build" ];
+
         buildPhase = ''
-          make -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build \
-               M=$PWD modules
+          make ${toString makeFlags}
         '';
 
         installPhase = ''
-          mkdir -p $out/lib/modules/${kernel.modDirVersion}/extra
-          find . -name '*.ko' -exec install -Dm644 {} \
-               $out/lib/modules/${kernel.modDirVersion}/extra/ \;
+          make install ${toString makeFlags}
         '';
       }
     ) { };
@@ -85,10 +94,10 @@ in
   boot.loader.grub.enable              = false;
 
   boot.kernelPackages      = pkgs.linuxPackages_latest;
-  boot.extraModulePackages = [ pkgs.apple-spi-driver pkgs.macbookpro-cs8409 ];
+  boot.extraModulePackages = [ pkgs.apple-spi-driver pkgs.snd-hda-codec-cs8409 ];
   boot.kernelModules       = [
     "applespi" "apple_spi_keyboard" "apple_spi_touchpad"
-    "snd_hda_macbookpro"
+    "snd_hda_codec_cs8409"
   ];
   boot.blacklistedKernelModules = [ "snd_hda_codec_cs8409" ];
   boot.kernelParams = [
@@ -140,6 +149,7 @@ in
   ########################################################################
   environment.systemPackages = with pkgs; [
     git ntfs3g sdrpp dive podman-tui podman-desktop docker-compose
+    alsa-utils pavucontrol
   ];
 
   ########################################################################
