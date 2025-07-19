@@ -45,7 +45,7 @@ let
 
     # ── Cirrus CS8409 audio driver (snd-hda-codec-cs8409) ─────────────────
     snd-hda-codec-cs8409 = prev.linuxPackages.callPackage (
-      { stdenv, fetchFromGitHub, kernel, ... }:
+      { stdenv, lib, fetchFromGitHub, kernel, ... }:
       stdenv.mkDerivation {
         pname   = "snd-hda-codec-cs8409";
         version = "2025-05-20";
@@ -68,9 +68,18 @@ let
           sed --in-place 's|hda_jack.h|${kernel.dev}/lib/modules/${kernel.modDirVersion}/source/sound/pci/hda/hda_jack.h|' patch_cs8409.h
           sed --in-place 's|hda_generic.h|${kernel.dev}/lib/modules/${kernel.modDirVersion}/source/sound/pci/hda/hda_generic.h|' patch_cs8409.h
           sed --in-place 's|hda_auto_parser.h|${kernel.dev}/lib/modules/${kernel.modDirVersion}/source/sound/pci/hda/hda_auto_parser.h|' patch_cs8409.h
+          sed --in-place '2i static unsigned int hda_set_node_power_state_simple(struct hda_codec *codec, hda_nid_t nid, unsigned int power_state);' patch_cs8409.c
         '';
 
-        makeFlags = kernel.makeFlags ++ [ "INSTALL_MOD_PATH=$(out)" "KERNELRELEASE=${kernel.modDirVersion}" "KERNEL_DIR=${kernel.dev}/lib/modules/${kernel.modDirVersion}/build" ];
+        myMakeFlags = kernel.makeFlags ++ [ "INSTALL_MOD_PATH=$(out)" "KERNELRELEASE=${kernel.modDirVersion}" "KERNEL_DIR=${kernel.dev}/lib/modules/${kernel.modDirVersion}/build" ];
+
+        buildPhase = ''
+          make ${lib.strings.concatStringsSep " " myMakeFlags}
+        '';
+
+        installPhase = ''
+          make install ${lib.strings.concatStringsSep " " myMakeFlags}
+        '';
       }
     ) { };
   };
@@ -166,5 +175,5 @@ in
   ########################################################################
   # Remember the release you first installed
   ########################################################################
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.11";
 }
