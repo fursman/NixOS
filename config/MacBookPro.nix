@@ -62,6 +62,7 @@ let
         nativeBuildInputs = kernel.moduleBuildDependencies;
 
         postPatch = ''
+          printf 'snd-hda-codec-cs8409-objs := patch_cs8409.o patch_cs8409-tables.o\nobj-$(CONFIG_SND_HDA_CODEC_CS8409) += snd-hda-codec-cs8409.o\nKBUILD_EXTRA_CFLAGS = "-DAPPLE_PINSENSE_FIXUP -DAPPLE_CODECS -DCONFIG_SND_HDA_RECONFIG=1"\nKERNELRELEASE ?= $(shell uname -r)\nKERNEL_DIR ?= /lib/modules/$(KERNELRELEASE)/build\nPWD := $(shell pwd)\ndefault:\n\tmake -C $(KERNEL_DIR) M=$(PWD) EXTRA_CFLAGS=$(KBUILD_EXTRA_CFLAGS)\ninstall:\n\tmake -C $(KERNEL_DIR) M=$(PWD) modules_install\n' > Makefile
           sed --in-place 's|<sound/cs42l42.h>|"${kernel.dev}/lib/modules/${kernel.modDirVersion}/source/include/sound/cs42l42.h"|' patch_cs8409.h
           sed --in-place 's|hda_local.h|${kernel.dev}/lib/modules/${kernel.modDirVersion}/source/sound/pci/hda/hda_local.h|' patch_cs8409.h
           sed --in-place 's|hda_jack.h|${kernel.dev}/lib/modules/${kernel.modDirVersion}/source/sound/pci/hda/hda_jack.h|' patch_cs8409.h
@@ -70,14 +71,6 @@ let
         '';
 
         makeFlags = kernel.makeFlags ++ [ "INSTALL_MOD_PATH=$(out)" "KERNELRELEASE=${kernel.modDirVersion}" "KERNEL_DIR=${kernel.dev}/lib/modules/${kernel.modDirVersion}/build" ];
-
-        buildPhase = ''
-          make ${toString makeFlags}
-        '';
-
-        installPhase = ''
-          make install ${toString makeFlags}
-        '';
       }
     ) { };
   };
